@@ -1,4 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="House" representedClassName=".House" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contact" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deliver" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="printed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="persons" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Person" inverseName="house" inverseEntity="Person" syncable="YES"/>
+        <relationship name="route" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Route" inverseName="houses" inverseEntity="Route" syncable="YES"/>
+    </entity>
+    <entity name="Option" representedClassName=".Option" syncable="YES">
+        <attribute name="key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Organization" representedClassName=".Organization" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="persons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="organization" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="Person" representedClassName=".Person" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="giftideas" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ishousegift" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ismale" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="house" maxCount="1" deletionRule="Cascade" destinationEntity="House" inverseName="persons" inverseEntity="House" syncable="YES"/>
+        <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="persons" inverseEntity="Organization" syncable="YES"/>
+    </entity>
+    <entity name="Route" representedClassName=".Route" syncable="YES">
+        <attribute name="routenumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="houses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="House" inverseName="route" inverseEntity="House" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="House" positionX="-126" positionY="-252" width="128" height="163"/>
+        <element name="Option" positionX="-297" positionY="-324" width="128" height="88"/>
+        <element name="Organization" positionX="225" positionY="-153" width="128" height="88"/>
+        <element name="Person" positionX="54" positionY="-288" width="128" height="163"/>
+        <element name="Route" positionX="-297" positionY="-189" width="128" height="88"/>
+    </elements>
 </model>

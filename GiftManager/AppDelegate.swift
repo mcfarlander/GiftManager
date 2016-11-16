@@ -9,15 +9,18 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate
+{
 
 
 
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification)
+    {
         // Insert code here to initialize your application
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
+    func applicationWillTerminate(_ aNotification: Notification)
+    {
         // Insert code here to tear down your application
     }
 
@@ -106,7 +109,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: - Core Data Saving and Undo support
 
-    @IBAction func saveAction(_ sender: AnyObject?) {
+    @IBAction func saveAction(_ sender: AnyObject?)
+    {
         // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
         if !managedObjectContext.commitEditing() {
             NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
@@ -121,12 +125,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
+    func windowWillReturnUndoManager(window: NSWindow) -> UndoManager?
+    {
         // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
         return managedObjectContext.undoManager
     }
 
-    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplicationTerminateReply {
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplicationTerminateReply
+    {
         // Save changes in the application's managed object context before the application terminates.
         
         if !managedObjectContext.commitEditing() {

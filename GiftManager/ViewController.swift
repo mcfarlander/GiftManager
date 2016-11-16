@@ -8,15 +8,18 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController
+{
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override var representedObject: Any? {
+    override var representedObject: Any?
+    {
         didSet {
         // Update the view, if already loaded.
         }

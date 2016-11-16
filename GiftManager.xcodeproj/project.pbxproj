@@ -12,6 +12,12 @@
 		C031F5351DD1E82200E3CE67 /* GiftManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C031F5331DD1E82200E3CE67 /* GiftManager.xcdatamodeld */; };
 		C031F5371DD1E82200E3CE67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C031F5361DD1E82200E3CE67 /* Assets.xcassets */; };
 		C031F53A1DD1E82300E3CE67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C031F5381DD1E82300E3CE67 /* Main.storyboard */; };
+		C0BDB2771DDBDBCD0028C27F /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDB2761DDBDBCD0028C27F /* AppContext.swift */; };
+		C0BDB2791DDBDC270028C27F /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDB2781DDBDC270028C27F /* Organization.swift */; };
+		C0BDB27B1DDBDD0C0028C27F /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDB27A1DDBDD0C0028C27F /* Option.swift */; };
+		C0BDB27D1DDBDDA50028C27F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDB27C1DDBDDA50028C27F /* Route.swift */; };
+		C0BDB27F1DDBDE230028C27F /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDB27E1DDBDE230028C27F /* House.swift */; };
+		C0BDB2811DDBDEF30028C27F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDB2801DDBDEF30028C27F /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		C031F5361DD1E82200E3CE67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C031F5391DD1E82300E3CE67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C031F53B1DD1E82300E3CE67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0BDB2761DDBDBCD0028C27F /* AppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		C0BDB2781DDBDC270028C27F /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		C0BDB27A1DDBDD0C0028C27F /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		C0BDB27C1DDBDDA50028C27F /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		C0BDB27E1DDBDE230028C27F /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		C0BDB2801DDBDEF30028C27F /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +66,44 @@
 		C031F52E1DD1E82200E3CE67 /* GiftManager */ = {
 			isa = PBXGroup;
 			children = (
-				C031F52F1DD1E82200E3CE67 /* AppDelegate.swift */,
-				C031F5311DD1E82200E3CE67 /* ViewController.swift */,
+				C031F5411DD1E86800E3CE67 /* App */,
+				C031F5421DD1E86F00E3CE67 /* Data */,
+				C031F5431DD1E87B00E3CE67 /* Storyboards */,
 				C031F5361DD1E82200E3CE67 /* Assets.xcassets */,
-				C031F5381DD1E82300E3CE67 /* Main.storyboard */,
 				C031F53B1DD1E82300E3CE67 /* Info.plist */,
-				C031F5331DD1E82200E3CE67 /* GiftManager.xcdatamodeld */,
 			);
 			path = GiftManager;
+			sourceTree = "<group>";
+		};
+		C031F5411DD1E86800E3CE67 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C031F52F1DD1E82200E3CE67 /* AppDelegate.swift */,
+				C031F5311DD1E82200E3CE67 /* ViewController.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		C031F5421DD1E86F00E3CE67 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C0BDB2761DDBDBCD0028C27F /* AppContext.swift */,
+				C0BDB27E1DDBDE230028C27F /* House.swift */,
+				C0BDB27A1DDBDD0C0028C27F /* Option.swift */,
+				C0BDB2781DDBDC270028C27F /* Organization.swift */,
+				C0BDB2801DDBDEF30028C27F /* Person.swift */,
+				C0BDB27C1DDBDDA50028C27F /* Route.swift */,
+				C031F5331DD1E82200E3CE67 /* GiftManager.xcdatamodeld */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		C031F5431DD1E87B00E3CE67 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C031F5381DD1E82300E3CE67 /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +138,7 @@
 				TargetAttributes = {
 					C031F52B1DD1E82200E3CE67 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 4VRXERMTN5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,7 +179,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C031F5321DD1E82200E3CE67 /* ViewController.swift in Sources */,
+				C0BDB2771DDBDBCD0028C27F /* AppContext.swift in Sources */,
+				C0BDB27F1DDBDE230028C27F /* House.swift in Sources */,
 				C031F5301DD1E82200E3CE67 /* AppDelegate.swift in Sources */,
+				C0BDB2791DDBDC270028C27F /* Organization.swift in Sources */,
+				C0BDB27B1DDBDD0C0028C27F /* Option.swift in Sources */,
+				C0BDB2811DDBDEF30028C27F /* Person.swift in Sources */,
+				C0BDB27D1DDBDDA50028C27F /* Route.swift in Sources */,
 				C031F5351DD1E82200E3CE67 /* GiftManager.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,9 +298,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4VRXERMTN5;
 				INFOPLIST_FILE = GiftManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = org.djohnson.GiftManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -262,9 +314,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4VRXERMTN5;
 				INFOPLIST_FILE = GiftManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = org.djohnson.GiftManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -290,6 +345,7 @@
 				C031F5401DD1E82300E3CE67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
