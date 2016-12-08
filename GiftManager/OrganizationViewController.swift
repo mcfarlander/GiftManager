@@ -10,6 +10,8 @@ import Cocoa
 
 class OrganizationViewController: NSViewController
 {
+    var managedContext = (NSApplication.shared().delegate as! AppDelegate).managedObjectContext
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()

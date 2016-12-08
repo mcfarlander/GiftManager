@@ -16,8 +16,8 @@
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Organization" representedClassName=".Organization" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="name" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" defaultValueString="phone" syncable="YES"/>
         <relationship name="persons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="organization" inverseEntity="Person" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName=".Person" syncable="YES">
@@ -38,7 +38,7 @@
     <elements>
         <element name="House" positionX="-126" positionY="-252" width="128" height="163"/>
         <element name="Option" positionX="-297" positionY="-324" width="128" height="88"/>
-        <element name="Organization" positionX="225" positionY="-153" width="128" height="88"/>
+        <element name="Organization" positionX="225" positionY="-153" width="128" height="90"/>
         <element name="Person" positionX="54" positionY="-288" width="128" height="163"/>
         <element name="Route" positionX="-297" positionY="-189" width="128" height="88"/>
     </elements>
