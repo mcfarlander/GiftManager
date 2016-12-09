@@ -18,4 +18,10 @@ class OrganizationViewController: NSViewController
         // Do view setup here.
     }
 
+    @IBAction func btnClose_Action(_ sender: NSButton)
+    {
+        dismiss(nil)
+        
+    }
+    
 }

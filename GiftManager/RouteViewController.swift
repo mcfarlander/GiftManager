@@ -10,11 +10,18 @@ import Cocoa
 
 class RouteViewController: NSViewController
 {
+    var managedContext = (NSApplication.shared().delegate as! AppDelegate).managedObjectContext
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do view setup here.
     }
+    
+    @IBAction func btnClose_Action(_ sender: NSButton)
+    {
+        dismiss(nil)
+    }
+    
     
 }
