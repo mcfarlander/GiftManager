@@ -20,6 +20,7 @@
 		C0BDB27D1DDBDDA50028C27F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDB27C1DDBDDA50028C27F /* Route.swift */; };
 		C0BDB27F1DDBDE230028C27F /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDB27E1DDBDE230028C27F /* House.swift */; };
 		C0BDB2811DDBDEF30028C27F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BDB2801DDBDEF30028C27F /* Person.swift */; };
+		C0FB4CA01DFC1A92006CD10C /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FB4C9F1DFC1A92006CD10C /* HouseViewController.swift */; };
 		C0FF1FFD1DDBF59A00A228D0 /* CommonFetches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FF1FFC1DDBF59A00A228D0 /* CommonFetches.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		C0BDB27C1DDBDDA50028C27F /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		C0BDB27E1DDBDE230028C27F /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		C0BDB2801DDBDEF30028C27F /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		C0FB4C9F1DFC1A92006CD10C /* HouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
 		C0FF1FFC1DDBF59A00A228D0 /* CommonFetches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFetches.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				C0AF3D8C1DFAE8370021F894 /* MenuViewController.swift */,
 				C081C96D1DF58F0C009CA4B9 /* OrganizationViewController.swift */,
 				C081C96F1DF58F4F009CA4B9 /* RouteViewController.swift */,
+				C0FB4C9F1DFC1A92006CD10C /* HouseViewController.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0BDB2771DDBDBCD0028C27F /* AppContext.swift in Sources */,
+				C0FB4CA01DFC1A92006CD10C /* HouseViewController.swift in Sources */,
 				C081C9701DF58F4F009CA4B9 /* RouteViewController.swift in Sources */,
 				C0BDB27F1DDBDE230028C27F /* House.swift in Sources */,
 				C031F5301DD1E82200E3CE67 /* AppDelegate.swift in Sources */,

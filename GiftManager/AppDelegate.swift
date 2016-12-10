@@ -23,6 +23,26 @@ class AppDelegate: NSObject, NSApplicationDelegate
     {
         // Insert code here to tear down your application
     }
+    
+    // MARK: - Data Menu items
+    
+    
+    @IBAction func mnuClearHouses_Action(_ sender: NSMenuItem)
+    {
+        NSLog("Clear Houses")
+    }
+    
+    @IBAction func mnuClearOrganizations_Action(_ sender: NSMenuItem)
+    {
+        NSLog("Clear Organizations")
+    }
+    
+    @IBAction func mnuClearRoutes_Action(_ sender: NSMenuItem)
+    {
+        NSLog("Clear Routes")
+    }
+    
+    
 
     // MARK: - Core Data stack
 

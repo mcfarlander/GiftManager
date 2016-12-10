@@ -20,6 +20,19 @@ class RouteViewController: NSViewController
     
     @IBAction func btnClose_Action(_ sender: NSButton)
     {
+        if managedContext.hasChanges
+        {
+            do
+            {
+                try managedContext.save()
+            }
+            catch
+            {
+                let nserror = error as NSError
+                NSApplication.shared().presentError(nserror)
+            }
+        }
+        
         dismiss(nil)
     }
     

@@ -16,8 +16,8 @@
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Organization" representedClassName=".Organization" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" defaultValueString="name" syncable="YES"/>
-        <attribute name="phone" optional="YES" attributeType="String" defaultValueString="phone" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" minValueString="1" maxValueString="100" defaultValueString="name" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" minValueString="1" maxValueString="100" defaultValueString="phone" syncable="YES"/>
         <relationship name="persons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="organization" inverseEntity="Person" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName=".Person" syncable="YES">
@@ -31,14 +31,14 @@
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="persons" inverseEntity="Organization" syncable="YES"/>
     </entity>
     <entity name="Route" representedClassName=".Route" syncable="YES">
-        <attribute name="routenumber" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="routenumber" optional="YES" attributeType="String" minValueString="1" maxValueString="100" defaultValueString="1" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" minValueString="1" maxValueString="100" defaultValueString="street" syncable="YES"/>
         <relationship name="houses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="House" inverseName="route" inverseEntity="House" syncable="YES"/>
     </entity>
     <elements>
         <element name="House" positionX="-126" positionY="-252" width="128" height="163"/>
         <element name="Option" positionX="-297" positionY="-324" width="128" height="88"/>
-        <element name="Organization" positionX="225" positionY="-153" width="128" height="90"/>
+        <element name="Organization" positionX="225" positionY="-153" width="128" height="88"/>
         <element name="Person" positionX="54" positionY="-288" width="128" height="163"/>
         <element name="Route" positionX="-297" positionY="-189" width="128" height="88"/>
     </elements>

@@ -15,6 +15,6 @@ import CoreData
 class Route: NSManagedObject
 {
     @NSManaged var routenumber: String?
-    @NSManaged var streat: String?
+    @NSManaged var street: String?
     @NSManaged var houses: NSSet?
 }
