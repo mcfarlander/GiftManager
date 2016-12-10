@@ -30,16 +30,81 @@ class AppDelegate: NSObject, NSApplicationDelegate
     @IBAction func mnuClearHouses_Action(_ sender: NSMenuItem)
     {
         NSLog("Clear Houses")
+        let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all house data.")
+        
+        if (answer)
+        {
+            let answer2 = dialogOKCancel(question: "CONFIRM Continue", text: "Second Warning! This will clear all house data.")
+            
+            if answer2
+            {
+                let commonFetches = CommonFetches()
+                commonFetches.deleteAllHouesAndPersons()
+                do
+                {
+                    try managedObjectContext.save()
+                }
+                catch
+                {
+                    let nserror = error as NSError
+                    NSApplication.shared().presentError(nserror)
+                }
+            }
+        }
     }
     
     @IBAction func mnuClearOrganizations_Action(_ sender: NSMenuItem)
     {
         NSLog("Clear Organizations")
+        let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all organization data.")
+        
+        if (answer)
+        {
+            let commonFetches = CommonFetches()
+            commonFetches.deleteAllOrganizations();
+            do
+            {
+                try managedObjectContext.save()
+            }
+            catch
+            {
+                let nserror = error as NSError
+                NSApplication.shared().presentError(nserror)
+            }
+        }
+        
     }
     
     @IBAction func mnuClearRoutes_Action(_ sender: NSMenuItem)
     {
         NSLog("Clear Routes")
+        let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all route data.")
+        
+        if (answer)
+        {
+            let commonFetches = CommonFetches()
+            commonFetches.deleteAllRoutes()
+            do
+            {
+                try managedObjectContext.save()
+            }
+            catch
+            {
+                let nserror = error as NSError
+                NSApplication.shared().presentError(nserror)
+            }
+        }
+    }
+    
+    func dialogOKCancel(question: String, text: String) -> Bool
+    {
+        let myPopup: NSAlert = NSAlert()
+        myPopup.messageText = question
+        myPopup.informativeText = text
+        myPopup.alertStyle = NSAlertStyle.warning
+        myPopup.addButton(withTitle: "OK")
+        myPopup.addButton(withTitle: "Cancel")
+        return myPopup.runModal() == NSAlertFirstButtonReturn
     }
     
     
@@ -92,7 +157,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
             coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
             let url = self.applicationDocumentsDirectory.appendingPathComponent("GiftManager.storedata")
             do {
-                try coordinator!.addPersistentStore(ofType: NSXMLStoreType, configurationName: nil, at: url, options: nil)
+                try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
                  

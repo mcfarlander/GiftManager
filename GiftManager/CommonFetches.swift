@@ -23,13 +23,15 @@ class CommonFetches
         // the context is loaded lazily. from any view with a fetch delegate, it'll
         // be populated. if not, get it from the application context
         
-        managedObjectContext = AppContext.managedObjectContext
+        //managedObjectContext = AppContext.managedObjectContext
         
-        if managedObjectContext == nil
-        {
-            let appDelegate = (NSApp.delegate as! AppDelegate)
-            managedObjectContext = appDelegate.managedObjectContext
-        }
+        //if managedObjectContext == nil
+        //{
+            //let appDelegate = (NSApp.delegate as! AppDelegate)
+            //managedObjectContext = appDelegate.managedObjectContext
+        //}
+        
+        managedObjectContext = (NSApplication.shared().delegate as! AppDelegate).managedObjectContext
     }
     
     private func deleteAll(entity:String)
