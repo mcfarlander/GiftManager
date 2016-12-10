@@ -133,8 +133,8 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                <windowController id="B8D-0N-5wS" customClass="AppWindowController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Gift Manager" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -257,7 +257,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="mbT-P0-043">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="FeA-cc-RLj">
@@ -356,10 +356,10 @@
             </objects>
             <point key="canvasLocation" x="630" y="1155"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Gift Manager-->
         <scene sceneID="tlJ-kE-zl9">
             <objects>
-                <tabViewController id="ej0-zl-Nwa" sceneMemberID="viewController">
+                <tabViewController title="Gift Manager" id="ej0-zl-Nwa" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem id="MCw-bg-3Nn"/>
                         <tabViewItem id="mJ4-LG-qth"/>
@@ -384,7 +384,7 @@
         <!--House-->
         <scene sceneID="uXP-F6-bX7">
             <objects>
-                <viewController title="House" id="ffQ-XN-6pg" customClass="HouseViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="House" storyboardIdentifier="HouseView" id="ffQ-XN-6pg" customClass="HouseViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="fvH-SB-K82">
                         <rect key="frame" x="0.0" y="0.0" width="515" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -499,7 +499,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="80J-sy-jxp">
-                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
+                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="S5f-N6-7sh">

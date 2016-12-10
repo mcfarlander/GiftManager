@@ -15,6 +15,8 @@ class AppTabViewController: NSTabViewController
     {
         super.viewDidLoad()
         // Do view setup here.
+        
+
     }
     
 }

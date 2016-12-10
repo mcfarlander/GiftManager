@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C010A8CA1DFC4F9C001325C0 /* AppWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */; };
 		C031F5301DD1E82200E3CE67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031F52F1DD1E82200E3CE67 /* AppDelegate.swift */; };
 		C031F5351DD1E82200E3CE67 /* GiftManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C031F5331DD1E82200E3CE67 /* GiftManager.xcdatamodeld */; };
 		C031F5371DD1E82200E3CE67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C031F5361DD1E82200E3CE67 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWindowController.swift; sourceTree = "<group>"; };
 		C031F52C1DD1E82200E3CE67 /* GiftManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C031F52F1DD1E82200E3CE67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C031F5341DD1E82200E3CE67 /* GiftManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GiftManager.xcdatamodel; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				C031F52F1DD1E82200E3CE67 /* AppDelegate.swift */,
+				C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */,
 				C05215F31DFC49E6003AB009 /* AppTabViewController.swift */,
 				C081C96D1DF58F0C009CA4B9 /* OrganizationViewController.swift */,
 				C081C96F1DF58F4F009CA4B9 /* RouteViewController.swift */,
@@ -197,6 +200,7 @@
 				C0BDB27F1DDBDE230028C27F /* House.swift in Sources */,
 				C031F5301DD1E82200E3CE67 /* AppDelegate.swift in Sources */,
 				C0BDB2791DDBDC270028C27F /* Organization.swift in Sources */,
+				C010A8CA1DFC4F9C001325C0 /* AppWindowController.swift in Sources */,
 				C0BDB27B1DDBDD0C0028C27F /* Option.swift in Sources */,
 				C0BDB2811DDBDEF30028C27F /* Person.swift in Sources */,
 				C081C96E1DF58F0C009CA4B9 /* OrganizationViewController.swift in Sources */,
