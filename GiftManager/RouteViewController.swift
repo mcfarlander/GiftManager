@@ -33,7 +33,6 @@ class RouteViewController: NSViewController
             }
         }
         
-        dismiss(nil)
     }
     
     

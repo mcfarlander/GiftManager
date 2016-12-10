@@ -22,6 +22,24 @@ class AppDelegate: NSObject, NSApplicationDelegate
     func applicationWillTerminate(_ aNotification: Notification)
     {
         // Insert code here to tear down your application
+        
+        if managedObjectContext.hasChanges
+        {
+            let answer = dialogOKCancel(question: "Save Data?", text: "Data was changed and not saved. Recommended to save now or lose it.")
+            
+            if answer
+            {
+                do
+                {
+                    try managedObjectContext.save()
+                }
+                catch
+                {
+                    let nserror = error as NSError
+                    NSApplication.shared().presentError(nserror)
+                }
+            }
+        }
     }
     
     // MARK: - Data Menu items

@@ -33,8 +33,6 @@ class OrganizationViewController: NSViewController
             }
         }
         
-        dismiss(nil)
-        
     }
     
 }
