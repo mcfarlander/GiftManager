@@ -497,11 +497,6 @@
                     </view>
                 </viewController>
                 <customObject id="qBu-WX-xKo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <treeController mode="entity" automaticallyPreparesContent="YES" id="WmA-Q7-Nds">
-                    <connections>
-                        <binding destination="ffQ-XN-6pg" name="managedObjectContext" keyPath="self.managedContext" id="pIG-C8-jin"/>
-                    </connections>
-                </treeController>
             </objects>
             <point key="canvasLocation" x="78.5" y="1155"/>
         </scene>

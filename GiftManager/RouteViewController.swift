@@ -16,6 +16,7 @@ class RouteViewController: NSViewController
     {
         super.viewDidLoad()
         // Do view setup here.
+        NSLog("Routes view did load")
     }
     
     @IBAction func btnClose_Action(_ sender: NSButton)

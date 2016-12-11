@@ -16,6 +16,7 @@ class OrganizationViewController: NSViewController
     {
         super.viewDidLoad()
         // Do view setup here.
+        NSLog("Organizations view did load")
     }
 
     @IBAction func btnClose_Action(_ sender: NSButton)

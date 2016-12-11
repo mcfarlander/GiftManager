@@ -57,68 +57,107 @@ class CommonFetches
     
     func mockData()
     {
+        
         // 1. clear out all previous data
         deleteAllOrganizations()
         deleteAllRoutes()
         deleteAllHouesAndPersons()
         
+        do
+        {
+            try managedObjectContext?.save()
+        }
+        catch
+        {
+            NSLog("There was an error deleting previous data error %@", error.localizedDescription)
+            return
+        }
+
         // 2. mock up 2 organizations
-        let org1 = Organization()
+        let org1 =  NSEntityDescription.insertNewObject(forEntityName: "Organization", into: self.managedObjectContext!) as! Organization
         org1.name = "org1"
         org1.phone = "111-1111"
         
-        let org2 = Organization()
+        let org2 =  NSEntityDescription.insertNewObject(forEntityName: "Organization", into: self.managedObjectContext!) as! Organization
         org2.name = "org2"
         org2.phone = "222-2222"
         
         // 3. mock up 2 routes
-        let route1 = Route()
+        let route1 =  NSEntityDescription.insertNewObject(forEntityName: "Route", into: self.managedObjectContext!) as! Route
         route1.routenumber = "1"
         route1.street = "street1"
         
-        let route2 = Route()
+        let route2 = NSEntityDescription.insertNewObject(forEntityName: "Route", into: self.managedObjectContext!) as! Route
         route2.routenumber = "2"
         route2.street = "street2"
         
+        do
+        {
+            try managedObjectContext?.save()
+        }
+        catch
+        {
+            NSLog("There was an error mocking org and route data error %@", error.localizedDescription)
+            return
+        }
+
         // 4. create house with 2 people, attached to org1 and route1
-        let house1 = House()
+        let house1 = NSEntityDescription.insertNewObject(forEntityName: "House", into: self.managedObjectContext!) as! House
         house1.address = "1 north st"
         house1.contact = "contact 1"
         house1.deliver = false
         house1.phone = "phone1"
         house1.route = route1
         
-        let person1 = Person()
+        do
+        {
+            try managedObjectContext?.save()
+        }
+        catch
+        {
+            NSLog("There was an error mocking house 1 data error %@", error.localizedDescription)
+            return
+        }
+        
+        let person1 = NSEntityDescription.insertNewObject(forEntityName: "Person", into: self.managedObjectContext!) as! Person
         person1.sequence = "0"
         person1.ishousegift = true
         person1.giftideas = "person1 gifts"
         person1.organization = org1
+        person1.house = house1
         
-        let person2 = Person()
+        let person2 = NSEntityDescription.insertNewObject(forEntityName: "Person", into: self.managedObjectContext!) as! Person
         person2.sequence = "A"
         person2.ishousegift = false
         person2.giftideas = "person2 gifts"
         person2.age = 2
-        person1.organization = org1
+        person2.organization = org1
+        person2.house = house1
         
-        house1.persons?.adding(person1)
-        house1.persons?.adding(person2)
+        do
+        {
+            try managedObjectContext?.save()
+        }
+        catch
+        {
+            NSLog("There was an error mocking house 1 person data error %@", error.localizedDescription)
+            return
+        }
         
         // 5. create house with 1 person, attached to org2 and route2
-        let house2 = House()
+        let house2 = NSEntityDescription.insertNewObject(forEntityName: "House", into: self.managedObjectContext!) as! House
         house2.address = "2 north st"
         house2.contact = "contact 2"
         house2.deliver = false
         house2.phone = "phone2"
         house2.route = route2
         
-        let person3 = Person()
+        let person3 = NSEntityDescription.insertNewObject(forEntityName: "Person", into: self.managedObjectContext!) as! Person
         person3.sequence = "0"
         person3.ishousegift = true
         person3.giftideas = "person3 gifts"
         person3.organization = org2
-        
-        house2.persons?.adding(person3)
+        person3.house = house2
         
         // 6. commit data
         do
@@ -127,9 +166,8 @@ class CommonFetches
         }
         catch
         {
-            NSLog("There was an error mocking data error %@", error.localizedDescription)
+            NSLog("There was an error mocking house 2 data error %@", error.localizedDescription)
         }
-        
         
     }
     

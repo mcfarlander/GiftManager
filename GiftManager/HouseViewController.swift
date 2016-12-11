@@ -16,6 +16,7 @@ class HouseViewController: NSViewController
     {
         super.viewDidLoad()
         // Do view setup here.
+        NSLog("Houses view did load")
     }
     
 }
