@@ -10,6 +10,7 @@ import Cocoa
 
 class HouseViewController: NSViewController
 {
+    var managedContext = (NSApplication.shared().delegate as! AppDelegate).managedObjectContext
 
     override func viewDidLoad()
     {
