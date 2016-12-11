@@ -114,6 +114,31 @@ class AppDelegate: NSObject, NSApplicationDelegate
         }
     }
     
+    @IBAction func mnuMockData_Action(_ sender: NSMenuItem)
+    {
+        NSLog("Mock Data")
+        
+        let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all data and replace with mock data.")
+        
+        if (answer)
+        {
+            let commonFetches = CommonFetches()
+            commonFetches.mockData()
+            do
+            {
+                try managedObjectContext.save()
+            }
+            catch
+            {
+                let nserror = error as NSError
+                NSApplication.shared().presentError(nserror)
+            }
+        }
+        
+        
+    }
+    
+    
     func dialogOKCancel(question: String, text: String) -> Bool
     {
         let myPopup: NSAlert = NSAlert()

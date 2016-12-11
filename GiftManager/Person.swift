@@ -14,7 +14,7 @@ class Person: NSManagedObject
     @NSManaged var age: NSNumber?
     @NSManaged var giftideas: String?
     @NSManaged var ishousegift: NSNumber?
-    @NSManaged var ismaile: NSNumber?
+    @NSManaged var ismale: NSNumber?
     @NSManaged var name: String?
     @NSManaged var sequence: String?
     

@@ -78,6 +78,13 @@
                                                 <action selector="mnuClearRoutes_Action:" target="Voe-Tx-rLC" id="vGJ-Yb-yrA"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="C3l-mr-b6t"/>
+                                        <menuItem title="Mock Data" id="Aqh-fE-izn">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="mnuMockData_Action:" target="Voe-Tx-rLC" id="I3d-gd-vVx"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -474,11 +481,11 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="YHT-eF-S7H">
-                                    <rect key="frame" x="1" y="32" width="46" height="15"/>
+                                    <rect key="frame" x="-7" y="-15" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="KRv-Js-LtB">
-                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <rect key="frame" x="-15" y="-8" width="15" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="wUV-y3-nAa">
