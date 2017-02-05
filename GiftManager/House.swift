@@ -14,6 +14,7 @@ import CoreData
  */
 class House: NSManagedObject
 {
+    @NSManaged var sequence: NSNumber?
     @NSManaged var address: String?
     @NSManaged var contact: String?
     @NSManaged var deliver: NSNumber?

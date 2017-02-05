@@ -23,6 +23,133 @@ class CommonFetches
         managedObjectContext = (NSApplication.shared().delegate as! AppDelegate).managedObjectContext
     }
     
+    // MARK: - Table Data
+    
+    enum DataOperation:Int
+    {
+        case Add
+        case Update
+        case Delete
+    }
+    
+    func getAllHouses() -> [House]
+    {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "House")
+        let sortDescriptor = NSSortDescriptor(key: "sequence", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        var fetched:[House]
+        
+        do
+        {
+            fetched = try managedObjectContext?.fetch(fetchRequest) as! [House]
+        }
+        catch
+        {
+            fatalError("Failed to fetch houses: \(error)")
+        }
+        
+        return fetched
+        
+    }
+    
+    func getAllOrganizations() -> [Organization]
+    {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Organization")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        var fetched:[Organization]
+        
+        do
+        {
+            fetched = try managedObjectContext?.fetch(fetchRequest) as! [Organization]
+        }
+        catch
+        {
+            fatalError("Failed to fetch organizations: \(error)")
+        }
+        
+        return fetched
+        
+    }
+    
+    func addUpdateDeleteOrganization(entity:Organization, operation:DataOperation)
+    {
+        switch operation
+        {
+        case DataOperation.Add:
+            self.managedObjectContext!.insert(entity)
+            
+        case DataOperation.Update:break
+            
+        case DataOperation.Delete:
+            self.managedObjectContext!.delete(entity)
+            
+        }
+        
+        do
+        {
+            try managedObjectContext?.save()
+        }
+        catch
+        {
+            NSLog("There was an error saving organization data %@", error.localizedDescription)
+            return
+        }
+        
+    }
+    
+    func getAllRoutes() -> [Route]
+    {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Route")
+        let sortDescriptor = NSSortDescriptor(key: "routenumber", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        var fetched:[Route]
+        
+        do
+        {
+            fetched = try managedObjectContext?.fetch(fetchRequest) as! [Route]
+        }
+        catch
+        {
+            fatalError("Failed to fetch routes: \(error)")
+        }
+        
+        return fetched
+        
+    }
+    
+    func addUpdateDeleteRoute(entity:Route, operation:DataOperation)
+    {
+        switch operation
+        {
+        case DataOperation.Add:
+            self.managedObjectContext!.insert(entity)
+
+        case DataOperation.Update:break
+
+        case DataOperation.Delete:
+            self.managedObjectContext!.delete(entity)
+
+        }
+        
+        do
+        {
+            try managedObjectContext?.save()
+        }
+        catch
+        {
+            NSLog("There was an error saving route data %@", error.localizedDescription)
+            return
+        }
+        
+    }
+    
+    
+    // MARK: - Deleting Data
+    
     private func deleteAll(entity:String)
     {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
@@ -54,6 +181,9 @@ class CommonFetches
     {
         deleteAll(entity: "House")
     }
+    
+    
+    // MARK: - Mock Data
     
     func mockData()
     {
@@ -103,6 +233,7 @@ class CommonFetches
 
         // 4. create house with 2 people, attached to org1 and route1
         let house1 = NSEntityDescription.insertNewObject(forEntityName: "House", into: self.managedObjectContext!) as! House
+        house1.sequence = 1
         house1.address = "1 north st"
         house1.contact = "contact 1"
         house1.deliver = false
@@ -146,6 +277,7 @@ class CommonFetches
         
         // 5. create house with 1 person, attached to org2 and route2
         let house2 = NSEntityDescription.insertNewObject(forEntityName: "House", into: self.managedObjectContext!) as! House
+        house2.sequence = 2
         house2.address = "2 north st"
         house2.contact = "contact 2"
         house2.deliver = false

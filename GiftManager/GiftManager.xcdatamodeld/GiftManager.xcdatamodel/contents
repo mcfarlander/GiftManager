@@ -7,6 +7,7 @@
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="printed" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="persons" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Person" inverseName="house" inverseEntity="Person" syncable="YES"/>
         <relationship name="route" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Route" inverseName="houses" inverseEntity="Route" syncable="YES"/>
     </entity>
@@ -36,7 +37,7 @@
         <relationship name="houses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="House" inverseName="route" inverseEntity="House" syncable="YES"/>
     </entity>
     <elements>
-        <element name="House" positionX="-126" positionY="-252" width="128" height="163"/>
+        <element name="House" positionX="-126" positionY="-252" width="128" height="178"/>
         <element name="Option" positionX="-297" positionY="-324" width="128" height="88"/>
         <element name="Organization" positionX="225" positionY="-153" width="128" height="88"/>
         <element name="Person" positionX="54" positionY="-288" width="128" height="163"/>
