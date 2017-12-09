@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -135,7 +135,7 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="9Wi-dJ-QRt"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="-670" y="332"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -143,22 +143,47 @@
                 <windowController id="B8D-0N-5wS" customClass="AppWindowController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Gift Manager" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="359" y="250" width="1000" height="640"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="1000" height="640"/>
                     </window>
                     <connections>
-                        <segue destination="ej0-zl-Nwa" kind="relationship" relationship="window.shadowedContentViewController" id="2Ko-2e-bBq"/>
+                        <segue destination="WZT-DS-KXd" kind="relationship" relationship="window.shadowedContentViewController" id="tPh-DF-SJy"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="-788" y="734"/>
+        </scene>
+        <!--App Tab View Controller-->
+        <scene sceneID="kA8-pD-phr">
+            <objects>
+                <tabViewController selectedTabViewItemIndex="0" id="WZT-DS-KXd" customClass="AppTabViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem id="ct2-vt-gjO"/>
+                        <tabViewItem id="IOA-Lz-6ko"/>
+                        <tabViewItem id="U3Y-Jh-vG9"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="QrT-PL-mAv">
+                        <rect key="frame" x="0.0" y="0.0" width="483" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <tabViewItems/>
+                    </tabView>
+                    <connections>
+                        <segue destination="ffQ-XN-6pg" kind="relationship" relationship="tabItems" id="l79-6P-Lvo"/>
+                        <segue destination="3OU-TJ-GBe" kind="relationship" relationship="tabItems" id="uQ7-PH-KIO"/>
+                        <segue destination="A4C-ce-F9C" kind="relationship" relationship="tabItems" id="P09-ea-DES"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="IOx-Ip-PbC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="77" y="724"/>
         </scene>
         <!--Organizations-->
         <scene sceneID="wgy-Bs-PBV">
             <objects>
-                <viewController title="Organizations" storyboardIdentifier="OrganizationView" id="3OU-TJ-GBe" customClass="OrganizationViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Organizations" storyboardIdentifier="OrganizationView" showSeguePresentationStyle="single" id="3OU-TJ-GBe" customClass="OrganizationViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" identifier="OrganizationView" id="kob-zv-8gg">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -193,9 +218,8 @@
                                                             <rect key="frame" x="1" y="1" width="116" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMa-yA-KdD">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMa-yA-KdD">
                                                                     <rect key="frame" x="0.0" y="23" width="116" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="yPw-zn-cRz">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -203,6 +227,11 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="zMa-yA-KdD" firstAttribute="centerX" secondItem="cV6-Yj-V5w" secondAttribute="centerX" id="3Y8-Mh-0J9"/>
+                                                                <constraint firstItem="zMa-yA-KdD" firstAttribute="top" secondItem="cV6-Yj-V5w" secondAttribute="top" id="4RT-pB-BUa"/>
+                                                                <constraint firstItem="zMa-yA-KdD" firstAttribute="leading" secondItem="cV6-Yj-V5w" secondAttribute="leading" constant="2" id="Ubn-b9-xQG"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="zMa-yA-KdD" id="KWP-bc-vaw"/>
                                                             </connections>
@@ -226,9 +255,8 @@
                                                             <rect key="frame" x="120" y="1" width="303" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cok-tq-z1n">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cok-tq-z1n">
                                                                     <rect key="frame" x="0.0" y="23" width="303" height="17"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Tvs-66-60s">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -236,6 +264,11 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Cok-tq-z1n" firstAttribute="top" secondItem="SLO-C2-xgg" secondAttribute="top" id="KFi-ip-COK"/>
+                                                                <constraint firstItem="Cok-tq-z1n" firstAttribute="leading" secondItem="SLO-C2-xgg" secondAttribute="leading" constant="2" id="rMw-Fu-XLf"/>
+                                                                <constraint firstItem="Cok-tq-z1n" firstAttribute="centerX" secondItem="SLO-C2-xgg" secondAttribute="centerX" id="uPp-0U-8CS"/>
+                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="Cok-tq-z1n" id="Rz1-tf-Zrk"/>
                                                             </connections>
@@ -259,77 +292,75 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WqI-d3-mCm">
+                                <rect key="frame" x="226" y="13" width="65" height="32"/>
+                                <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="btZ-yW-epW">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnAddOrg_Action:" target="3OU-TJ-GBe" id="AWq-ID-jjK"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W5w-Lx-A7J">
+                                <rect key="frame" x="291" y="13" width="74" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="RHG-m5-rra"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ssf-hi-iKS">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnUpdateOrg_Action:" target="3OU-TJ-GBe" id="dBp-Cu-wax"/>
+                                </connections>
+                            </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s0u-HG-IWS">
                                 <rect key="frame" x="365" y="13" width="80" height="32"/>
                                 <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HKW-N3-7Tq">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OOZ-XT-MqX">
-                                <rect key="frame" x="237" y="13" width="113" height="32"/>
-                                <buttonCell key="cell" type="push" title="Add/Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d8s-dE-dxn">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
+                                <connections>
+                                    <action selector="btnDeleteOrg_Action:" target="3OU-TJ-GBe" id="L42-SE-HAU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="s0u-HG-IWS" firstAttribute="leading" secondItem="OOZ-XT-MqX" secondAttribute="trailing" constant="27" id="BST-SJ-qKw"/>
+                            <constraint firstItem="W5w-Lx-A7J" firstAttribute="baseline" secondItem="WqI-d3-mCm" secondAttribute="baseline" id="DHu-F9-ecN"/>
                             <constraint firstAttribute="trailing" secondItem="Iub-gg-hXO" secondAttribute="trailing" constant="11" id="ICj-Fj-r8b"/>
-                            <constraint firstItem="s0u-HG-IWS" firstAttribute="leading" secondItem="OOZ-XT-MqX" secondAttribute="trailing" constant="27" id="MQ5-iN-xOg"/>
+                            <constraint firstItem="s0u-HG-IWS" firstAttribute="leading" secondItem="W5w-Lx-A7J" secondAttribute="trailing" constant="12" symbolic="YES" id="LLm-ft-8Tk"/>
                             <constraint firstItem="s0u-HG-IWS" firstAttribute="top" secondItem="Iub-gg-hXO" secondAttribute="bottom" constant="11" id="RXD-NW-EFa"/>
                             <constraint firstItem="Iub-gg-hXO" firstAttribute="top" secondItem="kob-zv-8gg" secondAttribute="top" constant="20" id="Rf0-Su-EKb"/>
                             <constraint firstAttribute="bottom" secondItem="s0u-HG-IWS" secondAttribute="bottom" constant="20" id="S0c-9f-gvy"/>
-                            <constraint firstAttribute="bottom" secondItem="OOZ-XT-MqX" secondAttribute="bottom" constant="20" id="ccj-tq-dwy"/>
-                            <constraint firstItem="OOZ-XT-MqX" firstAttribute="top" secondItem="Iub-gg-hXO" secondAttribute="bottom" constant="11" id="eNH-lr-hnP"/>
+                            <constraint firstItem="W5w-Lx-A7J" firstAttribute="leading" secondItem="WqI-d3-mCm" secondAttribute="trailing" constant="12" symbolic="YES" id="Yj6-os-MuU"/>
                             <constraint firstItem="s0u-HG-IWS" firstAttribute="top" secondItem="Iub-gg-hXO" secondAttribute="bottom" constant="11" id="gjh-QW-f0l"/>
                             <constraint firstItem="Iub-gg-hXO" firstAttribute="leading" secondItem="kob-zv-8gg" secondAttribute="leading" constant="12" id="pu2-k4-kxA"/>
+                            <constraint firstItem="W5w-Lx-A7J" firstAttribute="baseline" secondItem="s0u-HG-IWS" secondAttribute="baseline" id="pyY-2a-zGP"/>
                             <constraint firstAttribute="trailing" secondItem="s0u-HG-IWS" secondAttribute="trailing" constant="11" id="vsu-AQ-NSX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnAddOrg" destination="WqI-d3-mCm" id="1qO-fu-wtm"/>
+                        <outlet property="btnDeleteOrg" destination="s0u-HG-IWS" id="cal-EQ-D4h"/>
+                        <outlet property="btnUpdateOrg" destination="W5w-Lx-A7J" id="CLC-WO-cK9"/>
+                    </connections>
                 </viewController>
                 <customObject id="VFV-mt-Qbk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696" y="1155"/>
-        </scene>
-        <!--Gift Manager-->
-        <scene sceneID="tlJ-kE-zl9">
-            <objects>
-                <tabViewController title="Gift Manager" selectedTabViewItemIndex="0" id="ej0-zl-Nwa" sceneMemberID="viewController">
-                    <tabViewItems>
-                        <tabViewItem id="MCw-bg-3Nn"/>
-                        <tabViewItem id="mJ4-LG-qth"/>
-                        <tabViewItem id="81b-fT-mxc"/>
-                    </tabViewItems>
-                    <tabView key="tabView" type="noTabsNoBorder" id="VEc-Cv-KiV">
-                        <rect key="frame" x="-51" y="-44" width="835" height="598"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <font key="font" metaFont="message"/>
-                        <tabViewItems/>
-                    </tabView>
-                    <connections>
-                        <segue destination="ffQ-XN-6pg" kind="relationship" relationship="tabItems" id="ISf-cd-NHC"/>
-                        <segue destination="3OU-TJ-GBe" kind="relationship" relationship="tabItems" id="Maj-cF-9uR"/>
-                        <segue destination="A4C-ce-F9C" kind="relationship" relationship="tabItems" id="BhN-KV-PBB"/>
-                    </connections>
-                </tabViewController>
-                <customObject id="XIc-4A-9Hh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="930" y="244"/>
+            <point key="canvasLocation" x="839" y="724"/>
         </scene>
         <!--Houses-->
         <scene sceneID="uXP-F6-bX7">
             <objects>
-                <viewController title="Houses" storyboardIdentifier="HouseView" id="ffQ-XN-6pg" customClass="HouseViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Houses" storyboardIdentifier="HouseView" showSeguePresentationStyle="single" id="ffQ-XN-6pg" customClass="HouseViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="fvH-SB-K82">
-                        <rect key="frame" x="0.0" y="0.0" width="918" height="427"/>
+                        <rect key="frame" x="0.0" y="0.0" width="918" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZk-Ll-vTl">
-                                <rect key="frame" x="20" y="79" width="427" height="328"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="RSx-uz-x1F">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZk-Ll-vTl">
+                                <rect key="frame" x="20" y="52" width="427" height="328"/>
+                                <clipView key="contentView" id="RSx-uz-x1F">
                                     <rect key="frame" x="1" y="0.0" width="425" height="327"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -419,7 +450,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="shN-Ej-GcQ">
-                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="VQy-pC-7cB">
@@ -431,10 +462,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1P-Ha-QMt">
-                                <rect key="frame" x="471" y="79" width="427" height="328"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="jKs-2I-NjE">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1P-Ha-QMt">
+                                <rect key="frame" x="471" y="52" width="427" height="328"/>
+                                <clipView key="contentView" id="jKs-2I-NjE">
                                     <rect key="frame" x="1" y="0.0" width="425" height="327"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -524,7 +554,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="jyh-V1-bBN">
-                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
+                                    <rect key="frame" x="1" y="7" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="R5C-Iw-UbL">
@@ -536,17 +566,131 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="36a-73-XP2">
+                                <rect key="frame" x="130" y="13" width="107" height="32"/>
+                                <buttonCell key="cell" type="push" title="Add House" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fRX-Pg-hRX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnAddHouse_Action:" target="ffQ-XN-6pg" id="KqL-iA-TnW"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pn0-mT-K3e">
+                                <rect key="frame" x="338" y="13" width="115" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="103" id="Q8L-VJ-gog"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Delete House" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ind-xV-dUV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnDeleteHouse_Action:" target="ffQ-XN-6pg" id="wwG-R2-DVu"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9eG-qp-NCG">
+                                <rect key="frame" x="230" y="13" width="114" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="Lob-UF-cvO"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Update House" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7Gx-hw-G6T">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnUpdateHouse_Action:" target="ffQ-XN-6pg" id="wTb-O4-IVy"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gwx-GB-NIC">
+                                <rect key="frame" x="789" y="13" width="115" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="103" id="BmQ-kM-Axo"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Delete Person" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="geL-Ir-qCQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnDeletePerson_Action:" target="ffQ-XN-6pg" id="7e0-n0-zGZ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O4x-Ov-Kin">
+                                <rect key="frame" x="679" y="13" width="119" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="107" id="sot-Os-sVb"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Update Person" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oxu-n9-4ec">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnUpdatePerson_Action:" target="ffQ-XN-6pg" id="VXF-jM-Bv4"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ayp-ax-jEU">
+                                <rect key="frame" x="579" y="13" width="107" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="TAM-G8-IE4"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Add Person" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AJk-34-U5g">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnAddPerson_Action:" target="ffQ-XN-6pg" id="ZER-eR-5e5"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqg-re-aJr">
+                                <rect key="frame" x="20" y="20" width="79" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Count:" id="7Po-IK-1WY">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="M1P-Ha-QMt" firstAttribute="leading" secondItem="sZk-Ll-vTl" secondAttribute="trailing" constant="24" id="0mt-64-KSE"/>
+                            <constraint firstItem="sZk-Ll-vTl" firstAttribute="top" secondItem="fvH-SB-K82" secondAttribute="top" constant="20" symbolic="YES" id="2id-wM-mWy"/>
+                            <constraint firstItem="sZk-Ll-vTl" firstAttribute="leading" secondItem="fvH-SB-K82" secondAttribute="leading" constant="20" symbolic="YES" id="3wb-ed-d2r"/>
+                            <constraint firstItem="O4x-Ov-Kin" firstAttribute="baseline" secondItem="gwx-GB-NIC" secondAttribute="baseline" id="CPE-um-iQl"/>
+                            <constraint firstItem="36a-73-XP2" firstAttribute="top" secondItem="sZk-Ll-vTl" secondAttribute="bottom" constant="11" id="D7l-nZ-Gik"/>
+                            <constraint firstItem="Ayp-ax-jEU" firstAttribute="baseline" secondItem="O4x-Ov-Kin" secondAttribute="baseline" id="DJD-VD-HsI"/>
+                            <constraint firstItem="sZk-Ll-vTl" firstAttribute="bottom" secondItem="M1P-Ha-QMt" secondAttribute="bottom" id="E4C-bG-avr"/>
+                            <constraint firstItem="9eG-qp-NCG" firstAttribute="leading" secondItem="36a-73-XP2" secondAttribute="trailing" constant="5" id="H5u-mt-lo4"/>
+                            <constraint firstItem="36a-73-XP2" firstAttribute="baseline" secondItem="9eG-qp-NCG" secondAttribute="baseline" id="Khi-6G-WlG"/>
+                            <constraint firstItem="sZk-Ll-vTl" firstAttribute="trailing" secondItem="Pn0-mT-K3e" secondAttribute="trailing" id="Lwo-Di-fpE"/>
+                            <constraint firstItem="Pn0-mT-K3e" firstAttribute="leading" secondItem="9eG-qp-NCG" secondAttribute="trailing" constant="6" id="QZU-XD-hwL"/>
+                            <constraint firstAttribute="bottom" secondItem="36a-73-XP2" secondAttribute="bottom" constant="20" symbolic="YES" id="RFJ-dU-Y3V"/>
+                            <constraint firstItem="Pn0-mT-K3e" firstAttribute="baseline" secondItem="Ayp-ax-jEU" secondAttribute="baseline" id="Rym-6A-glk"/>
+                            <constraint firstItem="O4x-Ov-Kin" firstAttribute="leading" secondItem="Ayp-ax-jEU" secondAttribute="trailing" constant="5" id="Ynm-s8-f9f"/>
+                            <constraint firstItem="36a-73-XP2" firstAttribute="leading" secondItem="fvH-SB-K82" secondAttribute="leading" constant="136" id="d5W-NC-S5y"/>
+                            <constraint firstItem="9eG-qp-NCG" firstAttribute="baseline" secondItem="Pn0-mT-K3e" secondAttribute="baseline" id="diM-CN-hjt"/>
+                            <constraint firstItem="M1P-Ha-QMt" firstAttribute="trailing" secondItem="gwx-GB-NIC" secondAttribute="trailing" id="dvV-oE-zmI"/>
+                            <constraint firstItem="sZk-Ll-vTl" firstAttribute="top" secondItem="M1P-Ha-QMt" secondAttribute="top" id="gfz-hv-8qw"/>
+                            <constraint firstItem="gwx-GB-NIC" firstAttribute="leading" secondItem="O4x-Ov-Kin" secondAttribute="trailing" constant="3" id="rle-7M-TLS"/>
+                            <constraint firstAttribute="trailing" secondItem="M1P-Ha-QMt" secondAttribute="trailing" constant="20" symbolic="YES" id="tec-wL-wqV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnAddHouse" destination="36a-73-XP2" id="MWE-An-AmP"/>
+                        <outlet property="btnAddPerson" destination="Ayp-ax-jEU" id="cqV-jg-Zau"/>
+                        <outlet property="btnDeleteHouse" destination="Pn0-mT-K3e" id="F4Y-8V-K8V"/>
+                        <outlet property="btnDeletePerson" destination="gwx-GB-NIC" id="ruF-PO-GO3"/>
+                        <outlet property="btnUpdateHouse" destination="9eG-qp-NCG" id="uaS-3Z-McZ"/>
+                        <outlet property="btnUpdatePerson" destination="O4x-Ov-Kin" id="hty-ln-81J"/>
+                    </connections>
                 </viewController>
                 <customObject id="qBu-WX-xKo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-28" y="1169"/>
+            <point key="canvasLocation" x="894" y="232"/>
         </scene>
         <!--Routes-->
         <scene sceneID="R1W-hq-svM">
             <objects>
-                <viewController title="Routes" storyboardIdentifier="RouteView" id="A4C-ce-F9C" customClass="RouteViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Routes" storyboardIdentifier="RouteView" showSeguePresentationStyle="single" id="A4C-ce-F9C" customClass="RouteViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="xSx-Cc-IAi">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -707,17 +851,17 @@
                         <outlet property="btnDelete" destination="smm-SP-eD7" id="RcY-kX-HeP"/>
                         <outlet property="btnUpdate" destination="e9i-vn-Shy" id="xB7-iC-XIn"/>
                         <outlet property="tableView" destination="xj3-qO-MEt" id="2G6-av-7O7"/>
-                        <segue destination="dQ4-Bb-dcZ" kind="modal" identifier="showEditRoute" id="Ld5-Gy-B7d"/>
                     </connections>
                 </viewController>
                 <customObject id="v9F-rb-DnQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="1155"/>
+            <point key="canvasLocation" x="496" y="1248"/>
         </scene>
         <!--Edit Route-->
         <scene sceneID="APV-FZ-Y7U">
             <objects>
-                <viewController title="Edit Route" showSeguePresentationStyle="single" id="dQ4-Bb-dcZ" customClass="RouteEditViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
+                <customObject id="Ywj-A0-FTI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <viewController title="Edit Route" storyboardIdentifier="RouteEditViewController" showSeguePresentationStyle="single" id="dQ4-Bb-dcZ" customClass="RouteEditViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="sTa-yt-81l">
                         <rect key="frame" x="0.0" y="0.0" width="288" height="158"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -749,28 +893,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9u-98-kF3">
-                                <rect key="frame" x="180" y="13" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cu9-fr-uSJ">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="btnCancel_Action:" target="dQ4-Bb-dcZ" id="Vv2-U7-4oB"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ewr-F0-NzQ">
-                                <rect key="frame" x="99" y="13" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sTY-M4-Gfj">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="btnOk_Action:" target="dQ4-Bb-dcZ" id="nR0-zl-6zg"/>
-                                </connections>
-                            </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uo-wX-8NI">
                                 <rect key="frame" x="135" y="69" width="122" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -780,6 +902,22 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9u-98-kF3">
+                                <rect key="frame" x="144" y="13" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cu9-fr-uSJ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ewr-F0-NzQ">
+                                <rect key="frame" x="63" y="13" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sTY-M4-Gfj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -789,9 +927,8 @@
                         <outlet property="txtStreetName" destination="6Uo-wX-8NI" id="rUD-SI-LdC"/>
                     </connections>
                 </viewController>
-                <customObject id="Ywj-A0-FTI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="1618"/>
+            <point key="canvasLocation" x="911" y="1127"/>
         </scene>
     </scenes>
 </document>
