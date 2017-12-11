@@ -68,6 +68,11 @@ class RouteEditViewController: NSViewController
 	
 	private func validate() -> Bool
 	{
+		if self.operation == .Delete
+		{
+			return true
+		}
+		
 		if self.txtRouteNumber.stringValue.count == 0
 		{
 			self.showOkMessage(title: "Input Needed", message: "Please enter the route number")

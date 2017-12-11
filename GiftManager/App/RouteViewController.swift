@@ -42,39 +42,40 @@ class RouteViewController: NSViewController
 	
 	override func viewDidAppear()
 	{
+		self.enableUpdateDeleteButtons()
 		self.tableView.reloadData()
 	}
     
     @IBAction func btnAdd_Action(_ sender: NSButton)
     {
         NSLog("Routes view btnAdd Action")
-        currentRoute = self.routeDao.create(routeNumber: " ", street: " ")
-        operation = DataOperation.Add
-        performDataAction()
+        self.currentRoute = self.routeDao.create(routeNumber: " ", street: " ")
+        self.operation = DataOperation.Add
+        self.performDataAction()
     }
     
     @IBAction func btnUpdate_Action(_ sender: NSButton)
     {
         NSLog("Routes view btnUpdate Action")
-        currentRoute = self.routeDao.list()![tableView.selectedRow]
-        operation = DataOperation.Update
-        performDataAction()
+        self.currentRoute = self.routeDao.list()![tableView.selectedRow]
+        self.operation = DataOperation.Update
+        self.performDataAction()
 
     }
     
     @IBAction func btnDelete_Action(_ sender: NSButton)
     {
         NSLog("Routes view btnDelete Action")
-        currentRoute = self.routeDao.list()![tableView.selectedRow]
-        operation = DataOperation.Delete
-        performDataAction()
+        self.currentRoute = self.routeDao.list()![tableView.selectedRow]
+        self.operation = DataOperation.Delete
+        self.performDataAction()
     }
     
     fileprivate func performDataAction()
     {
-		routeEditViewController.delegate = self
-		routeEditViewController.route = self.currentRoute!
-        routeEditViewController.operation = self.operation
+		self.routeEditViewController.delegate = self
+		self.routeEditViewController.route = self.currentRoute!
+        self.routeEditViewController.operation = self.operation
 		
 		self.presentViewControllerAsSheet(routeEditViewController)
         
