@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55E538161FE215B2001EA573 /* HouseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538151FE215B2001EA573 /* HouseEditViewController.swift */; };
+		55E538181FE215D0001EA573 /* PersonEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538171FE215D0001EA573 /* PersonEditViewController.swift */; };
 		C010A8CA1DFC4F9C001325C0 /* AppWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */; };
 		C02AFCFB1FDCAC2D001F0F5F /* SheetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02AFCFA1FDCAC2D001F0F5F /* SheetProtocol.swift */; };
 		C02AFCFE1FDCAE46001F0F5F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02AFCFD1FDCAE46001F0F5F /* StringExtension.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		55E538151FE215B2001EA573 /* HouseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseEditViewController.swift; sourceTree = "<group>"; };
+		55E538171FE215D0001EA573 /* PersonEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEditViewController.swift; sourceTree = "<group>"; };
 		C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWindowController.swift; sourceTree = "<group>"; };
 		C02AFCFA1FDCAC2D001F0F5F /* SheetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetProtocol.swift; sourceTree = "<group>"; };
 		C02AFCFD1FDCAE46001F0F5F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 				C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */,
 				C05215F31DFC49E6003AB009 /* AppTabViewController.swift */,
 				C0FB4C9F1DFC1A92006CD10C /* HouseViewController.swift */,
+				55E538151FE215B2001EA573 /* HouseEditViewController.swift */,
+				55E538171FE215D0001EA573 /* PersonEditViewController.swift */,
 				C081C96D1DF58F0C009CA4B9 /* OrganizationViewController.swift */,
 				C07A78CB1E477F4100ACC6EE /* OrganizationEditViewController.swift */,
 				C081C96F1DF58F4F009CA4B9 /* RouteViewController.swift */,
@@ -270,12 +276,14 @@
 				C07A78C91E477C0300ACC6EE /* RouteEditViewController.swift in Sources */,
 				C0B429981F5E30B500F7C9B9 /* Route+CoreDataClass.swift in Sources */,
 				C041DA5A1E47C3F000CFA0F9 /* Enums.swift in Sources */,
+				55E538181FE215D0001EA573 /* PersonEditViewController.swift in Sources */,
 				C0B429A01F5E313C00F7C9B9 /* Organization+CoreDataClass.swift in Sources */,
 				C031F5301DD1E82200E3CE67 /* AppDelegate.swift in Sources */,
 				C010A8CA1DFC4F9C001325C0 /* AppWindowController.swift in Sources */,
 				C0B429A11F5E313C00F7C9B9 /* Organization+CoreDataProperties.swift in Sources */,
 				C07A78CC1E477F4100ACC6EE /* OrganizationEditViewController.swift in Sources */,
 				C081C96E1DF58F0C009CA4B9 /* OrganizationViewController.swift in Sources */,
+				55E538161FE215B2001EA573 /* HouseEditViewController.swift in Sources */,
 				C0FF1FFD1DDBF59A00A228D0 /* CommonFetches.swift in Sources */,
 				C031F5351DD1E82200E3CE67 /* GiftManager.xcdatamodeld in Sources */,
 				C05A3F001FDC1BD7001A0C9E /* OptionDao.swift in Sources */,

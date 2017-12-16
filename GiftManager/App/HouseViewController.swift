@@ -12,12 +12,19 @@ class HouseViewController: NSViewController
 {
 	var managedContext = (NSApplication.shared.delegate as! AppDelegate).managedObjectContext
 
-    @IBOutlet weak var btnAddHouse: NSButton!
+	@IBOutlet var labelCount: NSTextField!
+	@IBOutlet var labelCountValue: NSTextField!
+	
+	@IBOutlet weak var btnAddHouse: NSButton!
     @IBOutlet weak var btnUpdateHouse: NSButton!
     @IBOutlet weak var btnDeleteHouse: NSButton!
+	
     @IBOutlet weak var btnAddPerson: NSButton!
     @IBOutlet weak var btnUpdatePerson: NSButton!
     @IBOutlet weak var btnDeletePerson: NSButton!
+	
+	fileprivate var currentHouse:House? = nil
+	fileprivate var currentPerson:Person? = nil
     
     
     override func viewDidLoad()

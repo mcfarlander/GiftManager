@@ -52,6 +52,19 @@ class PersonDao : BaseDao
 
 	}
 	
+	func getNextSequence(house:House) -> String
+	{
+		if self.list(house:house) == 0
+		{
+			return "0"
+		}
+		else
+		{
+			
+		}
+		
+	}
+	
 	func create(house:House, sequence:String, name:String, ishousegift:Bool, ismale:Bool, age:String, giftIdeas:String) -> Person?
 	{
 		do

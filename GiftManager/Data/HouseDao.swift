@@ -33,6 +33,11 @@ class HouseDao : BaseDao
 		
 	}
 	
+	func getNextSequence() -> Int
+	{
+		return self.list()!.count + 1
+	}
+	
 	func create(sequence:Int, contact:String, phone:String) -> House?
 	{
 		do
