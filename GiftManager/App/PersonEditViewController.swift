@@ -11,11 +11,27 @@ import Cocoa
 class PersonEditViewController: NSViewController
 {
 	
+	@IBOutlet var labelNumber: NSView!
+	@IBOutlet var textNumber: NSTextField!
+	@IBOutlet var labelName: NSTextField!
+	@IBOutlet var textName: NSTextField!
+	@IBOutlet var labelAge: NSTextField!
+	@IBOutlet var textAge: NSTextField!
+	@IBOutlet var buttonIsMale: NSButton!
+	@IBOutlet var buttonIsHouseholdGift: NSButton!
+	@IBOutlet var labelGiftIdeas: NSTextField!
+	@IBOutlet var textGiftIdeas: NSComboBox!
+	@IBOutlet var labelOrganization: NSTextField!
+	@IBOutlet var textOrganization: NSComboBox!
+	
 	@IBOutlet weak var btnOk: NSButton!
 	@IBOutlet weak var btnCancel: NSButton!
 	
 	var delegate:SheetViewControllerDelegate?
 	var operation:DataOperation = DataOperation.Delete
+	var person:Person? = nil
+	
+	fileprivate let personDao = PersonDao()
 
     override func viewDidLoad()
 	{
@@ -31,9 +47,9 @@ class PersonEditViewController: NSViewController
 			switch self.operation
 			{
 			case .Add, .Update:
-				break
+				self.personDao.update(person: self.person!)
 			case .Delete:
-				break
+				self.personDao.delete(person: self.person! )
 			}
 			
 			self.delegate?.handleUpdate()

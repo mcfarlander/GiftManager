@@ -54,13 +54,13 @@ class PersonDao : BaseDao
 	
 	func getNextSequence(house:House) -> String
 	{
-		if self.list(house:house) == 0
+		if self.list(house:house)?.count == 0
 		{
 			return "0"
 		}
 		else
 		{
-			
+			return "A"
 		}
 		
 	}
