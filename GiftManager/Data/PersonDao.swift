@@ -31,7 +31,7 @@ class PersonDao : BaseDao
 		
 	}
 	
-	func list(house:House)-> [Person]?
+	func list(house:House?)-> [Person]?
 	{
 		var results: [Person]?
 		
@@ -39,7 +39,7 @@ class PersonDao : BaseDao
 		{
 			let request: NSFetchRequest<Person> = Person.fetchRequest()
 			request.returnsObjectsAsFaults = false
-			request.predicate = NSPredicate(format: "(house = %@)", house)
+			request.predicate = NSPredicate(format: "(house = %@)", house!)
 			
 			try results = manageObjectContext?.fetch(request)
 		}
