@@ -12,3 +12,10 @@ protocol SheetViewControllerDelegate
 {
 	func handleUpdate()
 }
+
+protocol HousePersonViewControllerDelegate
+{
+	func handleUpdateHouse()
+	
+	func handleUpdatePerson()
+}

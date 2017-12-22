@@ -28,7 +28,7 @@ class HouseEditViewController: NSViewController
 	@IBOutlet weak var btnOk: NSButton!
 	@IBOutlet weak var btnCancel: NSButton!
 	
-	var delegate:SheetViewControllerDelegate?
+	var delegate:HousePersonViewControllerDelegate?
 	var operation:DataOperation = DataOperation.Delete
 	var house:House? = nil
 	
@@ -89,7 +89,7 @@ class HouseEditViewController: NSViewController
 				self.houseDao.delete(house: self.house!)
 			}
 			
-			self.delegate?.handleUpdate()
+			self.delegate?.handleUpdateHouse()
 			self.dismiss(self)
 		}
 	}

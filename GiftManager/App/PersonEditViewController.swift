@@ -27,7 +27,7 @@ class PersonEditViewController: NSViewController
 	@IBOutlet weak var btnOk: NSButton!
 	@IBOutlet weak var btnCancel: NSButton!
 	
-	var delegate:SheetViewControllerDelegate?
+	var delegate:HousePersonViewControllerDelegate?
 	var operation:DataOperation = DataOperation.Delete
 	var person:Person? = nil
 	
@@ -52,7 +52,7 @@ class PersonEditViewController: NSViewController
 				self.personDao.delete(person: self.person! )
 			}
 			
-			self.delegate?.handleUpdate()
+			self.delegate?.handleUpdatePerson()
 			self.dismiss(self)
 		}
 	}

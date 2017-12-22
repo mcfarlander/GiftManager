@@ -31,7 +31,17 @@ class HouseViewController: NSViewController
 	fileprivate var currentHouse:House? = nil
 	fileprivate var currentPerson:Person? = nil
 	
-	fileprivate var updatingHouse = true;
+	fileprivate var operation = DataOperation.Add
+	
+	lazy var houseEditViewController: HouseEditViewController =
+		{
+			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "HouseEditViewController")) as! HouseEditViewController
+	}()
+	
+	lazy var personEditViewController: PersonEditViewController =
+		{
+			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PersonEditViewController")) as! PersonEditViewController
+	}()
 	
     override func viewDidLoad()
     {
@@ -55,35 +65,41 @@ class HouseViewController: NSViewController
     @IBAction func btnAddHouse_Action(_ sender: NSButton)
     {
         NSLog("add house action")
+		self.operation = .Add
     }
     
     @IBAction func btnUpdateHouse_Action(_ sender: NSButton)
     {
         NSLog("update house action")
+		self.operation = .Update
         
     }
 
     @IBAction func btnDeleteHouse_Action(_ sender: NSButton)
     {
         NSLog("delete house action")
+		self.operation = .Delete
         
     }
     
     @IBAction func btnAddPerson_Action(_ sender: NSButton)
     {
         NSLog("add person action")
+		self.operation = .Add
         
     }
     
     @IBAction func btnUpdatePerson_Action(_ sender: NSButton)
     {
         NSLog("update person action")
+		self.operation = .Update
         
     }
     
     @IBAction func btnDeletePerson_Action(_ sender: NSButton)
     {
         NSLog("delete person action")
+		self.operation = .Delete
         
     }
 	
@@ -100,21 +116,28 @@ class HouseViewController: NSViewController
 		self.btnUpdatePerson.isEnabled = isEnabled
 		self.btnDeletePerson.isEnabled = isEnabled
 	}
+	
+	fileprivate func performHouseDataAction()
+	{
+		self.houseEditViewController.delegate = self
+		self.houseEditViewController.house = self.currentHouse!
+		self.houseEditViewController.operation = self.operation
+		
+		self.presentViewControllerAsSheet(houseEditViewController)
+	}
     
 }
 
-extension HouseViewController:SheetViewControllerDelegate
+extension HouseViewController:HousePersonViewControllerDelegate
 {
-	func handleUpdate()
+	func handleUpdateHouse()
 	{
-		if self.updatingHouse
-		{
-			self.tableHouses.reloadData()
-		}
-		else
-		{
-			self.tablePersons.reloadData()
-		}
+		self.tableHouses.reloadData()
+	}
+	
+	func handleUpdatePerson()
+	{
+		self.tablePersons.reloadData()
 	}
 }
 
@@ -153,6 +176,30 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 		}
 	}
 
+	func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool
+	{
+
+		if row >= 0
+		{
+			if tableView == self.tableHouses
+			{
+				self.currentHouse = self.houseDao.list()![row]
+				self.currentPerson = nil
+				self.tablePersons.reloadData()
+				
+				self.enableHouseControls(isEnabled: true)
+				self.enablePersonControls(isEnabled:false)
+				
+			}
+			else
+			{
+				self.currentPerson = self.personDao.list(house: self.currentHouse)?[row]
+				self.enablePersonControls(isEnabled: true)
+			}
+		}
+		
+		return true
+	}
 	
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
 	{
