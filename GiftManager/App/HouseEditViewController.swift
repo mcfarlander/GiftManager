@@ -76,7 +76,6 @@ class HouseEditViewController: NSViewController
 		}
 	}
 	
-	
 	@IBAction func btnOk_Action(_ sender: NSButton)
 	{
 		if self.validate()

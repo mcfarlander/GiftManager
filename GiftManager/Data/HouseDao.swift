@@ -62,6 +62,30 @@ class HouseDao : BaseDao
 		
 	}
 	
+	func create(contact:String, phone:String) -> House?
+	{
+		do
+		{
+			let house = NSEntityDescription.insertNewObject(forEntityName: "House", into: self.manageObjectContext!) as! House
+			
+			house.sequence = Int32(self.getNextSequence())
+			house.contact = contact
+			house.phone = phone
+			
+			try house.managedObjectContext?.save()
+			
+			return house
+			
+		}
+		catch let error as NSError
+		{
+			NSLog("Unresolved error in adding \(error), \(error.userInfo)")
+		}
+		
+		return nil
+		
+	}
+	
 	func update(house:House)
 	{
 		do

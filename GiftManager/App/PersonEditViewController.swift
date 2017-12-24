@@ -39,11 +39,29 @@ class PersonEditViewController: NSViewController
         // Do view setup here.
     }
 	
+	override func viewDidAppear()
+	{
+		self.textNumber.stringValue = (person?.sequence)!
+		self.textName.stringValue = (person?.name)!
+		self.textAge.stringValue = (person?.age)!
+		self.buttonIsMale.state = (person?.ismale)! ? .on : .off
+		self.buttonIsHouseholdGift.state = (person?.ishousegift)! ? .on : .off
+		self.textGiftIdeas.stringValue = (person?.giftideas)!
+		self.textOrganization.stringValue = (person?.organization)!.name!
+		
+		switch operation
+		{
+		case .Add, .Update:
+			self.enableControls(isEnabled: true)
+		case DataOperation.Delete:
+			self.enableControls(isEnabled: false)
+		}
+	}
+	
 	@IBAction func btnOk_Action(_ sender: NSButton)
 	{
 		if validate()
 		{
-			
 			switch self.operation
 			{
 			case .Add, .Update:
@@ -69,8 +87,36 @@ class PersonEditViewController: NSViewController
 			return true
 		}
 		
+		if self.textNumber.stringValue.count == 0
+		{
+			self.showOkMessage(title: "Input Needed", message: "Please enter the sequence number")
+			return false
+		}
+		
+		if self.textName.stringValue.count == 0
+		{
+			self.showOkMessage(title: "Input Needed", message: "Please enter the name")
+			return false
+		}
+		
+		if self.textGiftIdeas.stringValue.count == 0
+		{
+			self.showOkMessage(title: "Input Needed", message: "Please enter the gift ideas")
+			return false
+		}
 		
 		return true
+	}
+	
+	private func enableControls(isEnabled:Bool)
+	{
+		self.textNumber.isEnabled = isEnabled
+		self.textName.isEnabled = isEnabled
+		self.textAge.isEnabled = isEnabled
+		self.buttonIsMale.isEnabled = isEnabled
+		self.buttonIsHouseholdGift.isEnabled = isEnabled
+		self.textGiftIdeas.isEnabled = isEnabled
+		self.textOrganization.isEnabled = isEnabled
 	}
     
 }

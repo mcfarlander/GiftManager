@@ -31,15 +31,13 @@ class HouseViewController: NSViewController
 	fileprivate var currentHouse:House? = nil
 	fileprivate var currentPerson:Person? = nil
 	
-	fileprivate var operation = DataOperation.Add
-	
 	lazy var houseEditViewController: HouseEditViewController =
-		{
+	{
 			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "HouseEditViewController")) as! HouseEditViewController
 	}()
 	
 	lazy var personEditViewController: PersonEditViewController =
-		{
+	{
 			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PersonEditViewController")) as! PersonEditViewController
 	}()
 	
@@ -65,42 +63,39 @@ class HouseViewController: NSViewController
     @IBAction func btnAddHouse_Action(_ sender: NSButton)
     {
         NSLog("add house action")
-		self.operation = .Add
+		self.currentHouse = self.houseDao.create(contact: "", phone: "")
+		self.performHouseDataAction(operation: .Add)
     }
     
     @IBAction func btnUpdateHouse_Action(_ sender: NSButton)
     {
         NSLog("update house action")
-		self.operation = .Update
-        
+		self.performHouseDataAction(operation: .Update)
     }
 
     @IBAction func btnDeleteHouse_Action(_ sender: NSButton)
     {
         NSLog("delete house action")
-		self.operation = .Delete
-        
+		self.performHouseDataAction(operation: .Delete)
     }
     
     @IBAction func btnAddPerson_Action(_ sender: NSButton)
     {
         NSLog("add person action")
-		self.operation = .Add
-        
+		
+		self.performPersonDataAction(operation: .Add)
     }
     
     @IBAction func btnUpdatePerson_Action(_ sender: NSButton)
     {
         NSLog("update person action")
-		self.operation = .Update
-        
+        self.performPersonDataAction(operation: .Update)
     }
     
     @IBAction func btnDeletePerson_Action(_ sender: NSButton)
     {
         NSLog("delete person action")
-		self.operation = .Delete
-        
+        self.performPersonDataAction(operation: .Delete)
     }
 	
 	fileprivate func enableHouseControls(isEnabled:Bool)
@@ -117,13 +112,22 @@ class HouseViewController: NSViewController
 		self.btnDeletePerson.isEnabled = isEnabled
 	}
 	
-	fileprivate func performHouseDataAction()
+	fileprivate func performHouseDataAction(operation:DataOperation)
 	{
 		self.houseEditViewController.delegate = self
 		self.houseEditViewController.house = self.currentHouse!
-		self.houseEditViewController.operation = self.operation
+		self.houseEditViewController.operation = operation
 		
 		self.presentViewControllerAsSheet(houseEditViewController)
+	}
+	
+	fileprivate func performPersonDataAction(operation:DataOperation)
+	{
+		self.personEditViewController.delegate = self
+		self.personEditViewController.person = self.currentPerson!
+		self.personEditViewController.operation = operation
+		
+		self.presentViewControllerAsSheet(personEditViewController)
 	}
     
 }

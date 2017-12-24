@@ -22,7 +22,7 @@ class OrganizationViewController: NSViewController
 	fileprivate var operation:DataOperation = DataOperation.Add
 	
 	lazy var organizationEditViewController: OrganizationEditViewController =
-		{
+	{
 			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "OrganizationEditViewController")) as! OrganizationEditViewController
 	}()
     
