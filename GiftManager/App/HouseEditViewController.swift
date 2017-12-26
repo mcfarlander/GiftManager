@@ -21,7 +21,7 @@ class HouseEditViewController: NSViewController
 	@IBOutlet var labelNote: NSTextField!
 	@IBOutlet var textNote: NSTextField!
 	@IBOutlet var labelRoute: NSTextField!
-	@IBOutlet var textRoute: NSTextField!
+	@IBOutlet var textRoute: NSComboBoxCell!
 	@IBOutlet var switchDeliver: NSButton!
 	@IBOutlet var switchPrinted: NSButton!
 	
@@ -33,6 +33,7 @@ class HouseEditViewController: NSViewController
 	var house:House? = nil
 	
 	fileprivate let houseDao = HouseDao()
+	fileprivate let routeDao = RouteDao()
 
     override func viewDidLoad()
 	{
@@ -42,12 +43,14 @@ class HouseEditViewController: NSViewController
 	
 	override func viewDidAppear()
 	{
-		self.textNumber.stringValue = String(describing: house?.sequence)
-		self.textContact.stringValue = (self.house?.contact)!
-		self.textPhone.stringValue = (self.house?.contact)!
-		self.textAddress.stringValue = (self.house?.contact)!
-		self.textNote.stringValue = (self.house?.contact)!
-		self.textRoute.stringValue = (self.house?.contact)!
+		self.populateRoutes()
+		
+		self.textNumber.stringValue = (house?.sequence)!.toString()
+		self.textContact.stringValue = (self.house?.contact) ?? ""
+		self.textPhone.stringValue = (self.house?.phone) ?? ""
+		self.textAddress.stringValue = (self.house?.address) ?? ""
+		self.textNote.stringValue = (self.house?.notes) ?? ""
+		self.textRoute.stringValue = (self.house?.route?.routenumber) ?? ""
 		
 		if (self.house?.deliver)!
 		{
@@ -80,6 +83,22 @@ class HouseEditViewController: NSViewController
 	{
 		if self.validate()
 		{
+			
+			self.house?.sequence = self.textNumber.intValue
+			self.house?.contact = self.textContact.stringValue
+			self.house?.phone = self.textPhone.stringValue
+			self.house?.address = self.textAddress.stringValue
+			self.house?.notes = self.textNote.stringValue
+			
+			if self.textRoute.stringValue == ""
+			{
+				self.house?.route = nil
+			}
+			else
+			{
+				self.house?.route = self.routeDao.list()?[self.textRoute.indexOfSelectedItem - 1]		// TODO test!
+			}
+			
 			switch self.operation
 			{
 			case .Add, .Update:
@@ -96,6 +115,18 @@ class HouseEditViewController: NSViewController
 	@IBAction func btnCancel_Action(_ sender: NSButton)
 	{
 		self.dismiss(self)
+	}
+	
+	private func populateRoutes()
+	{
+		self.textRoute.removeAllItems()
+		self.textRoute.addItem(withObjectValue: "")
+		
+		for route:Route in self.routeDao.list()
+		{
+			self.textRoute.addItem(withObjectValue: route.routenumber)
+		}
+		
 	}
 	
 	private func validate() -> Bool

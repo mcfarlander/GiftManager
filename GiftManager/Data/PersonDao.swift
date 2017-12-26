@@ -35,17 +35,20 @@ class PersonDao : BaseDao
 	{
 		var results: [Person]?
 		
-		do
+		if let myHouse = house
 		{
-			let request: NSFetchRequest<Person> = Person.fetchRequest()
-			request.returnsObjectsAsFaults = false
-			request.predicate = NSPredicate(format: "(house = %@)", house!)
-			
-			try results = manageObjectContext?.fetch(request)
-		}
-		catch let error as NSError
-		{
-			NSLog("Unresolved error in fetch \(error), \(error.userInfo)")
+			do
+			{
+				let request: NSFetchRequest<Person> = Person.fetchRequest()
+				request.returnsObjectsAsFaults = false
+				request.predicate = NSPredicate(format: "(house = %@)", myHouse )
+				
+				try results = manageObjectContext?.fetch(request)
+			}
+			catch let error as NSError
+			{
+				NSLog("Unresolved error in fetch \(error), \(error.userInfo)")
+			}
 		}
 		
 		return results

@@ -52,13 +52,10 @@ class HouseViewController: NSViewController
 		
 		self.tablePersons.delegate = self
 		self.tablePersons.dataSource = self
+		
+		self.enableHouseControls(isEnabled: false)
+		self.enablePersonControls(isAddEnabled: false, isUpdateDeleteEnabled: false)
     }
-	
-	override func viewDidAppear()
-	{
-		self.tableHouses.reloadData()
-		self.tablePersons.reloadData()
-	}
     
     @IBAction func btnAddHouse_Action(_ sender: NSButton)
     {
@@ -100,16 +97,15 @@ class HouseViewController: NSViewController
 	
 	fileprivate func enableHouseControls(isEnabled:Bool)
 	{
-		self.btnAddHouse.isEnabled = isEnabled
 		self.btnUpdateHouse.isEnabled = isEnabled
 		self.btnDeleteHouse.isEnabled = isEnabled
 	}
 	
-	fileprivate func enablePersonControls(isEnabled:Bool)
+	fileprivate func enablePersonControls(isAddEnabled:Bool, isUpdateDeleteEnabled:Bool)
 	{
-		self.btnAddPerson.isEnabled = isEnabled
-		self.btnUpdatePerson.isEnabled = isEnabled
-		self.btnDeletePerson.isEnabled = isEnabled
+		self.btnAddPerson.isEnabled = isAddEnabled
+		self.btnUpdatePerson.isEnabled = isUpdateDeleteEnabled
+		self.btnDeletePerson.isEnabled = isUpdateDeleteEnabled
 	}
 	
 	fileprivate func performHouseDataAction(operation:DataOperation)
@@ -172,11 +168,19 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 	{
 		if tableView == self.tableHouses
 		{
+			labelCountValue.stringValue = self.houseDao.list()!.count.toString()
 			return self.houseDao.list()!.count
 		}
 		else
 		{
-			return self.personDao.list(house:self.currentHouse)!.count
+			if self.currentHouse != nil
+			{
+				return self.personDao.list(house:self.currentHouse)!.count
+			}
+			else
+			{
+				return 0
+			}
 		}
 	}
 
@@ -192,13 +196,13 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 				self.tablePersons.reloadData()
 				
 				self.enableHouseControls(isEnabled: true)
-				self.enablePersonControls(isEnabled:false)
+				self.enablePersonControls(isAddEnabled:true, isUpdateDeleteEnabled: false)
 				
 			}
 			else
 			{
 				self.currentPerson = self.personDao.list(house: self.currentHouse)?[row]
-				self.enablePersonControls(isEnabled: true)
+				self.enablePersonControls(isAddEnabled: true, isUpdateDeleteEnabled: true)
 			}
 		}
 		
@@ -214,6 +218,8 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 		{
 			let house = self.houseDao.list()![row]
 			
+			//print(house)
+			
 			switch tableColumn!
 			{
 			case tableView.tableColumns[0]:
@@ -221,15 +227,15 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 				cellIdentifier = CellIdentifiers.CellHouseSequence
 			
 			case tableView.tableColumns[1]:
-				text = house.contact!
+				text = house.contact ?? ""
 				cellIdentifier = CellIdentifiers.CellHouseContact
 			
 			case tableView.tableColumns[2]:
-				text = house.address!
+				text = house.address ?? ""
 				cellIdentifier = CellIdentifiers.CellHouseAddress
 			
 			case tableView.tableColumns[3]:
-				text = house.phone!
+				text = house.phone ?? ""
 				cellIdentifier = CellIdentifiers.CellHousePhone
 
 			case tableView.tableColumns[4]:
@@ -237,11 +243,11 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 				cellIdentifier = CellIdentifiers.CellHouseDeliver
 
 			case tableView.tableColumns[5]:
-				text = house.notes!
+				text = house.notes ?? ""
 				cellIdentifier = CellIdentifiers.CellHouseNotes
 
 			case tableView.tableColumns[6]:
-				text = (house.route?.routenumber)!
+				text = (house.route?.routenumber) ?? ""
 				cellIdentifier = CellIdentifiers.CellHouseRoute
 			
 			case tableView.tableColumns[7]:
@@ -261,15 +267,15 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 			switch tableColumn!
 			{
 			case tableView.tableColumns[0]:
-				text = person.sequence!
+				text = person.sequence ?? ""
 				cellIdentifier = CellIdentifiers.CellPersonNumber
 				
 			case tableView.tableColumns[1]:
-				text = person.name!
+				text = person.name ?? ""
 				cellIdentifier = CellIdentifiers.CellPersonName
 				
 			case tableView.tableColumns[2]:
-				text = person.age!
+				text = person.age ?? ""
 				cellIdentifier = CellIdentifiers.CellPersonAge
 				
 			case tableView.tableColumns[3]:
@@ -281,11 +287,11 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 				cellIdentifier = CellIdentifiers.CellPersonHouseholdGift
 				
 			case tableView.tableColumns[5]:
-				text = person.giftideas!
+				text = person.giftideas ?? ""
 				cellIdentifier = CellIdentifiers.CellPersonGiftIdeas
 				
 			case tableView.tableColumns[6]:
-				text = (person.organization?.name)!
+				text = (person.organization?.name) ?? ""
 				cellIdentifier = CellIdentifiers.CellPersonOrganization
 				
 			default:

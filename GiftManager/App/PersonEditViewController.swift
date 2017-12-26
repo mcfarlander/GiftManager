@@ -32,6 +32,7 @@ class PersonEditViewController: NSViewController
 	var person:Person? = nil
 	
 	fileprivate let personDao = PersonDao()
+	fileprivate let organizationDao = OrganizationDao()
 
     override func viewDidLoad()
 	{
@@ -41,13 +42,16 @@ class PersonEditViewController: NSViewController
 	
 	override func viewDidAppear()
 	{
-		self.textNumber.stringValue = (person?.sequence)!
-		self.textName.stringValue = (person?.name)!
-		self.textAge.stringValue = (person?.age)!
+		populateGiftIdeas()
+		self.populateOrgs()
+		
+		self.textNumber.stringValue = (person?.sequence!)!
+		self.textName.stringValue = person?.name ?? ""
+		self.textAge.stringValue = person?.age ?? ""
 		self.buttonIsMale.state = (person?.ismale)! ? .on : .off
 		self.buttonIsHouseholdGift.state = (person?.ishousegift)! ? .on : .off
-		self.textGiftIdeas.stringValue = (person?.giftideas)!
-		self.textOrganization.stringValue = (person?.organization)!.name!
+		self.textGiftIdeas.stringValue = person?.giftideas ?? ""
+		self.textOrganization.stringValue = person?.organization?.name ?? ""
 		
 		switch operation
 		{
@@ -62,6 +66,40 @@ class PersonEditViewController: NSViewController
 	{
 		if validate()
 		{
+			
+			self.person?.sequence = self.textNumber.stringValue
+			self.person?.name = self.textName.stringValue
+			self.person?.age = self.textAge.stringValue
+			
+			if self.buttonIsMale.state == .on
+			{
+				self.person?.ismale = true
+			}
+			else
+			{
+				self.person?.ismale = false
+			}
+			
+			if self.buttonIsHouseholdGift.state == .on
+			{
+				self.person?.ishousegift = true
+			}
+			else
+			{
+				self.person?.ishousegift = false
+			}
+			
+			self.person?.giftideas = self.textGiftIdeas.stringValue
+			
+			if self.textOrganization.stringValue == ""
+			{
+				self.person?.organization = nil
+			}
+			else
+			{
+				self.person?.organization = self.organizationDao.list()?[self.textOrganization.indexOfSelectedItem - 1]		// TODO test!
+			}
+			
 			switch self.operation
 			{
 			case .Add, .Update:
@@ -78,6 +116,39 @@ class PersonEditViewController: NSViewController
 	@IBAction func btnCancel_Action(_ sender: NSButton)
 	{
 		self.dismiss(self)
+	}
+	
+	private func populateGiftIdeas()
+	{
+		self.textGiftIdeas.removeAllItems()
+		
+		let items = [
+			"",
+			"McFarland Resaurant Gift Card",
+			"McFarland Retail Store Gift Card",
+			"McFarland Gas Station Gift Card",
+			"Culvers Gift Card",
+			"Walgreens Gift Card",
+			"Medicine Shoppe Gift Card",
+			"McFarland House Cafe Gift Card",
+			"Dollar General Gift Card",
+			"Kwik Trip Gift Card"]
+		
+		self.textGiftIdeas.addItems(withObjectValues: items)
+		
+	}
+	
+	private func populateOrgs()
+	{
+		self.textOrganization.removeAllItems()
+		
+		self.textOrganization.addItem(withObjectValue: "")
+		
+		for org:Organization in self.organizationDao.list()!
+		{
+			self.textOrganization.addItem(withObjectValue: org.name!)
+		}
+		
 	}
 	
 	private func validate() -> Bool
