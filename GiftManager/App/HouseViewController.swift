@@ -149,7 +149,7 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 		static let CellHouseContact 		= "cellHouseContact"
 		static let CellHouseAddress 		= "cellHouseAddress"
 		static let CellHousePhone 			= "cellHousePhone"
-		static let CellHouseDeliver 		= "ccellHouseDeliver"
+		static let CellHouseDeliver 		= "cellHouseDeliver"
 		static let CellHouseNotes 			= "cellHouseNotes"
 		static let CellHouseRoute 			= "cellHouseRoute"
 		static let CellHousePrinted 		= "cellHousePrinted"

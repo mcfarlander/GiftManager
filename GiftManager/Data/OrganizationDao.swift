@@ -31,6 +31,21 @@ class OrganizationDao : BaseDao
 		
 	}
 	
+	func getOrganization(name:String) -> Organization?
+	{
+		var result:Organization?
+		
+		for org:Organization in self.list()!
+		{
+			if org.name == name
+			{
+				result = org
+			}
+		}
+		
+		return result
+	}
+	
 	func create(name: String, phone:String) -> Organization?
 	{
 		do

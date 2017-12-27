@@ -44,7 +44,7 @@ class HouseEditViewController: NSViewController
 	override func viewDidAppear()
 	{
 		self.populateRoutes()
-		
+
 		self.textNumber.stringValue = (house?.sequence)!.toString()
 		self.textContact.stringValue = (self.house?.contact) ?? ""
 		self.textPhone.stringValue = (self.house?.phone) ?? ""
@@ -90,13 +90,24 @@ class HouseEditViewController: NSViewController
 			self.house?.address = self.textAddress.stringValue
 			self.house?.notes = self.textNote.stringValue
 			
-			if self.textRoute.stringValue == ""
+			self.house?.route = self.routeDao.getRoute(routeNumber: self.textRoute.stringValue)
+			
+			if self.switchDeliver.state == .on
 			{
-				self.house?.route = nil
+				self.house?.deliver = true
 			}
 			else
 			{
-				self.house?.route = self.routeDao.list()?[self.textRoute.indexOfSelectedItem - 1]		// TODO test!
+				self.house?.deliver = false
+			}
+			
+			if self.switchPrinted.state == .on
+			{
+				self.house?.printed = true
+			}
+			else
+			{
+				self.house?.printed = false
 			}
 			
 			switch self.operation
@@ -114,6 +125,12 @@ class HouseEditViewController: NSViewController
 	
 	@IBAction func btnCancel_Action(_ sender: NSButton)
 	{
+		if self.operation == .Add
+		{
+			self.houseDao.delete(house: self.house!)
+		}
+		
+		self.delegate?.handleUpdateHouse()
 		self.dismiss(self)
 	}
 	
@@ -122,9 +139,9 @@ class HouseEditViewController: NSViewController
 		self.textRoute.removeAllItems()
 		self.textRoute.addItem(withObjectValue: "")
 		
-		for route:Route in self.routeDao.list()
+		for route:Route in self.routeDao.list()!
 		{
-			self.textRoute.addItem(withObjectValue: route.routenumber)
+			self.textRoute.addItem(withObjectValue: route.routenumber!)
 		}
 		
 	}

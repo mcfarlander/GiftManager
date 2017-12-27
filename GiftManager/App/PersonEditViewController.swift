@@ -91,21 +91,14 @@ class PersonEditViewController: NSViewController
 			
 			self.person?.giftideas = self.textGiftIdeas.stringValue
 			
-			if self.textOrganization.stringValue == ""
-			{
-				self.person?.organization = nil
-			}
-			else
-			{
-				self.person?.organization = self.organizationDao.list()?[self.textOrganization.indexOfSelectedItem - 1]		// TODO test!
-			}
+			self.person?.organization = self.organizationDao.getOrganization(name: self.textOrganization.stringValue)
 			
 			switch self.operation
 			{
 			case .Add, .Update:
 				self.personDao.update(person: self.person!)
 			case .Delete:
-				self.personDao.delete(person: self.person! )
+				self.personDao.delete(person: self.person!)
 			}
 			
 			self.delegate?.handleUpdatePerson()
@@ -115,6 +108,12 @@ class PersonEditViewController: NSViewController
 	
 	@IBAction func btnCancel_Action(_ sender: NSButton)
 	{
+		if self.operation == .Add
+		{
+			self.personDao.delete(person: self.person!)
+		}
+		
+		self.delegate?.handleUpdatePerson()
 		self.dismiss(self)
 	}
 	

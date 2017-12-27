@@ -33,6 +33,21 @@ class RouteDao : BaseDao
 		
 	}
 	
+	func getRoute(routeNumber:String) -> Route?
+	{
+		var result:Route?
+		
+		for route:Route in self.list()!
+		{
+			if route.routenumber == routeNumber
+			{
+				result = route
+			}
+		}
+		
+		return result
+	}
+	
 	func create(routeNumber: String, street:String) -> Route?
 	{
 		do
