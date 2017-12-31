@@ -97,13 +97,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		553269761FF829F900C1B73D /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				5558CE391FF7F63600764528 /* CvsExport.swift */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
 		C02AFCFC1FDCAE0B001F0F5F /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				C02AFCFD1FDCAE46001F0F5F /* StringExtension.swift */,
 				55BFC6451FF1A593002682CF /* IntExtensions.swift */,
 				C02AFCFF1FDCAF0B001F0F5F /* ViewControllerExtension.swift */,
-				5558CE391FF7F63600764528 /* CvsExport.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -128,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				C031F5411DD1E86800E3CE67 /* App */,
+				553269761FF829F900C1B73D /* Reports */,
 				C031F5421DD1E86F00E3CE67 /* Data */,
 				C02AFCFC1FDCAE0B001F0F5F /* Common */,
 				C031F5431DD1E87B00E3CE67 /* Storyboards */,

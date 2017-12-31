@@ -55,6 +55,25 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Reports" id="bB0-Nk-tkC">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Reports" id="cqG-oa-66G">
+                                    <items>
+                                        <menuItem title="Master List" id="gdM-dv-TSc">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="mnuMasterList_Action:" target="Voe-Tx-rLC" id="9Ic-fO-JCj"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="CVS Mail Merge" id="Ma3-vk-09o">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="mnuCvsMainMerge_Action:" target="Voe-Tx-rLC" id="vNy-67-pnk"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Data" id="dMs-cI-mzQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Data" id="bib-Uj-vzu">

@@ -41,8 +41,19 @@ class AppDelegate: NSObject, NSApplicationDelegate
             }
         }
     }
+	
+	// MARK: - Report Menu items
     
-    // MARK: - Data Menu items
+	@IBAction func mnuMasterList_Action(_ sender: NSMenuItem)
+	{
+	}
+	
+	@IBAction func mnuCvsMainMerge_Action(_ sender: NSMenuItem)
+	{
+	}
+	
+	
+	// MARK: - Data Menu items
     
     @IBAction func mnuClearHouses_Action(_ sender: NSMenuItem)
     {
