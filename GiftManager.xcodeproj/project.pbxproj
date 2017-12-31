@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5558CE3A1FF7F63600764528 /* CvsExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558CE391FF7F63600764528 /* CvsExport.swift */; };
+		5525EE631FF9794300F23523 /* CsvMailMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525EE621FF9794300F23523 /* CsvMailMerge.swift */; };
+		5558CE3A1FF7F63600764528 /* CsvExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558CE391FF7F63600764528 /* CsvExport.swift */; };
 		55BFC6461FF1A593002682CF /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC6451FF1A593002682CF /* IntExtensions.swift */; };
 		55E538161FE215B2001EA573 /* HouseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538151FE215B2001EA573 /* HouseEditViewController.swift */; };
 		55E538181FE215D0001EA573 /* PersonEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538171FE215D0001EA573 /* PersonEditViewController.swift */; };
@@ -46,7 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5558CE391FF7F63600764528 /* CvsExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvsExport.swift; sourceTree = "<group>"; };
+		5525EE621FF9794300F23523 /* CsvMailMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvMailMerge.swift; sourceTree = "<group>"; };
+		5558CE391FF7F63600764528 /* CsvExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvExport.swift; sourceTree = "<group>"; };
 		55BFC6451FF1A593002682CF /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		55E538151FE215B2001EA573 /* HouseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseEditViewController.swift; sourceTree = "<group>"; };
 		55E538171FE215D0001EA573 /* PersonEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEditViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +102,8 @@
 		553269761FF829F900C1B73D /* Reports */ = {
 			isa = PBXGroup;
 			children = (
-				5558CE391FF7F63600764528 /* CvsExport.swift */,
+				5558CE391FF7F63600764528 /* CsvExport.swift */,
+				5525EE621FF9794300F23523 /* CsvMailMerge.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				C02AFD001FDCAF0B001F0F5F /* ViewControllerExtension.swift in Sources */,
 				C0B429B61F5E31BD00F7C9B9 /* House+CoreDataClass.swift in Sources */,
 				C081C9701DF58F4F009CA4B9 /* RouteViewController.swift in Sources */,
+				5525EE631FF9794300F23523 /* CsvMailMerge.swift in Sources */,
 				C02C03B41FDB6F1E0050EF36 /* RouteDao.swift in Sources */,
 				C02C03BA1FDB6F420050EF36 /* HouseDao.swift in Sources */,
 				C02AFCFE1FDCAE46001F0F5F /* StringExtension.swift in Sources */,
@@ -299,7 +303,7 @@
 				C07A78CC1E477F4100ACC6EE /* OrganizationEditViewController.swift in Sources */,
 				C081C96E1DF58F0C009CA4B9 /* OrganizationViewController.swift in Sources */,
 				55E538161FE215B2001EA573 /* HouseEditViewController.swift in Sources */,
-				5558CE3A1FF7F63600764528 /* CvsExport.swift in Sources */,
+				5558CE3A1FF7F63600764528 /* CsvExport.swift in Sources */,
 				C0FF1FFD1DDBF59A00A228D0 /* CommonFetches.swift in Sources */,
 				C031F5351DD1E82200E3CE67 /* GiftManager.xcdatamodeld in Sources */,
 				C05A3F001FDC1BD7001A0C9E /* OptionDao.swift in Sources */,

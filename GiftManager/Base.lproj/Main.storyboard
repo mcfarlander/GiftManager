@@ -65,10 +65,10 @@
                                                 <action selector="mnuMasterList_Action:" target="Voe-Tx-rLC" id="9Ic-fO-JCj"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="CVS Mail Merge" id="Ma3-vk-09o">
+                                        <menuItem title="CSV Mail Merge" id="Ma3-vk-09o">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="mnuCvsMainMerge_Action:" target="Voe-Tx-rLC" id="vNy-67-pnk"/>
+                                                <action selector="mnuCsvMailMerge_Action:" target="Voe-Tx-rLC" id="jxV-k8-YQd"/>
                                             </connections>
                                         </menuItem>
                                     </items>

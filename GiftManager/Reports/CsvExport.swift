@@ -8,21 +8,21 @@
 
 import Foundation
 
-protocol CvsExportDelegate
+protocol CsvExportDelegate
 {
-	func handleWroteCvs(success:Bool, filePath:String, errorMessage:String)
+	func handleWroteCsv(success:Bool, filePath:String, errorMessage:String)
 }
 
 /**
  A customer class to export data to a CSV file.
  */
-class CvsExport
+class CsvExport
 {
 	fileprivate var path:String = ""
 	fileprivate var separator:String = ","
 	fileprivate var lines:[String] = [""]
 	
-	var delegate:CvsExportDelegate?
+	var delegate:CsvExportDelegate?
 	
 	init() { }
 	
@@ -78,7 +78,7 @@ class CvsExport
 	}
 	
 	/** Write the array of lines to file. */
-	func writeCvs()
+	func writeCsv()
 	{
 		let urlPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(self.path)
 		var csvText = ""
@@ -91,11 +91,11 @@ class CvsExport
 		do
 		{
 			try csvText.write(to: urlPath!, atomically: true, encoding: String.Encoding.utf8)
-			self.delegate?.handleWroteCvs(success: true, filePath: (urlPath?.absoluteString)!, errorMessage: "")
+			self.delegate?.handleWroteCsv(success: true, filePath: (urlPath?.absoluteString)!, errorMessage: "")
 		}
 		catch
 		{
-			self.delegate?.handleWroteCvs(success: false, filePath: "", errorMessage: "\(error)")
+			self.delegate?.handleWroteCsv(success: false, filePath: "", errorMessage: "\(error)")
 		}
 		
 	}

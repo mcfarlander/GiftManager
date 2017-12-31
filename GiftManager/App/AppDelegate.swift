@@ -48,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
 	{
 	}
 	
-	@IBAction func mnuCvsMainMerge_Action(_ sender: NSMenuItem)
+	@IBAction func mnuCsvMailMerge_Action(_ sender: NSMenuItem)
 	{
 	}
 	
