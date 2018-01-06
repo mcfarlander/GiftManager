@@ -50,6 +50,8 @@ class AppDelegate: NSObject, NSApplicationDelegate
 	
 	@IBAction func mnuCsvMailMerge_Action(_ sender: NSMenuItem)
 	{
+		let export = CsvMailMerge()
+		export.createCvsForMailMerge()
 	}
 	
 	

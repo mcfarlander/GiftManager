@@ -18,7 +18,7 @@ extension Route {
 
     @NSManaged public var routenumber: String?
     @NSManaged public var street: String?
-    @NSManaged public var houses: NSSet?
+    @NSManaged public var houses: Set<House>?
 
 }
 

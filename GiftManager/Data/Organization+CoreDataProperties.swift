@@ -18,7 +18,7 @@ extension Organization {
 
     @NSManaged public var name: String?
     @NSManaged public var phone: String?
-    @NSManaged public var persons: NSSet?
+    @NSManaged public var persons: Set<Person>?
 
 }
 

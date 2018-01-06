@@ -41,20 +41,20 @@ class CsvExport
 	func appendLine(line:String) { self.lines.append(line) }
 	
 	/** Convert an array of strings to a single line, ready to be appended. */
-	func convertToLine(strings:[String], isHeader:Bool) -> String
+	func convertToLine(strings:[String], useQuotes:Bool) -> String
 	{
 		var contents = ""
 		
 		for item:String in strings
 		{
-			if isHeader
+			if useQuotes
 			{
 				contents.append("\"")
 			}
 			
 			contents.append(item)
 			
-			if isHeader
+			if useQuotes
 			{
 				contents.append("\"")
 			}
@@ -71,16 +71,16 @@ class CsvExport
 	}
 	
 	/** Convert an array of strings to a single line and appends it to the array of lines immediately. */
-	func convertAndAppendLines(items:[String], isHeader:Bool)
+	func convertAndAppendLines(items:[String], useQuotes:Bool)
 	{
-		let line = convertToLine(strings: items, isHeader: isHeader)
+		let line = convertToLine(strings: items, useQuotes: useQuotes)
 		self.appendLine(line: line)
 	}
 	
 	/** Write the array of lines to file. */
 	func writeCsv()
 	{
-		let urlPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(self.path)
+		let urlPath = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop").appendingPathComponent(self.path)
 		var csvText = ""
 		
 		for line in self.lines
@@ -90,8 +90,8 @@ class CsvExport
 		
 		do
 		{
-			try csvText.write(to: urlPath!, atomically: true, encoding: String.Encoding.utf8)
-			self.delegate?.handleWroteCsv(success: true, filePath: (urlPath?.absoluteString)!, errorMessage: "")
+			try csvText.write(to:urlPath, atomically: false, encoding: .utf8)
+			self.delegate?.handleWroteCsv(success: true, filePath: urlPath.absoluteString, errorMessage: "")
 		}
 		catch
 		{

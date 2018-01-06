@@ -46,7 +46,7 @@ class CommonFetches
 		let house2 = houseDao.create(sequence: 2, contact: "contact2", phone: "phone2")
 			
 		let _ = personDao.create(house: house1!, sequence: "0", name: "", ishousegift: true, ismale: false, age: "", giftIdeas: "person0 gifts")
-		let _ = personDao.create(house: house1!, sequence: "A", name: "A", ishousegift: false, ismale: false, age: "1", giftIdeas: "personA gifts")
+		let _ = personDao.create(house: house1!, sequence: "1", name: "1", ishousegift: false, ismale: false, age: "1", giftIdeas: "person1 gifts")
 			
 		let _ = personDao.create(house: house2!, sequence: "0", name: "", ishousegift: true, ismale: false, age: "", giftIdeas: "person0 gifts")
 

@@ -23,7 +23,7 @@ extension House {
     @NSManaged public var phone: String?
     @NSManaged public var printed: Bool
     @NSManaged public var sequence: Int32
-    @NSManaged public var persons: NSSet?
+    @NSManaged public var persons: Set<Person>?
     @NSManaged public var route: Route?
 
 }

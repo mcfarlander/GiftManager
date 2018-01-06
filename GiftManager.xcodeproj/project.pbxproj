@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5525EE631FF9794300F23523 /* CsvMailMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525EE621FF9794300F23523 /* CsvMailMerge.swift */; };
 		5558CE3A1FF7F63600764528 /* CsvExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558CE391FF7F63600764528 /* CsvExport.swift */; };
+		55BEC11C200186A200BCD628 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEC11B200186A200BCD628 /* DateUtils.swift */; };
 		55BFC6461FF1A593002682CF /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC6451FF1A593002682CF /* IntExtensions.swift */; };
 		55E538161FE215B2001EA573 /* HouseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538151FE215B2001EA573 /* HouseEditViewController.swift */; };
 		55E538181FE215D0001EA573 /* PersonEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538171FE215D0001EA573 /* PersonEditViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		5525EE621FF9794300F23523 /* CsvMailMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvMailMerge.swift; sourceTree = "<group>"; };
 		5558CE391FF7F63600764528 /* CsvExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvExport.swift; sourceTree = "<group>"; };
+		55BEC11B200186A200BCD628 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		55BFC6451FF1A593002682CF /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		55E538151FE215B2001EA573 /* HouseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseEditViewController.swift; sourceTree = "<group>"; };
 		55E538171FE215D0001EA573 /* PersonEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEditViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				C02AFCFD1FDCAE46001F0F5F /* StringExtension.swift */,
 				55BFC6451FF1A593002682CF /* IntExtensions.swift */,
 				C02AFCFF1FDCAF0B001F0F5F /* ViewControllerExtension.swift */,
+				55BEC11B200186A200BCD628 /* DateUtils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				C081C9701DF58F4F009CA4B9 /* RouteViewController.swift in Sources */,
 				5525EE631FF9794300F23523 /* CsvMailMerge.swift in Sources */,
 				C02C03B41FDB6F1E0050EF36 /* RouteDao.swift in Sources */,
+				55BEC11C200186A200BCD628 /* DateUtils.swift in Sources */,
 				C02C03BA1FDB6F420050EF36 /* HouseDao.swift in Sources */,
 				C02AFCFE1FDCAE46001F0F5F /* StringExtension.swift in Sources */,
 				C0B429B81F5E31BD00F7C9B9 /* Person+CoreDataClass.swift in Sources */,
