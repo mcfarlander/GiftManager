@@ -101,13 +101,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		553269761FF829F900C1B73D /* Reports */ = {
+		553269761FF829F900C1B73D /* Csv */ = {
 			isa = PBXGroup;
 			children = (
 				5558CE391FF7F63600764528 /* CsvExport.swift */,
 				5525EE621FF9794300F23523 /* CsvMailMerge.swift */,
 			);
-			path = Reports;
+			path = Csv;
 			sourceTree = "<group>";
 		};
 		C02AFCFC1FDCAE0B001F0F5F /* Common */ = {
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				C031F5411DD1E86800E3CE67 /* App */,
-				553269761FF829F900C1B73D /* Reports */,
+				553269761FF829F900C1B73D /* Csv */,
 				C031F5421DD1E86F00E3CE67 /* Data */,
 				C02AFCFC1FDCAE0B001F0F5F /* Common */,
 				C031F5431DD1E87B00E3CE67 /* Storyboards */,

@@ -13,7 +13,7 @@ class CsvMailMerge
 	fileprivate let houseDao = HouseDao()
 	fileprivate let csvExport = CsvExport()
 	
-	fileprivate let FILE_NAME = "merge"
+	fileprivate let FILE_NAME = "mail_merge"
 	fileprivate let FILE_EXT = ".csv"
 	
 	fileprivate let header = ["TAGID","GENDER","AGE","IDEAS"]

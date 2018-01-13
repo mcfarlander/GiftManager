@@ -77,7 +77,7 @@ class CsvExport
 		self.appendLine(line: line)
 	}
 	
-	/** Write the array of lines to file. */
+	/** Write the array of lines to file on desktop. */
 	func writeCsv()
 	{
 		let urlPath = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop").appendingPathComponent(self.path)
