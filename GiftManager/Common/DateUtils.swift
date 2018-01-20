@@ -19,6 +19,8 @@ class DateUtils
 	
 	private static let formatyyyyMMdd = "yyyy-MM-dd"
 	
+	private static let formatyyyMMddNoDash = "yyyyMMdd"
+	
 	/**
 	Format a date time object to a date only format string. yyyy-MM-dd
 	- parameter strTimestamp:  The timestamp (NSDate) to format.
@@ -44,7 +46,7 @@ class DateUtils
 	}
 	
 	/**
-	Format a date time object to a short format string. MM-dd
+	Format a date time object to a short format string. yyyy-MM-dd
 	- parameter strTimestamp:  The timestamp (NSDate) to format.
 	- returns: Formatted date string.
 	*/
@@ -52,6 +54,18 @@ class DateUtils
 	{
 		let formatter :DateFormatter = DateFormatter()
 		formatter.dateFormat = formatyyyyMMdd
+		return  formatter.string(from: timestamp)
+	}
+	
+	/**
+	Format a date time object to a short format string. yyyyMMdd
+	- parameter strTimestamp:  The timestamp (NSDate) to format.
+	- returns: Formatted date string.
+	*/
+	static func formatDateYyyyMMddNoDash(timestamp:Date) -> String
+	{
+		let formatter :DateFormatter = DateFormatter()
+		formatter.dateFormat = formatyyyMMddNoDash
 		return  formatter.string(from: timestamp)
 	}
 	

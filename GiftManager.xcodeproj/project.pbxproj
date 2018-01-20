@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5525EE631FF9794300F23523 /* CsvMailMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525EE621FF9794300F23523 /* CsvMailMerge.swift */; };
+		554AEB0F200C1F430056D193 /* ReportUtilizationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554AEB0E200C1F430056D193 /* ReportUtilizationBuilder.swift */; };
 		5558CE3A1FF7F63600764528 /* CsvExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558CE391FF7F63600764528 /* CsvExport.swift */; };
+		5573FE43200EBC15007051EA /* ReportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE42200EBC15007051EA /* ReportProtocol.swift */; };
+		55B7B7CB20136C99000DBB6A /* ReportBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7B7CA20136C99000DBB6A /* ReportBase.swift */; };
 		55BEC11C200186A200BCD628 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEC11B200186A200BCD628 /* DateUtils.swift */; };
 		55BFC6461FF1A593002682CF /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC6451FF1A593002682CF /* IntExtensions.swift */; };
 		55E538161FE215B2001EA573 /* HouseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538151FE215B2001EA573 /* HouseEditViewController.swift */; };
@@ -49,7 +52,10 @@
 
 /* Begin PBXFileReference section */
 		5525EE621FF9794300F23523 /* CsvMailMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvMailMerge.swift; sourceTree = "<group>"; };
+		554AEB0E200C1F430056D193 /* ReportUtilizationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportUtilizationBuilder.swift; sourceTree = "<group>"; };
 		5558CE391FF7F63600764528 /* CsvExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvExport.swift; sourceTree = "<group>"; };
+		5573FE42200EBC15007051EA /* ReportProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportProtocol.swift; sourceTree = "<group>"; };
+		55B7B7CA20136C99000DBB6A /* ReportBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBase.swift; sourceTree = "<group>"; };
 		55BEC11B200186A200BCD628 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		55BFC6451FF1A593002682CF /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		55E538151FE215B2001EA573 /* HouseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseEditViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +116,16 @@
 			path = Csv;
 			sourceTree = "<group>";
 		};
+		554AEB0D200C1ED70056D193 /* Pdf */ = {
+			isa = PBXGroup;
+			children = (
+				554AEB0E200C1F430056D193 /* ReportUtilizationBuilder.swift */,
+				5573FE42200EBC15007051EA /* ReportProtocol.swift */,
+				55B7B7CA20136C99000DBB6A /* ReportBase.swift */,
+			);
+			path = Pdf;
+			sourceTree = "<group>";
+		};
 		C02AFCFC1FDCAE0B001F0F5F /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +158,7 @@
 			children = (
 				C031F5411DD1E86800E3CE67 /* App */,
 				553269761FF829F900C1B73D /* Csv */,
+				554AEB0D200C1ED70056D193 /* Pdf */,
 				C031F5421DD1E86F00E3CE67 /* Data */,
 				C02AFCFC1FDCAE0B001F0F5F /* Common */,
 				C031F5431DD1E87B00E3CE67 /* Storyboards */,
@@ -283,12 +300,14 @@
 				C02AFCFB1FDCAC2D001F0F5F /* SheetProtocol.swift in Sources */,
 				C0B429B71F5E31BD00F7C9B9 /* House+CoreDataProperties.swift in Sources */,
 				C05215F41DFC49E6003AB009 /* AppTabViewController.swift in Sources */,
+				55B7B7CB20136C99000DBB6A /* ReportBase.swift in Sources */,
 				C02AFD001FDCAF0B001F0F5F /* ViewControllerExtension.swift in Sources */,
 				C0B429B61F5E31BD00F7C9B9 /* House+CoreDataClass.swift in Sources */,
 				C081C9701DF58F4F009CA4B9 /* RouteViewController.swift in Sources */,
 				5525EE631FF9794300F23523 /* CsvMailMerge.swift in Sources */,
 				C02C03B41FDB6F1E0050EF36 /* RouteDao.swift in Sources */,
 				55BEC11C200186A200BCD628 /* DateUtils.swift in Sources */,
+				554AEB0F200C1F430056D193 /* ReportUtilizationBuilder.swift in Sources */,
 				C02C03BA1FDB6F420050EF36 /* HouseDao.swift in Sources */,
 				C02AFCFE1FDCAE46001F0F5F /* StringExtension.swift in Sources */,
 				C0B429B81F5E31BD00F7C9B9 /* Person+CoreDataClass.swift in Sources */,
@@ -301,6 +320,7 @@
 				C041DA5A1E47C3F000CFA0F9 /* Enums.swift in Sources */,
 				55E538181FE215D0001EA573 /* PersonEditViewController.swift in Sources */,
 				C0B429A01F5E313C00F7C9B9 /* Organization+CoreDataClass.swift in Sources */,
+				5573FE43200EBC15007051EA /* ReportProtocol.swift in Sources */,
 				C031F5301DD1E82200E3CE67 /* AppDelegate.swift in Sources */,
 				C010A8CA1DFC4F9C001325C0 /* AppWindowController.swift in Sources */,
 				C0B429A11F5E313C00F7C9B9 /* Organization+CoreDataProperties.swift in Sources */,
