@@ -50,6 +50,13 @@ protocol ReportProtocol
 	func createHeader()
 	
 	/**
+	Automatically generates an html header, places the description and creates an
+	html table, to be finished by createFooter.
+	- parameter title: the new report name
+	*/
+	func createHeader(title:String)
+	
+	/**
 	Automatically finishes the html table and file started by createHeader.
 	*/
 	func createFooter()

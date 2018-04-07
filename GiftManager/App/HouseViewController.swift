@@ -80,7 +80,23 @@ class HouseViewController: NSViewController
     {
         NSLog("add person action")
 		
-		self.performPersonDataAction(operation: .Add)
+		if self.currentHouse != nil
+		{
+			self.currentPerson = self.personDao.create(house: self.currentHouse!)
+			
+			if self.currentPerson != nil
+			{
+				self.performPersonDataAction(operation: .Add)
+			}
+			else
+			{
+				NSLog("a person was nt created")
+			}
+		}
+		else
+		{
+			NSLog("There isn't a current house")
+		}
     }
     
     @IBAction func btnUpdatePerson_Action(_ sender: NSButton)
@@ -192,6 +208,8 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 			if tableView == self.tableHouses
 			{
 				self.currentHouse = self.houseDao.list()![row]
+				NSLog("selected house: " + self.currentHouse!.sequence.toString())
+				
 				self.currentPerson = nil
 				self.tablePersons.reloadData()
 				
@@ -202,6 +220,8 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 			else
 			{
 				self.currentPerson = self.personDao.list(house: self.currentHouse)?[row]
+				NSLog("selected person: " + self.currentPerson!.sequence!)
+				
 				self.enablePersonControls(isAddEnabled: true, isUpdateDeleteEnabled: true)
 			}
 		}

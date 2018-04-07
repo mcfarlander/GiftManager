@@ -10,10 +10,16 @@ import Foundation
 import Cocoa
 import CoreData
 
+
+/// A class to contain the application managed data context.
 class BaseDao
 {
+	
+	/// The shared managed data context.
 	var manageObjectContext: NSManagedObjectContext? = nil
 	
+	
+	/// Creates a new instance of BaseDao.
 	init()
 	{
 		if manageObjectContext == nil

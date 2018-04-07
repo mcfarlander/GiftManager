@@ -31,6 +31,10 @@ class PersonDao : BaseDao
 		
 	}
 	
+	/// Get a list of the persons in teh house
+	///
+	/// - Parameter house: the house object
+	/// - Returns: the list of persons in the selected house
 	func list(house:House?)-> [Person]?
 	{
 		var results: [Person]?
@@ -86,6 +90,22 @@ class PersonDao : BaseDao
 		}
 		
 		return nil
+		
+	}
+	
+	func create(house:House) -> Person?
+	{
+		let nextSequence = getNextSequence(house: house)
+		var isHouseGift = false
+		switch nextSequence
+		{
+		case "0":
+			isHouseGift = true
+		default:
+			isHouseGift = false
+		}
+		
+		return create(house: house, sequence: nextSequence, name: "", ishousegift: isHouseGift, ismale: false, age: "", giftIdeas: "")
 		
 	}
 	
