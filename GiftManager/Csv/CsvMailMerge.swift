@@ -8,6 +8,11 @@
 
 import Foundation
 
+
+/// Create a CSV file with all the information to perform a mail merge.
+/// example of items in the file:
+///  "93-0","Household Gift","","Pick 'n Save Gift Card"
+///  "93-1","Male","16","Large sweatshirt"
 class CsvMailMerge
 {
 	fileprivate let houseDao = HouseDao()
@@ -20,11 +25,9 @@ class CsvMailMerge
 	fileprivate let HOUSEHOLD_GIFT = "Household Gift"
 	fileprivate let HOUSEHOLD_AGE = ""
 	fileprivate let DASH = "-"
+
 	
-	// example of items in the file:
-	//"93-0","Household Gift","","Pick 'n Save Gift Card"
-	//"93-1","Male","16","Large sweatshirt"
-	
+	/// Acquire data from and create the CSV file.
 	func createCvsForMailMerge()
 	{
 		self.csvExport.delegate = self
@@ -64,8 +67,18 @@ class CsvMailMerge
 	
 }
 
+
+// MARK: - CsvExportDelegate
+
 extension CsvMailMerge: CsvExportDelegate
 {
+	
+	/// Callback to indicate the file was created.
+	///
+	/// - Parameters:
+	///   - success: flag if file was created ok
+	///   - filePath: the path to where the file is located
+	///   - errorMessage: if there was a problem, indicate it
 	func handleWroteCsv(success:Bool, filePath:String, errorMessage:String)
 	{
 		if success

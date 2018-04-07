@@ -56,6 +56,15 @@ class HouseViewController: NSViewController
 		self.enableHouseControls(isEnabled: false)
 		self.enablePersonControls(isAddEnabled: false, isUpdateDeleteEnabled: false)
     }
+	
+	override func keyDown(with event: NSEvent)
+	{
+		if (event.keyCode == 1)
+		{
+			//do whatever when the s key is pressed
+			print("S key pressed")
+		}
+	}
     
     @IBAction func btnAddHouse_Action(_ sender: NSButton)
     {
@@ -67,13 +76,32 @@ class HouseViewController: NSViewController
     @IBAction func btnUpdateHouse_Action(_ sender: NSButton)
     {
         NSLog("update house action")
-		self.performHouseDataAction(operation: .Update)
+		
+		if self.currentHouse != nil
+		{
+			self.performHouseDataAction(operation: .Update)
+		}
+		else
+		{
+			NSLog("No house selected")
+			showOkMessage(title:"Data", message:"House not selected.")
+		}
+		
     }
 
     @IBAction func btnDeleteHouse_Action(_ sender: NSButton)
     {
         NSLog("delete house action")
-		self.performHouseDataAction(operation: .Delete)
+		
+		if self.currentHouse != nil
+		{
+			self.performHouseDataAction(operation: .Delete)
+		}
+		else
+		{
+			NSLog("No house selected")
+			showOkMessage(title:"Data", message:"House not selected.")
+		}
     }
     
     @IBAction func btnAddPerson_Action(_ sender: NSButton)
@@ -96,19 +124,38 @@ class HouseViewController: NSViewController
 		else
 		{
 			NSLog("There isn't a current house")
+			showOkMessage(title:"Data", message:"House not selected.")
 		}
     }
     
     @IBAction func btnUpdatePerson_Action(_ sender: NSButton)
     {
         NSLog("update person action")
-        self.performPersonDataAction(operation: .Update)
+		
+		if self.currentPerson != nil
+		{
+        	self.performPersonDataAction(operation: .Update)
+		}
+		else
+		{
+			NSLog("There isn't a current person")
+			showOkMessage(title:"Data", message:"Person not selected.")
+		}
     }
     
     @IBAction func btnDeletePerson_Action(_ sender: NSButton)
     {
         NSLog("delete person action")
-        self.performPersonDataAction(operation: .Delete)
+		
+		if self.currentPerson != nil
+		{
+        	self.performPersonDataAction(operation: .Delete)
+		}
+		else
+		{
+			NSLog("There isn't a current person")
+			showOkMessage(title:"Data", message:"Person not selected.")
+		}
     }
 	
 	fileprivate func enableHouseControls(isEnabled:Bool)
