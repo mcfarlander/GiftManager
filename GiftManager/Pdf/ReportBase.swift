@@ -9,6 +9,17 @@
 import Foundation
 import Cocoa
 
+/**
+Report base implements ReportProtocol.
+General guidelines:
+	let report = ReportBase()
+	report.report.createHeader(title: "My title", name: "My name", reportDescrption: "My description")
+	report.createTable(["Col1", "Col2"])
+	report.createTableRow(["Val1", "Val3"])
+	report.endTable()
+	report.createFooter()
+	report.saveReportPdf()
+*/
 class ReportBase : ReportProtocol
 {
 	/** The m_report name. */
@@ -235,8 +246,10 @@ class ReportBase : ReportProtocol
 		let fileName = self.m_reportName + "_" + dateCode + ".pdf"
 		
 		let urlPath = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop").appendingPathComponent(fileName)
+		
+		NSLog("report saved to %s", urlPath.absoluteString)
 	
-		return urlPath.absoluteString
+		return fileName
 	
 	}
 	

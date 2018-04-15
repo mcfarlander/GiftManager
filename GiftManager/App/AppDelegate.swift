@@ -46,10 +46,14 @@ class AppDelegate: NSObject, NSApplicationDelegate
     
 	@IBAction func mnuMasterList_Action(_ sender: NSMenuItem)
 	{
+		NSLog("menu -> create master list")
+		let report = ReportMasterList()
+		report.generateMasterListReport()
 	}
 	
 	@IBAction func mnuCsvMailMerge_Action(_ sender: NSMenuItem)
 	{
+		NSLog("menu -> create csv mail merge file")
 		let export = CsvMailMerge()
 		export.createCvsForMailMerge()
 	}
