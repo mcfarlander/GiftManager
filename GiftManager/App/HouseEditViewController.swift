@@ -40,7 +40,7 @@ class HouseEditViewController: NSViewController
         super.viewDidLoad()
         // Do view setup here.
     }
-	
+
 	override func viewDidAppear()
 	{
 		self.populateRoutes()

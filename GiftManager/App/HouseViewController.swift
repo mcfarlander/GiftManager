@@ -59,10 +59,22 @@ class HouseViewController: NSViewController
 	
 	override func keyDown(with event: NSEvent)
 	{
-		if (event.keyCode == 1)
+		switch event.modifierFlags.intersection(.deviceIndependentFlagsMask)
 		{
-			//do whatever when the s key is pressed
-			print("S key pressed")
+		case [.command] where event.characters == "a", [.command, .shift] where event.characters == "a":
+			btnAddHouse_Action(NSButton())
+		case [.command] where event.characters == "u", [.command, .shift] where event.characters == "u":
+			btnUpdateHouse_Action(NSButton())
+		case [.command] where event.characters == "d", [.command, .shift] where event.characters == "d":
+			btnDeleteHouse_Action(NSButton())
+		case [.command] where event.characters == "p", [.command, .shift] where event.characters == "p":
+			btnAddPerson_Action(NSButton())
+		case [.command] where event.characters == "i", [.command, .shift] where event.characters == "i":
+			btnUpdatePerson_Action(NSButton())
+		case [.command] where event.characters == "e", [.command, .shift] where event.characters == "e":
+			btnDeletePerson_Action(NSButton())
+		default:
+			break
 		}
 	}
     

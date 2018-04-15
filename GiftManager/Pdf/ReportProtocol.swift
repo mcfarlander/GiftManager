@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 protocol ReportProtocol
 {
@@ -38,7 +39,7 @@ protocol ReportProtocol
 	rather than saving to disk and feeding the ui browser
 	a uri.
 	
-	- returns: the buffer
+	- returns: the buffer as a string
 	*/
 	func getBuffer() -> String
 	
@@ -55,6 +56,35 @@ protocol ReportProtocol
 	- parameter title: the new report name
 	*/
 	func createHeader(title:String)
+	
+	/// Create the html table heaer
+	///
+	/// - Parameters:
+	///   - title: the title of the report
+	///   - name: the name of the report
+	///   - reportDescrption: the description of the report
+	func createHeader(title:String, name:String, reportDescrption:String)
+
+	/// Create a table for with the column header values
+	///
+	/// - Parameter columnTitles: an array of values to put in each column
+	func createTable(columnTitles:[String])
+	
+	/// Create a table row with the column values
+	///
+	/// - Parameter columnValues: an arrya of values to put in each column
+	func createTableRow(columnValues:[String])
+	
+	/// Create a table row with the column values and set the background color
+	///
+	/// - Parameters:
+	///   - columnValues: an arrya of values to put in each column
+	///   - rowColor: the background color of the row
+	func createTableRow(columnValues:[String], rowColor:NSColor)
+	
+	/// Finish the html table
+	///
+	func endTable()
 	
 	/**
 	Automatically finishes the html table and file started by createHeader.
