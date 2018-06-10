@@ -69,6 +69,5 @@ class DateUtils
 		return  formatter.string(from: timestamp)
 	}
 	
-	
 }
 

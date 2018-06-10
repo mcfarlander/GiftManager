@@ -24,8 +24,6 @@ class ReportMasterList
 		report.createHeader(title: "Master List", name: "MasterList", reportDescrption: "Master List of People")
 		report.createTable(columnTitles: titles)
 		
-		report.createTableRow(columnValues: blankRow, rowColor: NSColor.gray)
-		
 		for house:House in self.houseDao.list()!
 		{
 			let people = self.personDao.list(house: house)!
@@ -33,7 +31,7 @@ class ReportMasterList
 			for person:Person in people
 			{
 				let houseId:String = house.sequence.toString()
-				let phone:String = house.phone ?? ""
+				var phone:String = house.phone ?? ""
 				
 				var houseRoute:String = ""
 				if let route = house.route
@@ -42,6 +40,12 @@ class ReportMasterList
 				}
 				
 				let personId:String = person.sequence ?? ""
+				
+				// don't show the phone for the dependants
+				if personId != "0" {
+					phone = ""
+				}
+				
 				let personName: String = person.name ?? ""
 				let age:String = person.age ?? ""
 				

@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import WebKit
 
 /**
 Report base implements ReportProtocol.
@@ -99,9 +100,9 @@ class ReportBase : ReportProtocol
 		m_buffer.append("<H2>")
 		m_buffer.append(self.m_reportTitle)
 		m_buffer.append("</H2>")
-		m_buffer.append("<br />")
+		m_buffer.append("<br>")
 		m_buffer.append(m_reportDescription)
-		m_buffer.append("<br /> <br />")
+		m_buffer.append("<br> <br>")
 		
 	}
 	
@@ -134,17 +135,17 @@ class ReportBase : ReportProtocol
 	func createTable(columnTitles:[String])
 	{
 		m_buffer.append("<br>")
-		m_buffer.append("<table width='80%' style='margin:0px auto'>")
-		m_buffer.append("<th>")
+		m_buffer.append("<table border='1' cellpadding='2' width='80%' style='margin:0px auto'>")
+		m_buffer.append("<tr>")
 		
 		for title in columnTitles
 		{
-			m_buffer.append("<td>")
+			m_buffer.append("<th>")
 			m_buffer.append(title)
-			m_buffer.append("/td>")
+			m_buffer.append("</th>")
 		}
 		
-		m_buffer.append("</th>")
+		m_buffer.append("</tr>")
 		
 	}
 	
@@ -163,24 +164,23 @@ class ReportBase : ReportProtocol
 	///   - rowColor: the background color of the row
 	func createTableRow(columnValues:[String], rowColor:NSColor)
 	{
-		if let hex = rowColor.cgColor.toHex()
-		{
-			m_buffer.append("<tr bgcolor=\"#" + hex + "\" >")
-		}
-		else
-		{
-			m_buffer.append("<tr>")
-		}
+		var rowString = ""
 		
-		for columnValue in columnValues
-		{
-			m_buffer.append("<td>")
-			m_buffer.append(columnValue)
-			m_buffer.append("/td>")
+		if let hex = rowColor.toHex() {
+			rowString.append("<tr style='background-color:" + hex + "' >")
+		} else {
+			rowString.append("<tr>")
 		}
 		
-		m_buffer.append("</tr>")
+		for columnValue in columnValues {
+			rowString.append("<td>")
+			rowString.append(columnValue)
+			rowString.append("</td>")
+		}
 		
+		rowString.append("</tr>")
+		
+		self.m_buffer.append(rowString)
 		
 	}
 	
@@ -240,17 +240,36 @@ class ReportBase : ReportProtocol
 	report and saves it to the same path the class is on.
 	@return the path
 	*/
-	func saveReportPdf() -> String
-	{
+	func saveReportPdf() -> String {
+		
 		let dateCode = DateUtils.formatDateYyyyMMddNoDash(timestamp: Date())
 		let fileName = self.m_reportName + "_" + dateCode + ".pdf"
-		
 		let urlPath = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop").appendingPathComponent(fileName)
 		
-		NSLog("report saved to %s", urlPath.absoluteString)
-	
+		let webView = WebView()
+		webView.mainFrame.loadHTMLString(self.getBuffer(), baseURL: nil)
+		let when = DispatchTime.now() + 2
+		
+		DispatchQueue.main.asyncAfter(deadline: when) {
+			
+			let printOpts: [NSPrintInfo.AttributeKey: Any] = [NSPrintInfo.AttributeKey.jobDisposition: NSPrintInfo.JobDisposition.save, NSPrintInfo.AttributeKey.jobSavingURL: urlPath]
+			
+			let printInfo = NSPrintInfo(dictionary: printOpts)
+			printInfo.horizontalPagination = NSPrintInfo.PaginationMode.autoPagination
+			printInfo.verticalPagination = NSPrintInfo.PaginationMode.autoPagination
+			printInfo.topMargin = 10.0
+			printInfo.leftMargin = 10.0
+			printInfo.rightMargin = 10.0
+			printInfo.bottomMargin = 10.0
+
+			let printOp: NSPrintOperation = NSPrintOperation(view: webView.mainFrame.frameView.documentView, printInfo: printInfo)
+			printOp.showsPrintPanel = false
+			printOp.showsProgressPanel = false
+			printOp.run()
+		}
+		
 		return fileName
-	
+		
 	}
 	
 }
