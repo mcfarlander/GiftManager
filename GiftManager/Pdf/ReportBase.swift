@@ -35,6 +35,9 @@ class ReportBase : ReportProtocol
 	/** The m_buffer. */
 	private var m_buffer = ""
 	
+	/** The delegate to inform clients the file has been created and if there was a problem. */
+	var delegate:FileCreationDelegate?
+	
 	/**
 	Set the report name.
 	*/
@@ -74,8 +77,7 @@ class ReportBase : ReportProtocol
 	@param title the title
 	@param description the description
 	*/
-	init (name:String, title:String, description:String)
-	{
+	init (name:String, title:String, description:String) {
 		self.m_reportName = name
 		self.m_reportTitle = title
 		self.m_reportDescription = description
@@ -84,8 +86,7 @@ class ReportBase : ReportProtocol
 	/**
 	Implementation of IReportBase.createHeader().
 	*/
-	func createHeader()
-	{
+	func createHeader() {
 		
 		m_buffer.append("<html>")
 		m_buffer.append("<head>")
@@ -109,8 +110,7 @@ class ReportBase : ReportProtocol
 	/// Create the hmtl table header
 	///
 	/// - Parameter title: the title of the report
-	func createHeader(title:String)
-	{
+	func createHeader(title:String) {
 		self.m_reportTitle = title
 		createHeader()
 	}
@@ -121,8 +121,7 @@ class ReportBase : ReportProtocol
 	///   - title: the title of the report
 	///   - name: the name of the report
 	///   - reportDscrption: the description of the report
-	func createHeader(title:String, name:String, reportDescrption:String)
-	{
+	func createHeader(title:String, name:String, reportDescrption:String) {
 		self.m_reportName = name
 		self.m_reportTitle = title
 		self.m_reportDescription = reportDescrption
@@ -132,14 +131,12 @@ class ReportBase : ReportProtocol
 	/// Create a table for with the column header values
 	///
 	/// - Parameter columnTitles: an array of values to put in each column
-	func createTable(columnTitles:[String])
-	{
+	func createTable(columnTitles:[String]) {
 		m_buffer.append("<br>")
 		m_buffer.append("<table border='1' cellpadding='2' width='80%' style='margin:0px auto'>")
 		m_buffer.append("<tr>")
 		
-		for title in columnTitles
-		{
+		for title in columnTitles {
 			m_buffer.append("<th>")
 			m_buffer.append(title)
 			m_buffer.append("</th>")
@@ -152,8 +149,7 @@ class ReportBase : ReportProtocol
 	/// Create a table row with the column values
 	///
 	/// - Parameter columnValues: an arrya of values to put in each column
-	func createTableRow(columnValues:[String])
-	{
+	func createTableRow(columnValues:[String]) {
 		createTableRow(columnValues:columnValues, rowColor:NSColor.white)
 	}
 	
@@ -162,8 +158,7 @@ class ReportBase : ReportProtocol
 	/// - Parameters:
 	///   - columnValues: an arrya of values to put in each column
 	///   - rowColor: the background color of the row
-	func createTableRow(columnValues:[String], rowColor:NSColor)
-	{
+	func createTableRow(columnValues:[String], rowColor:NSColor) {
 		var rowString = ""
 		
 		if let hex = rowColor.toHex() {
@@ -186,8 +181,7 @@ class ReportBase : ReportProtocol
 	
 	/// Finish the html table
 	///
-	func endTable()
-	{
+	func endTable() {
 		m_buffer.append("</table>")
 		m_buffer.append("<br>")
 	}
@@ -200,8 +194,7 @@ class ReportBase : ReportProtocol
 	/**
 	Implementation of IReportBase.createFooter.
 	*/
-	func createFooter()
-	{
+	func createFooter() {
 		m_buffer.append("</body>")
 		m_buffer.append("</html>")
 		
@@ -213,22 +206,20 @@ class ReportBase : ReportProtocol
 	
 	@return the string
 	*/
-	func saveReport() -> String
-	{
+	func saveReport() -> String {
 		let dateCode = DateUtils.formatDateYyyyMMddNoDash(timestamp: Date())
 		let fileName = self.m_reportName + "_" + dateCode + ".html"
 		var sReturn = ""
 		
 		let urlPath = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop").appendingPathComponent(fileName)
 
-		do
-		{
+		do {
 			try self.m_buffer.write(to:urlPath, atomically: false, encoding: .utf8)
 			sReturn = fileName
-		}
-		catch
-		{
+			self.delegate?.handleWroteFile(success: true, filePath: sReturn, errorMessage: "")
+		} catch {
 			NSLog("\(error)")
+			self.delegate?.handleWroteFile(success: false, filePath: sReturn, errorMessage: error.localizedDescription)
 		}
 		
 		return sReturn
@@ -265,7 +256,13 @@ class ReportBase : ReportProtocol
 			let printOp: NSPrintOperation = NSPrintOperation(view: webView.mainFrame.frameView.documentView, printInfo: printInfo)
 			printOp.showsPrintPanel = false
 			printOp.showsProgressPanel = false
-			printOp.run()
+			let success = printOp.run()
+			
+			if success {
+				self.delegate?.handleWroteFile(success: true, filePath: fileName, errorMessage: "")
+			} else {
+				self.delegate?.handleWroteFile(success: false, filePath: "", errorMessage: "There was a problem writing the file.")
+			}
 		}
 		
 		return fileName

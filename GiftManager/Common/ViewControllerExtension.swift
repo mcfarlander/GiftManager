@@ -9,8 +9,7 @@
 import Foundation
 import Cocoa
 
-extension NSViewController
-{
+extension NSViewController {
 	// MARK: - General alert message dialog
 	
 	/**
@@ -18,8 +17,7 @@ extension NSViewController
 	- parameter title: The string to show as a bold title at the top of the dialog
 	- parameter message: The string message to display as information to the user
 	*/
-	func showOkMessage(title:String, message:String)
-	{
+	func showOkMessage(title:String, message:String) {
 		let alert = NSAlert()
 		alert.messageText = message
 		alert.informativeText = title

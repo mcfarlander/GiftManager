@@ -16,7 +16,7 @@ import Foundation
 class CsvMailMerge
 {
 	fileprivate let houseDao = HouseDao()
-	fileprivate let csvExport = CsvExport()
+	let csvExport = CsvExport()
 	
 	fileprivate let FILE_NAME = "mail_merge"
 	fileprivate let FILE_EXT = ".csv"
@@ -28,26 +28,21 @@ class CsvMailMerge
 
 	
 	/// Acquire data from and create the CSV file.
-	func createCvsForMailMerge()
-	{
-		self.csvExport.delegate = self
+	func createCvsForMailMerge() {
 		
 		let fileName = self.FILE_NAME + "-" + DateUtils.formatDateYyyyMMdd(timestamp: Date()) + self.FILE_EXT
 		self.csvExport.setPath(path: fileName)
 		
 		self.csvExport.convertAndAppendLines(items: self.header, useQuotes: true)
 		
-		for house:House in self.houseDao.list()!
-		{
-			for person:Person in house.persons!
-			{
+		for house:House in self.houseDao.list()! {
+			for person:Person in house.persons! {
 				let tagId = house.sequence.toString() + self.DASH + person.sequence!
 				
 				var gender = person.ismale ? "Male" : "Female"
 				var age = person.age!
 				
-				if person.ishousegift
-				{
+				if person.ishousegift {
 					gender = self.HOUSEHOLD_GIFT
 					age = self.HOUSEHOLD_AGE
 				}
@@ -65,30 +60,4 @@ class CsvMailMerge
 		
 	}
 	
-}
-
-
-// MARK: - CsvExportDelegate
-
-extension CsvMailMerge: CsvExportDelegate
-{
-	
-	/// Callback to indicate the file was created.
-	///
-	/// - Parameters:
-	///   - success: flag if file was created ok
-	///   - filePath: the path to where the file is located
-	///   - errorMessage: if there was a problem, indicate it
-	func handleWroteCsv(success:Bool, filePath:String, errorMessage:String)
-	{
-		if success
-		{
-			NSLog("wrote file to \(filePath)")
-		}
-		else
-		{
-			NSLog("error writing file \(errorMessage)")
-		}
-		
-	}
 }

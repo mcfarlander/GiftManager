@@ -11,8 +11,8 @@ import Foundation
 * Various helper methods for manipulating and formating dates.
 *
 */
-class DateUtils
-{
+class DateUtils {
+	
 	private static let formatyyyyMMddHHmm = "yyyy-MM-dd HH:mm"
 	
 	private static let formatMMdd = "MM-dd"
@@ -26,8 +26,7 @@ class DateUtils
 	- parameter strTimestamp:  The timestamp (NSDate) to format.
 	- returns: Formatted date string.
 	*/
-	static func formatDateyyyyMMddHHmm(timestamp:Date) -> String
-	{
+	static func formatDateyyyyMMddHHmm(timestamp:Date) -> String {
 		let formatter :DateFormatter = DateFormatter()
 		formatter.dateFormat = formatyyyyMMddHHmm
 		return  formatter.string(from: timestamp)
@@ -38,8 +37,7 @@ class DateUtils
 	- parameter strTimestamp:  The timestamp (NSDate) to format.
 	- returns: Formatted date string.
 	*/
-	static func formatDateMMdd(timestamp:Date) -> String
-	{
+	static func formatDateMMdd(timestamp:Date) -> String {
 		let formatter :DateFormatter = DateFormatter()
 		formatter.dateFormat = formatMMdd
 		return  formatter.string(from: timestamp)
@@ -50,8 +48,7 @@ class DateUtils
 	- parameter strTimestamp:  The timestamp (NSDate) to format.
 	- returns: Formatted date string.
 	*/
-	static func formatDateYyyyMMdd(timestamp:Date) -> String
-	{
+	static func formatDateYyyyMMdd(timestamp:Date) -> String {
 		let formatter :DateFormatter = DateFormatter()
 		formatter.dateFormat = formatyyyyMMdd
 		return  formatter.string(from: timestamp)
@@ -62,8 +59,7 @@ class DateUtils
 	- parameter strTimestamp:  The timestamp (NSDate) to format.
 	- returns: Formatted date string.
 	*/
-	static func formatDateYyyyMMddNoDash(timestamp:Date) -> String
-	{
+	static func formatDateYyyyMMddNoDash(timestamp:Date) -> String {
 		let formatter :DateFormatter = DateFormatter()
 		formatter.dateFormat = formatyyyMMddNoDash
 		return  formatter.string(from: timestamp)

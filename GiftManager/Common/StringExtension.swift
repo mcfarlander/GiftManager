@@ -10,8 +10,8 @@ import Foundation
 import Cocoa
 
 
-extension String
-{
+extension String {
+	
 	/** Trim front and back whitespace. */
 	func trim() -> String {
 		return self.trimmingCharacters(in: NSCharacterSet.whitespaces)

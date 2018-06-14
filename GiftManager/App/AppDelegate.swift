@@ -48,13 +48,16 @@ class AppDelegate: NSObject, NSApplicationDelegate
 	{
 		NSLog("menu -> create master list")
 		let report = ReportMasterList()
-		report.generateMasterListReport()
+		report.report.delegate = self
+		let fileName = report.generateMasterListReport()
+		NSLog("Ok, attempted to write file %s", fileName!)
 	}
 	
 	@IBAction func mnuCsvMailMerge_Action(_ sender: NSMenuItem)
 	{
 		NSLog("menu -> create csv mail merge file")
 		let export = CsvMailMerge()
+		export.csvExport.delegate = self
 		export.createCvsForMailMerge()
 	}
 	
@@ -279,6 +282,36 @@ class AppDelegate: NSObject, NSApplicationDelegate
         // If we got here, it is time to quit.
         return .terminateNow
     }
+	
+	/**
+	General ok dialog box (alert) for a message.
+	- parameter title: The string to show as a bold title at the top of the dialog
+	- parameter message: The string message to display as information to the user
+	*/
+	func showOkMessage(title:String, message:String) {
+		let alert = NSAlert()
+		alert.messageText = message
+		alert.informativeText = title
+		alert.alertStyle = .warning
+		alert.addButton(withTitle: "OK")
+		alert.runModal()
+	}
 
+}
+
+// MARK: - FileCreationDelegate
+
+extension AppDelegate: FileCreationDelegate
+{
+	func handleWroteFile(success:Bool, filePath:String, errorMessage:String) {
+		if success {
+			NSLog("wrote file to \(filePath)")
+			self.showOkMessage(title: "Successfully wrote file", message: filePath)
+		} else {
+			NSLog("error writing file \(errorMessage)")
+			self.showOkMessage(title: "Failed to write file", message: errorMessage)
+		}
+		
+	}
 }
 

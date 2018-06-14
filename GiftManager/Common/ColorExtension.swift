@@ -13,6 +13,7 @@ import Cocoa
 public extension NSColor {
 	
 	func toHex() -> String? {
+		
 			guard let rgbColor = usingColorSpaceName(NSColorSpaceName.calibratedRGB) else {
 				return "FFFFFF"
 			}

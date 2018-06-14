@@ -8,20 +8,6 @@
 
 import Foundation
 
-
-/// Protocol to define a callback for when the file was created and if there was a problem.
-protocol CsvExportDelegate
-{
-	
-	/// Callback to indicate the file was created.
-	///
-	/// - Parameters:
-	///   - success: flag if file was created ok
-	///   - filePath: the path to where the file is located
-	///   - errorMessage: if there was a problem, indicate it
-	func handleWroteCsv(success:Bool, filePath:String, errorMessage:String)
-}
-
 /**
  A customer class to export data to a CSV file.
  */
@@ -31,12 +17,11 @@ class CsvExport
 	fileprivate var separator:String = ","
 	fileprivate var lines:[String] = [""]
 	
-	var delegate:CsvExportDelegate?
+	var delegate:FileCreationDelegate?
 	
 	init() { }
 	
-	init(path:String)
-	{
+	init(path:String) {
 		self.path = path
 	}
 	
@@ -50,21 +35,17 @@ class CsvExport
 	func appendLine(line:String) { self.lines.append(line) }
 	
 	/** Convert an array of strings to a single line, ready to be appended. */
-	func convertToLine(strings:[String], useQuotes:Bool) -> String
-	{
+	func convertToLine(strings:[String], useQuotes:Bool) -> String {
 		var contents = ""
 		
-		for item:String in strings
-		{
-			if useQuotes
-			{
+		for item:String in strings {
+			if useQuotes {
 				contents.append("\"")
 			}
 			
 			contents.append(item)
 			
-			if useQuotes
-			{
+			if useQuotes {
 				contents.append("\"")
 			}
 			
@@ -80,31 +61,25 @@ class CsvExport
 	}
 	
 	/** Convert an array of strings to a single line and appends it to the array of lines immediately. */
-	func convertAndAppendLines(items:[String], useQuotes:Bool)
-	{
+	func convertAndAppendLines(items:[String], useQuotes:Bool) {
 		let line = convertToLine(strings: items, useQuotes: useQuotes)
 		self.appendLine(line: line)
 	}
 	
 	/** Write the array of lines to file on desktop. */
-	func writeCsv()
-	{
+	func writeCsv() {
 		let urlPath = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop").appendingPathComponent(self.path)
 		var csvText = ""
 		
-		for line in self.lines
-		{
+		for line in self.lines {
 			csvText.append(line)
 		}
 		
-		do
-		{
+		do {
 			try csvText.write(to:urlPath, atomically: false, encoding: .utf8)
-			self.delegate?.handleWroteCsv(success: true, filePath: urlPath.absoluteString, errorMessage: "")
-		}
-		catch
-		{
-			self.delegate?.handleWroteCsv(success: false, filePath: "", errorMessage: "\(error)")
+			self.delegate?.handleWroteFile(success: true, filePath: urlPath.absoluteString, errorMessage: "")
+		} catch {
+			self.delegate?.handleWroteFile(success: false, filePath: "", errorMessage: "\(error)")
 		}
 		
 	}

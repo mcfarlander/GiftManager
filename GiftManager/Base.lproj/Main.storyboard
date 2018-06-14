@@ -59,13 +59,13 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Reports" id="cqG-oa-66G">
                                     <items>
-                                        <menuItem title="Master List" id="gdM-dv-TSc">
+                                        <menuItem title="Master List - PDF" id="gdM-dv-TSc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="mnuMasterList_Action:" target="Voe-Tx-rLC" id="9Ic-fO-JCj"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="CSV Mail Merge" id="Ma3-vk-09o">
+                                        <menuItem title="Mail Merge - CVS" id="Ma3-vk-09o">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="mnuCsvMailMerge_Action:" target="Voe-Tx-rLC" id="jxV-k8-YQd"/>

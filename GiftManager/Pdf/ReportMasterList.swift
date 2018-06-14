@@ -9,33 +9,29 @@
 import Foundation
 import Cocoa
 
-class ReportMasterList
-{
+class ReportMasterList {
 	
-	private let report = ReportBase()
+	let report = ReportBase()
 	private let houseDao = HouseDao()
 	private let personDao = PersonDao()
 	
-	func generateMasterListReport() -> String?
-	{
+	func generateMasterListReport() -> String? {
+		
 		let titles = ["House", "Address", "Phone", "Route", "Person", "Name", "Age", "Gender"]
 		let blankRow = ["", "", "", "", "", "", "", ""]
 		
 		report.createHeader(title: "Master List", name: "MasterList", reportDescrption: "Master List of People")
 		report.createTable(columnTitles: titles)
 		
-		for house:House in self.houseDao.list()!
-		{
+		for house:House in self.houseDao.list()! {
 			let people = self.personDao.list(house: house)!
 			
-			for person:Person in people
-			{
+			for person:Person in people {
 				let houseId:String = house.sequence.toString()
 				var phone:String = house.phone ?? ""
 				
 				var houseRoute:String = ""
-				if let route = house.route
-				{
+				if let route = house.route {
 					houseRoute = route.routenumber ?? ""
 				}
 				
@@ -50,8 +46,7 @@ class ReportMasterList
 				let age:String = person.age ?? ""
 				
 				var gender = "F"
-				if person.ismale
-				{
+				if person.ismale {
 					gender = "M"
 				}
 				
