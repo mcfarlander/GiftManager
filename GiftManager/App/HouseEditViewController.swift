@@ -187,4 +187,12 @@ class HouseEditViewController: NSViewController
 		
 	}
     
+	@IBAction func ButtonOK_Action(_ sender: NSButton) {
+		
+	}
+	
+	@IBAction func ButtonCancel_Action(_ sender: NSButton) {
+		
+	}
+	
 }

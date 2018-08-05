@@ -170,44 +170,6 @@
                             <outlet property="delegate" destination="B8D-0N-5wS" id="WaA-hW-lap"/>
                         </connections>
                     </window>
-                    <touchBar key="touchBar" id="snV-pj-Xmq" customClass="TouchBarController" customModule="GiftManager" customModuleProvider="target">
-                        <touchBarItems>
-                            <touchBarItem identifier="touchbar_add_house" customizationLabel="" id="SoX-ct-u6W">
-                                <viewController key="viewController" id="FFG-ag-zbI">
-                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="877-u5-NcC">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="House +" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xic-Kh-5nP">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                        </buttonCell>
-                                        <color key="bezelColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="AddHouse_Action:" target="B8D-0N-5wS" id="gBi-Oi-RaJ"/>
-                                        </connections>
-                                    </button>
-                                </viewController>
-                                <size key="designTimeSize" width="90" height="30"/>
-                            </touchBarItem>
-                            <touchBarItem identifier="touchbar_add_person" id="Djm-S4-sO4">
-                                <viewController key="viewController" id="1Sa-9Z-J7v">
-                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SRD-Wj-H0M">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Person +" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="h62-ze-Q7n">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                        </buttonCell>
-                                        <color key="bezelColor" red="0.14444196270000001" green="0.62603322439999998" blue="0.89958132859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <connections>
-                                            <action selector="AddPerson_Action:" target="B8D-0N-5wS" id="QpO-wL-Ggh"/>
-                                        </connections>
-                                    </button>
-                                </viewController>
-                                <size key="designTimeSize" width="90" height="30"/>
-                            </touchBarItem>
-                        </touchBarItems>
-                    </touchBar>
                     <connections>
                         <segue destination="WZT-DS-KXd" kind="relationship" relationship="window.shadowedContentViewController" id="tPh-DF-SJy"/>
                     </connections>
@@ -490,7 +452,7 @@
                 </viewController>
                 <customObject id="Nqh-Dt-FWi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="1635"/>
+            <point key="canvasLocation" x="585" y="1761"/>
         </scene>
         <!--Houses-->
         <scene sceneID="uXP-F6-bX7">
@@ -1174,9 +1136,47 @@
                             <constraint firstAttribute="trailing" secondItem="M1P-Ha-QMt" secondAttribute="trailing" constant="20" symbolic="YES" id="tec-wL-wqV"/>
                         </constraints>
                     </view>
+                    <touchBar key="touchBar" id="fe6-i6-2ts">
+                        <touchBarItems>
+                            <touchBarItem id="PQy-Tt-kQm">
+                                <viewController key="viewController" id="XnC-9B-D8x">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TYh-Yb-T60">
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Add House" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mfU-gS-Ckw">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="btnAddHouse_Action:" target="ffQ-XN-6pg" id="92F-of-nt9"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="108" height="30"/>
+                            </touchBarItem>
+                            <touchBarItem id="qgD-fn-47M">
+                                <viewController key="viewController" id="tqc-YT-UKz">
+                                    <button key="view" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IeD-7t-tmA">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Add Person" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ekD-NL-Mqb">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="0.14444196270000001" green="0.62603322439999998" blue="0.89958132859999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <action selector="btnAddPerson_Action:" target="ffQ-XN-6pg" id="NL0-0k-nHY"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="90" height="30"/>
+                            </touchBarItem>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
-                        <outlet property="btnAddHouse" destination="36a-73-XP2" id="MWE-An-AmP"/>
-                        <outlet property="btnAddPerson" destination="Ayp-ax-jEU" id="cqV-jg-Zau"/>
+                        <outlet property="btnAddHouse" destination="TYh-Yb-T60" id="6sQ-bF-8pM"/>
+                        <outlet property="btnAddPerson" destination="IeD-7t-tmA" id="bDy-Qr-Fsu"/>
                         <outlet property="btnDeleteHouse" destination="Pn0-mT-K3e" id="F4Y-8V-K8V"/>
                         <outlet property="btnDeletePerson" destination="gwx-GB-NIC" id="ruF-PO-GO3"/>
                         <outlet property="btnUpdateHouse" destination="9eG-qp-NCG" id="uaS-3Z-McZ"/>
@@ -1329,6 +1329,48 @@
                             </textField>
                         </subviews>
                     </view>
+                    <touchBar key="touchBar" id="5Sv-Ia-gOQ">
+                        <touchBarItems>
+                            <touchBarItem id="NcM-jA-g7U">
+                                <viewController key="viewController" id="94L-yf-hhp">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JMK-Vg-qTO">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a3t-AK-CJV">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="ButtonOK_Action:" target="evN-ly-c7O" id="UIe-Tq-sj8"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarItem id="LJC-dz-9cH">
+                                <viewController key="viewController" id="jBj-OX-VcS">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jNY-qR-rEh">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nmv-Mm-zyB">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="ButtonCancel_Action:" target="evN-ly-c7O" id="MHd-0O-7JK"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
                         <outlet property="btnCancel" destination="PBB-er-U35" id="kps-bo-aCz"/>
                         <outlet property="btnOk" destination="nMf-hE-U7g" id="6sq-LL-xzr"/>
@@ -1348,7 +1390,7 @@
                 </viewController>
                 <customObject id="o1h-Bn-ZQC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1637" y="1705.5"/>
+            <point key="canvasLocation" x="1951" y="1847"/>
         </scene>
         <!--Edit House-->
         <scene sceneID="4Ya-m6-tq0">
@@ -1511,6 +1553,48 @@
                             </button>
                         </subviews>
                     </view>
+                    <touchBar key="touchBar" id="Fg1-kQ-Yg8">
+                        <touchBarItems>
+                            <touchBarItem id="QnU-GF-ttP">
+                                <viewController key="viewController" id="haP-oB-mgT">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tqc-h8-yMF">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZdT-dJ-2XX">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="ButtonOK_Action:" target="TMK-UZ-vgo" id="wME-q2-EVv"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarItem id="NDi-sQ-Urg">
+                                <viewController key="viewController" id="l1f-zX-r5J">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hiq-Db-089">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="J2O-p7-Kwg">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="ButtonCancel_Action:" target="TMK-UZ-vgo" id="4QV-JM-Dyl"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
                         <outlet property="btnCancel" destination="oT7-BP-bAT" id="d9V-yo-5YA"/>
                         <outlet property="btnOk" destination="Ojp-af-dYx" id="JSz-SB-Ygi"/>
@@ -1532,7 +1616,7 @@
                 </viewController>
                 <customObject id="qKx-qA-akB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1162" y="1705.5"/>
+            <point key="canvasLocation" x="1173" y="1847"/>
         </scene>
         <!--Routes-->
         <scene sceneID="R1W-hq-svM">
@@ -1780,7 +1864,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="76" y="1635"/>
+            <point key="canvasLocation" x="-5" y="1761"/>
         </scene>
     </scenes>
 </document>

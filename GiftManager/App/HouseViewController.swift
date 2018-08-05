@@ -31,8 +31,6 @@ class HouseViewController: NSViewController
 	fileprivate var currentHouse:House? = nil
 	fileprivate var currentPerson:Person? = nil
 	
-	fileprivate var mainWindowViewController:AppWindowController?
-	
 	lazy var houseEditViewController: HouseEditViewController =
 	{
 			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "HouseEditViewController")) as! HouseEditViewController
@@ -48,9 +46,6 @@ class HouseViewController: NSViewController
         // Do view setup here.
         NSLog("Houses view did load")
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(onNotificationAddHouse(notification:)), name: AppWindowController.notificationAddHouse, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(onNotificationAddPerson(notification:)), name: AppWindowController.notificationAddPerson, object: nil)
-		
 		self.tableHouses.delegate = self
 		self.tableHouses.dataSource = self
 		
@@ -59,6 +54,7 @@ class HouseViewController: NSViewController
 		
 		self.enableHouseControls(isEnabled: false)
 		self.enablePersonControls(isAddEnabled: false, isUpdateDeleteEnabled: false)
+		
 
     }
 
@@ -81,16 +77,6 @@ class HouseViewController: NSViewController
 		default:
 			break
 		}
-	}
-	
-	@objc func onNotificationAddHouse(notification:Notification) {
-		NSLog("received notification to add house")
-		btnAddHouse_Action(NSButton())
-	}
-	
-	@objc func onNotificationAddPerson(notification:Notification) {
-		NSLog("received notification to add person")
-		btnAddPerson_Action(NSButton())
 	}
     
     @IBAction func btnAddHouse_Action(_ sender: NSButton) {
@@ -218,10 +204,15 @@ extension HouseViewController:HousePersonViewControllerDelegate {
 	
 	func handleUpdateHouse(isCanceled:Bool) {
 		self.tableHouses.reloadData()
+		
+		if isCanceled &&  self.houseEditViewController.operation == DataOperation.Add {
+			self.currentHouse = nil
+		}
 	}
 	
 	func handleUpdatePerson(isCanceled:Bool) {
 		self.tablePersons.reloadData()
+		
 	}
 }
 
@@ -248,19 +239,14 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource {
 	}
 	
 	func numberOfRows(in tableView: NSTableView) -> Int {
-		if tableView == self.tableHouses
-		{
+		
+		if tableView == self.tableHouses {
 			labelCountValue.stringValue = self.houseDao.list()!.count.toString()
 			return self.houseDao.list()!.count
-		}
-		else
-		{
-			if self.currentHouse != nil
-			{
+		} else {
+			if self.currentHouse != nil {
 				return self.personDao.list(house:self.currentHouse)!.count
-			}
-			else
-			{
+			} else {
 				return 0
 			}
 		}
@@ -270,8 +256,7 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource {
 
 		if row >= 0
 		{
-			if tableView == self.tableHouses
-			{
+			if tableView == self.tableHouses {
 				self.currentHouse = self.houseDao.list()![row]
 				NSLog("selected house: " + self.currentHouse!.sequence.toString())
 				
@@ -281,9 +266,7 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource {
 				self.enableHouseControls(isEnabled: true)
 				self.enablePersonControls(isAddEnabled:true, isUpdateDeleteEnabled: false)
 				
-			}
-			else
-			{
+			} else {
 				self.currentPerson = self.personDao.list(house: self.currentHouse)?[row]
 				NSLog("selected person: " + self.currentPerson!.sequence!)
 				
@@ -295,17 +278,18 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource {
 	}
 	
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+		
 		var text: String = ""
 		var cellIdentifier: String = ""
 		
-		if tableView == self.tableHouses
-		{
+		if tableView == self.tableHouses {
+			
 			let house = self.houseDao.list()![row]
 			
 			//print(house)
 			
-			switch tableColumn!
-			{
+			switch tableColumn! {
+				 
 			case tableView.tableColumns[0]:
 				text = String(describing:house.sequence)
 				cellIdentifier = CellIdentifiers.CellHouseSequence
@@ -347,7 +331,7 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource {
 		else
 		{
 			let person = self.personDao.list(house:self.currentHouse)![row]
-				
+			
 			switch tableColumn!
 			{
 			case tableView.tableColumns[0]:
@@ -382,9 +366,9 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource {
 				break
 				
 			}
-
+			
 		}
-		
+			
 		if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView
 		{
 			cell.textField?.stringValue = text
