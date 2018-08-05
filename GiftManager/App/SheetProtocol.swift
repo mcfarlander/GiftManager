@@ -17,15 +17,14 @@ protocol SheetViewControllerDelegate
 	func handleUpdate()
 }
 
-
 /// Protocol for when a house or person is updated.
 protocol HousePersonViewControllerDelegate
 {
 	
 	/// Callback for when a house has been updated.
-	func handleUpdateHouse()
+	func handleUpdateHouse(isCanceled:Bool)
 	
 	
 	/// Callback for when a person has been updated.
-	func handleUpdatePerson()
+	func handleUpdatePerson(isCanceled:Bool)
 }

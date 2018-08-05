@@ -118,7 +118,7 @@ class HouseEditViewController: NSViewController
 				self.houseDao.delete(house: self.house!)
 			}
 			
-			self.delegate?.handleUpdateHouse()
+			self.delegate?.handleUpdateHouse(isCanceled: false)
 			self.dismiss(self)
 		}
 	}
@@ -130,7 +130,7 @@ class HouseEditViewController: NSViewController
 			self.houseDao.delete(house: self.house!)
 		}
 		
-		self.delegate?.handleUpdateHouse()
+		self.delegate?.handleUpdateHouse(isCanceled: true)
 		self.dismiss(self)
 	}
 	

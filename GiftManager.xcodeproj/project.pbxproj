@@ -16,6 +16,7 @@
 		55B7B7CB20136C99000DBB6A /* ReportBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7B7CA20136C99000DBB6A /* ReportBase.swift */; };
 		55BEC11C200186A200BCD628 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BEC11B200186A200BCD628 /* DateUtils.swift */; };
 		55BFC6461FF1A593002682CF /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BFC6451FF1A593002682CF /* IntExtensions.swift */; };
+		55C176682115E5CA001C20C4 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C176672115E5CA001C20C4 /* TouchBarController.swift */; };
 		55E538161FE215B2001EA573 /* HouseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538151FE215B2001EA573 /* HouseEditViewController.swift */; };
 		55E538181FE215D0001EA573 /* PersonEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538171FE215D0001EA573 /* PersonEditViewController.swift */; };
 		C010A8CA1DFC4F9C001325C0 /* AppWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */; };
@@ -62,6 +63,7 @@
 		55B7B7CA20136C99000DBB6A /* ReportBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBase.swift; sourceTree = "<group>"; };
 		55BEC11B200186A200BCD628 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		55BFC6451FF1A593002682CF /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
+		55C176672115E5CA001C20C4 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
 		55E538151FE215B2001EA573 /* HouseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseEditViewController.swift; sourceTree = "<group>"; };
 		55E538171FE215D0001EA573 /* PersonEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEditViewController.swift; sourceTree = "<group>"; };
 		C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWindowController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				C081C96F1DF58F4F009CA4B9 /* RouteViewController.swift */,
 				C07A78C71E477C0300ACC6EE /* RouteEditViewController.swift */,
 				C02AFCFA1FDCAC2D001F0F5F /* SheetProtocol.swift */,
+				55C176672115E5CA001C20C4 /* TouchBarController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C02C03B61FDB6F2A0050EF36 /* OrganizationDao.swift in Sources */,
+				55C176682115E5CA001C20C4 /* TouchBarController.swift in Sources */,
 				C02C03B81FDB6F370050EF36 /* PersonDao.swift in Sources */,
 				C0B429991F5E30B500F7C9B9 /* Route+CoreDataProperties.swift in Sources */,
 				C0B429A81F5E316D00F7C9B9 /* Option+CoreDataClass.swift in Sources */,

@@ -101,7 +101,7 @@ class PersonEditViewController: NSViewController
 				self.personDao.delete(person: self.person!)
 			}
 			
-			self.delegate?.handleUpdatePerson()
+			self.delegate?.handleUpdatePerson(isCanceled: false)
 			self.dismiss(self)
 		}
 	}
@@ -113,7 +113,7 @@ class PersonEditViewController: NSViewController
 			self.personDao.delete(person: self.person!)
 		}
 		
-		self.delegate?.handleUpdatePerson()
+		self.delegate?.handleUpdatePerson(isCanceled: true)
 		self.dismiss(self)
 	}
 	

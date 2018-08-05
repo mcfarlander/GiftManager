@@ -31,6 +31,8 @@ class HouseViewController: NSViewController
 	fileprivate var currentHouse:House? = nil
 	fileprivate var currentPerson:Person? = nil
 	
+	fileprivate var mainWindowViewController:AppWindowController?
+	
 	lazy var houseEditViewController: HouseEditViewController =
 	{
 			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "HouseEditViewController")) as! HouseEditViewController
@@ -41,11 +43,13 @@ class HouseViewController: NSViewController
 			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PersonEditViewController")) as! PersonEditViewController
 	}()
 	
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         NSLog("Houses view did load")
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(onNotificationAddHouse(notification:)), name: AppWindowController.notificationAddHouse, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(onNotificationAddPerson(notification:)), name: AppWindowController.notificationAddPerson, object: nil)
 		
 		self.tableHouses.delegate = self
 		self.tableHouses.dataSource = self
@@ -55,8 +59,9 @@ class HouseViewController: NSViewController
 		
 		self.enableHouseControls(isEnabled: false)
 		self.enablePersonControls(isAddEnabled: false, isUpdateDeleteEnabled: false)
+
     }
-	
+
 	override func keyDown(with event: NSEvent)
 	{
 		switch event.modifierFlags.intersection(.deviceIndependentFlagsMask)
@@ -77,16 +82,24 @@ class HouseViewController: NSViewController
 			break
 		}
 	}
+	
+	@objc func onNotificationAddHouse(notification:Notification) {
+		NSLog("received notification to add house")
+		btnAddHouse_Action(NSButton())
+	}
+	
+	@objc func onNotificationAddPerson(notification:Notification) {
+		NSLog("received notification to add person")
+		btnAddPerson_Action(NSButton())
+	}
     
-    @IBAction func btnAddHouse_Action(_ sender: NSButton)
-    {
+    @IBAction func btnAddHouse_Action(_ sender: NSButton) {
         NSLog("add house action")
 		self.currentHouse = self.houseDao.create(contact: "", phone: "")
 		self.performHouseDataAction(operation: .Add)
     }
     
-    @IBAction func btnUpdateHouse_Action(_ sender: NSButton)
-    {
+    @IBAction func btnUpdateHouse_Action(_ sender: NSButton) {
         NSLog("update house action")
 		
 		if self.currentHouse != nil
@@ -101,8 +114,7 @@ class HouseViewController: NSViewController
 		
     }
 
-    @IBAction func btnDeleteHouse_Action(_ sender: NSButton)
-    {
+    @IBAction func btnDeleteHouse_Action(_ sender: NSButton) {
         NSLog("delete house action")
 		
 		if self.currentHouse != nil
@@ -116,8 +128,7 @@ class HouseViewController: NSViewController
 		}
     }
     
-    @IBAction func btnAddPerson_Action(_ sender: NSButton)
-    {
+    @IBAction func btnAddPerson_Action(_ sender: NSButton) {
         NSLog("add person action")
 		
 		if self.currentHouse != nil
@@ -203,21 +214,18 @@ class HouseViewController: NSViewController
     
 }
 
-extension HouseViewController:HousePersonViewControllerDelegate
-{
-	func handleUpdateHouse()
-	{
+extension HouseViewController:HousePersonViewControllerDelegate {
+	
+	func handleUpdateHouse(isCanceled:Bool) {
 		self.tableHouses.reloadData()
 	}
 	
-	func handleUpdatePerson()
-	{
+	func handleUpdatePerson(isCanceled:Bool) {
 		self.tablePersons.reloadData()
 	}
 }
 
-extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
-{
+extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource {
 	fileprivate enum CellIdentifiers
 	{
 		static let CellHouseSequence 		= "cellHouseSequence"
@@ -239,8 +247,7 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 
 	}
 	
-	func numberOfRows(in tableView: NSTableView) -> Int
-	{
+	func numberOfRows(in tableView: NSTableView) -> Int {
 		if tableView == self.tableHouses
 		{
 			labelCountValue.stringValue = self.houseDao.list()!.count.toString()
@@ -259,8 +266,7 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 		}
 	}
 
-	func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool
-	{
+	func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
 
 		if row >= 0
 		{
@@ -288,8 +294,7 @@ extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource
 		return true
 	}
 	
-	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
-	{
+	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 		var text: String = ""
 		var cellIdentifier: String = ""
 		

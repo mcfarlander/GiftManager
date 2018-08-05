@@ -224,7 +224,7 @@ class ReportBase : ReportProtocol
 		
 		return sReturn
 		
-	}// end of saveReport
+	}	// end of saveReport
 	
 	/**
 	Implementation of IReportBase.saveReportPdf. Takes the
