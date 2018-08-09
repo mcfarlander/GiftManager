@@ -35,14 +35,13 @@ class HouseEditViewController: NSViewController
 	fileprivate let houseDao = HouseDao()
 	fileprivate let routeDao = RouteDao()
 
-    override func viewDidLoad()
-	{
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
 
-	override func viewDidAppear()
-	{
+	override func viewDidAppear() {
+		
 		self.populateRoutes()
 
 		self.textNumber.stringValue = (house?.sequence)!.toString()
@@ -52,21 +51,15 @@ class HouseEditViewController: NSViewController
 		self.textNote.stringValue = (self.house?.notes) ?? ""
 		self.textRoute.stringValue = (self.house?.route?.routenumber) ?? ""
 		
-		if (self.house?.deliver)!
-		{
+		if (self.house?.deliver)! {
 			self.switchDeliver.state = .on
-		}
-		else
-		{
+		} else {
 			self.switchDeliver.state = .off
 		}
 		
-		if (self.house?.printed)!
-		{
+		if (self.house?.printed)! {
 			self.switchPrinted.state = .on
-		}
-		else
-		{
+		} else {
 			self.switchPrinted.state = .off
 		}
 		
@@ -79,10 +72,9 @@ class HouseEditViewController: NSViewController
 		}
 	}
 	
-	@IBAction func btnOk_Action(_ sender: NSButton)
-	{
-		if self.validate()
-		{
+	@IBAction func btnOk_Action(_ sender: NSButton) {
+		
+		if self.validate() {
 			
 			self.house?.sequence = self.textNumber.intValue
 			self.house?.contact = self.textContact.stringValue
@@ -92,21 +84,15 @@ class HouseEditViewController: NSViewController
 			
 			self.house?.route = self.routeDao.getRoute(routeNumber: self.textRoute.stringValue)
 			
-			if self.switchDeliver.state == .on
-			{
+			if self.switchDeliver.state == .on {
 				self.house?.deliver = true
-			}
-			else
-			{
+			} else {
 				self.house?.deliver = false
 			}
 			
-			if self.switchPrinted.state == .on
-			{
+			if self.switchPrinted.state == .on {
 				self.house?.printed = true
-			}
-			else
-			{
+			} else {
 				self.house?.printed = false
 			}
 			
@@ -123,10 +109,9 @@ class HouseEditViewController: NSViewController
 		}
 	}
 	
-	@IBAction func btnCancel_Action(_ sender: NSButton)
-	{
-		if self.operation == .Add
-		{
+	@IBAction func btnCancel_Action(_ sender: NSButton) {
+		
+		if self.operation == .Add {
 			self.houseDao.delete(house: self.house!)
 		}
 		
@@ -134,39 +119,33 @@ class HouseEditViewController: NSViewController
 		self.dismiss(self)
 	}
 	
-	private func populateRoutes()
-	{
+	private func populateRoutes() {
+		
 		self.textRoute.removeAllItems()
 		self.textRoute.addItem(withObjectValue: "")
 		
-		for route:Route in self.routeDao.list()!
-		{
+		for route:Route in self.routeDao.list()! {
 			self.textRoute.addItem(withObjectValue: route.routenumber!)
 		}
 		
 	}
 	
-	private func validate() -> Bool
-	{
-		if self.operation == .Delete
-		{
+	private func validate() -> Bool {
+		if self.operation == .Delete {
 			return true
 		}
 		
-		if self.textNumber.stringValue.count == 0
-		{
+		if self.textNumber.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the sequence number")
 			return false
 		}
 		
-		if self.textContact.stringValue.count == 0
-		{
+		if self.textContact.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the contact name")
 			return false
 		}
 		
-		if self.textPhone.stringValue.count == 0
-		{
+		if self.textPhone.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the phone number")
 			return false
 		}
@@ -174,8 +153,7 @@ class HouseEditViewController: NSViewController
 		return true
 	}
 	
-	private func enableControls(isEnabled:Bool)
-	{
+	private func enableControls(isEnabled:Bool) {
 		self.textNumber.isEnabled = isEnabled
 		self.textContact.isEnabled = isEnabled
 		self.textPhone.isEnabled = isEnabled
@@ -184,14 +162,6 @@ class HouseEditViewController: NSViewController
 		self.textRoute.isEnabled = isEnabled
 		self.switchDeliver.isEnabled = isEnabled
 		self.switchPrinted.isEnabled = isEnabled
-		
-	}
-    
-	@IBAction func ButtonOK_Action(_ sender: NSButton) {
-		
-	}
-	
-	@IBAction func ButtonCancel_Action(_ sender: NSButton) {
 		
 	}
 	

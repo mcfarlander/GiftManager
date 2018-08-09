@@ -8,13 +8,12 @@
 
 import Cocoa
 
-class AppWindowController: NSWindowController
-{
+class AppWindowController: NSWindowController {
 	
-    override func windowDidLoad()
-    {
+    override func windowDidLoad() {
         NSLog("main winodw loaded")
         super.windowDidLoad()
 
     }
+
 }

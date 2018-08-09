@@ -22,13 +22,12 @@ class OrganizationEditViewController: NSViewController
 	
 	fileprivate let organizationDao = OrganizationDao()
 
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
 	
-	override func viewDidAppear()
-	{
+	override func viewDidAppear() {
+		
 		txtName.stringValue = (self.organization?.name!)!.trim()
 		txtPhone.stringValue = (self.organization?.phone!)!.trim()
 		
@@ -46,10 +45,9 @@ class OrganizationEditViewController: NSViewController
 		}
 	}
     
-    @IBAction func btnOk_Action(_ sender: NSButton)
-    {
-		if validate()
-		{
+    @IBAction func btnOk_Action(_ sender: NSButton) {
+		
+		if validate() {
 			self.organization?.name = txtName.stringValue
 			self.organization?.phone = txtPhone.stringValue
 			
@@ -66,26 +64,22 @@ class OrganizationEditViewController: NSViewController
 		}
     }
 	
-	@IBAction func btnCancel_Action(_ sender: NSButton)
-	{
+	@IBAction func btnCancel_Action(_ sender: NSButton) {
 		self.dismiss(self)
 	}
 	
-	private func validate() -> Bool
-	{
-		if self.operation == .Delete
-		{
+	private func validate() -> Bool {
+		
+		if self.operation == .Delete {
 			return true
 		}
 		
-		if self.txtName.stringValue.count == 0
-		{
+		if self.txtName.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the organization name.")
 			return false
 		}
 		
-		if self.txtPhone.stringValue.count == 0
-		{
+		if self.txtPhone.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the phone number.")
 			return false
 		}

@@ -8,11 +8,9 @@
 
 import Cocoa
 
-class AppTabViewController: NSTabViewController
-{
+class AppTabViewController: NSTabViewController {
 
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         NSLog("tab view loaded")
         super.viewDidLoad()
         // Do view setup here.

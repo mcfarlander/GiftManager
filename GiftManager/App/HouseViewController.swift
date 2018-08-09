@@ -88,12 +88,9 @@ class HouseViewController: NSViewController
     @IBAction func btnUpdateHouse_Action(_ sender: NSButton) {
         NSLog("update house action")
 		
-		if self.currentHouse != nil
-		{
+		if self.currentHouse != nil {
 			self.performHouseDataAction(operation: .Update)
-		}
-		else
-		{
+		} else {
 			NSLog("No house selected")
 			showOkMessage(title:"Data", message:"House not selected.")
 		}
@@ -103,12 +100,9 @@ class HouseViewController: NSViewController
     @IBAction func btnDeleteHouse_Action(_ sender: NSButton) {
         NSLog("delete house action")
 		
-		if self.currentHouse != nil
-		{
+		if self.currentHouse != nil {
 			self.performHouseDataAction(operation: .Delete)
-		}
-		else
-		{
+		} else {
 			NSLog("No house selected")
 			showOkMessage(title:"Data", message:"House not selected.")
 		}
@@ -117,71 +111,54 @@ class HouseViewController: NSViewController
     @IBAction func btnAddPerson_Action(_ sender: NSButton) {
         NSLog("add person action")
 		
-		if self.currentHouse != nil
-		{
+		if self.currentHouse != nil {
 			self.currentPerson = self.personDao.create(house: self.currentHouse!)
 			
-			if self.currentPerson != nil
-			{
+			if self.currentPerson != nil {
 				self.performPersonDataAction(operation: .Add)
-			}
-			else
-			{
+			} else {
 				NSLog("a person was nt created")
 			}
-		}
-		else
-		{
+		} else {
 			NSLog("There isn't a current house")
 			showOkMessage(title:"Data", message:"House not selected.")
 		}
     }
     
-    @IBAction func btnUpdatePerson_Action(_ sender: NSButton)
-    {
+    @IBAction func btnUpdatePerson_Action(_ sender: NSButton) {
         NSLog("update person action")
 		
-		if self.currentPerson != nil
-		{
+		if self.currentPerson != nil {
         	self.performPersonDataAction(operation: .Update)
-		}
-		else
-		{
+		} else {
 			NSLog("There isn't a current person")
 			showOkMessage(title:"Data", message:"Person not selected.")
 		}
     }
     
-    @IBAction func btnDeletePerson_Action(_ sender: NSButton)
-    {
+    @IBAction func btnDeletePerson_Action(_ sender: NSButton) {
         NSLog("delete person action")
 		
-		if self.currentPerson != nil
-		{
+		if self.currentPerson != nil {
         	self.performPersonDataAction(operation: .Delete)
-		}
-		else
-		{
+		} else {
 			NSLog("There isn't a current person")
 			showOkMessage(title:"Data", message:"Person not selected.")
 		}
     }
 	
-	fileprivate func enableHouseControls(isEnabled:Bool)
-	{
+	fileprivate func enableHouseControls(isEnabled:Bool) {
 		self.btnUpdateHouse.isEnabled = isEnabled
 		self.btnDeleteHouse.isEnabled = isEnabled
 	}
 	
-	fileprivate func enablePersonControls(isAddEnabled:Bool, isUpdateDeleteEnabled:Bool)
-	{
+	fileprivate func enablePersonControls(isAddEnabled:Bool, isUpdateDeleteEnabled:Bool) {
 		self.btnAddPerson.isEnabled = isAddEnabled
 		self.btnUpdatePerson.isEnabled = isUpdateDeleteEnabled
 		self.btnDeletePerson.isEnabled = isUpdateDeleteEnabled
 	}
 	
-	fileprivate func performHouseDataAction(operation:DataOperation)
-	{
+	fileprivate func performHouseDataAction(operation:DataOperation) {
 		self.houseEditViewController.delegate = self
 		self.houseEditViewController.house = self.currentHouse!
 		self.houseEditViewController.operation = operation
@@ -189,8 +166,7 @@ class HouseViewController: NSViewController
 		self.presentViewControllerAsSheet(houseEditViewController)
 	}
 	
-	fileprivate func performPersonDataAction(operation:DataOperation)
-	{
+	fileprivate func performPersonDataAction(operation:DataOperation) {
 		self.personEditViewController.delegate = self
 		self.personEditViewController.person = self.currentPerson!
 		self.personEditViewController.operation = operation
@@ -212,7 +188,6 @@ extension HouseViewController:HousePersonViewControllerDelegate {
 	
 	func handleUpdatePerson(isCanceled:Bool) {
 		self.tablePersons.reloadData()
-		
 	}
 }
 

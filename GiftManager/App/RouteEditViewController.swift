@@ -8,8 +8,8 @@
 
 import Cocoa
 
-class RouteEditViewController: NSViewController
-{
+class RouteEditViewController: NSViewController {
+	
     @IBOutlet weak var txtRouteNumber: NSTextField!
     @IBOutlet weak var txtStreetName: NSTextField!
     
@@ -22,13 +22,11 @@ class RouteEditViewController: NSViewController
 	
 	fileprivate let routeDao = RouteDao()
 	
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
 		super.viewDidLoad()
     }
 	
-	override func viewDidAppear()
-	{
+	override func viewDidAppear() {
 		txtRouteNumber.stringValue = (route?.routenumber!)!.trim()
 		txtStreetName.stringValue = (route?.street!)!.trim()
 		
@@ -46,10 +44,9 @@ class RouteEditViewController: NSViewController
 		}
 	}
 
-    @IBAction func btnOk_Action(_ sender: NSButton)
-    {
-		if validate()
-		{
+    @IBAction func btnOk_Action(_ sender: NSButton) {
+		
+		if validate() {
 			self.route?.routenumber = txtRouteNumber.stringValue
 			self.route?.street = txtStreetName.stringValue
 			
@@ -66,21 +63,18 @@ class RouteEditViewController: NSViewController
 		}
     }
 	
-	private func validate() -> Bool
-	{
-		if self.operation == .Delete
-		{
+	private func validate() -> Bool {
+		
+		if self.operation == .Delete {
 			return true
 		}
 		
-		if self.txtRouteNumber.stringValue.count == 0
-		{
+		if self.txtRouteNumber.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the route number")
 			return false
 		}
 		
-		if self.txtStreetName.stringValue.count == 0
-		{
+		if self.txtStreetName.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the street name")
 			return false
 		}

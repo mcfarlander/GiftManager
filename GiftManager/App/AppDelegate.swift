@@ -9,26 +9,21 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate
-{
+class AppDelegate: NSObject, NSApplicationDelegate {
 
-    func applicationDidFinishLaunching(_ aNotification: Notification)
-    {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         NSLog("Application finished launching")
 
     }
 
-    func applicationWillTerminate(_ aNotification: Notification)
-    {
+    func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
         
-        if managedObjectContext.hasChanges
-        {
+        if managedObjectContext.hasChanges {
             let answer = dialogOKCancel(question: "Save Data?", text: "Data was changed and not saved. Recommended to save now or lose it.")
             
-            if answer
-            {
+            if answer {
                 do
                 {
                     try managedObjectContext.save()
@@ -44,8 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
 	
 	// MARK: - Report Menu items
     
-	@IBAction func mnuMasterList_Action(_ sender: NSMenuItem)
-	{
+	@IBAction func mnuMasterList_Action(_ sender: NSMenuItem) {
 		NSLog("menu -> create master list")
 		let report = ReportMasterList()
 		report.report.delegate = self
@@ -53,8 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
 		NSLog("Ok, attempted to write file %s", fileName!)
 	}
 	
-	@IBAction func mnuCsvMailMerge_Action(_ sender: NSMenuItem)
-	{
+	@IBAction func mnuCsvMailMerge_Action(_ sender: NSMenuItem) {
 		NSLog("menu -> create csv mail merge file")
 		let export = CsvMailMerge()
 		export.csvExport.delegate = self
@@ -64,8 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
 	
 	// MARK: - Data Menu items
     
-    @IBAction func mnuClearHouses_Action(_ sender: NSMenuItem)
-    {
+    @IBAction func mnuClearHouses_Action(_ sender: NSMenuItem) {
         NSLog("Clear Houses")
         let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all house data.")
         
@@ -84,8 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
         }
     }
     
-    @IBAction func mnuClearOrganizations_Action(_ sender: NSMenuItem)
-    {
+    @IBAction func mnuClearOrganizations_Action(_ sender: NSMenuItem) {
         NSLog("Clear Organizations")
         let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all organization data.")
         
@@ -97,8 +88,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
         
     }
     
-    @IBAction func mnuClearRoutes_Action(_ sender: NSMenuItem)
-    {
+    @IBAction func mnuClearRoutes_Action(_ sender: NSMenuItem) {
         NSLog("Clear Routes")
         let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all route data.")
         
@@ -109,8 +99,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
         }
     }
     
-    @IBAction func mnuMockData_Action(_ sender: NSMenuItem)
-    {
+    @IBAction func mnuMockData_Action(_ sender: NSMenuItem) {
         NSLog("Mock Data")
         
         let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all data and replace with mock data.")
@@ -123,8 +112,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
 		
     }
 	
-    func dialogOKCancel(question: String, text: String) -> Bool
-    {
+    func dialogOKCancel(question: String, text: String) -> Bool {
         let myPopup: NSAlert = NSAlert()
         myPopup.messageText = question
         myPopup.informativeText = text
@@ -219,8 +207,7 @@ class AppDelegate: NSObject, NSApplicationDelegate
 
     // MARK: - Core Data Saving and Undo support
 
-    @IBAction func saveAction(_ sender: AnyObject?)
-    {
+    @IBAction func saveAction(_ sender: AnyObject?) {
         // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
         if !managedObjectContext.commitEditing() {
             NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
@@ -235,14 +222,12 @@ class AppDelegate: NSObject, NSApplicationDelegate
         }
     }
 
-    func windowWillReturnUndoManager(window: NSWindow) -> UndoManager?
-    {
+    func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
         // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
         return managedObjectContext.undoManager
     }
 
-	internal func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply
-    {
+	internal func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         // Save changes in the application's managed object context before the application terminates.
         
         if !managedObjectContext.commitEditing() {

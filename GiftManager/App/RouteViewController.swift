@@ -22,13 +22,12 @@ class RouteViewController: NSViewController
 	fileprivate var currentRoute:Route? = nil
     fileprivate var operation:DataOperation = DataOperation.Add
     
-    lazy var routeEditViewController: RouteEditViewController =
-    {
+    lazy var routeEditViewController: RouteEditViewController = {
 		return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "RouteEditViewController")) as! RouteEditViewController
     }()
 
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
+		
         super.viewDidLoad()
         // Do view setup here.
         NSLog("Routes view did load")
@@ -40,22 +39,19 @@ class RouteViewController: NSViewController
         
     }
 	
-	override func viewDidAppear()
-	{
+	override func viewDidAppear() {
 		self.enableUpdateDeleteButtons()
 		self.tableView.reloadData()
 	}
     
-    @IBAction func btnAdd_Action(_ sender: NSButton)
-    {
+    @IBAction func btnAdd_Action(_ sender: NSButton) {
         NSLog("Routes view btnAdd Action")
         self.currentRoute = self.routeDao.create(routeNumber: " ", street: " ")
         self.operation = DataOperation.Add
         self.performDataAction()
     }
     
-    @IBAction func btnUpdate_Action(_ sender: NSButton)
-    {
+    @IBAction func btnUpdate_Action(_ sender: NSButton) {
         NSLog("Routes view btnUpdate Action")
         self.currentRoute = self.routeDao.list()![tableView.selectedRow]
         self.operation = DataOperation.Update
@@ -63,16 +59,14 @@ class RouteViewController: NSViewController
 
     }
     
-    @IBAction func btnDelete_Action(_ sender: NSButton)
-    {
+    @IBAction func btnDelete_Action(_ sender: NSButton) {
         NSLog("Routes view btnDelete Action")
         self.currentRoute = self.routeDao.list()![tableView.selectedRow]
         self.operation = DataOperation.Delete
         self.performDataAction()
     }
     
-    fileprivate func performDataAction()
-    {
+    fileprivate func performDataAction() {
 		self.routeEditViewController.delegate = self
 		self.routeEditViewController.route = self.currentRoute!
         self.routeEditViewController.operation = self.operation
@@ -81,8 +75,7 @@ class RouteViewController: NSViewController
         
     }
     
-    fileprivate func enableUpdateDeleteButtons()
-    {
+    fileprivate func enableUpdateDeleteButtons() {
         btnUpdate.isEnabled = self.routeDao.list()!.count > 0
         btnDelete.isEnabled = self.routeDao.list()!.count > 0
     }
@@ -91,8 +84,7 @@ class RouteViewController: NSViewController
 
 extension RouteViewController:SheetViewControllerDelegate
 {
-	func handleUpdate()
-	{
+	func handleUpdate() {
 		self.tableView.reloadData()
 	}
 }
@@ -100,37 +92,31 @@ extension RouteViewController:SheetViewControllerDelegate
 extension RouteViewController: NSTableViewDelegate, NSTableViewDataSource
 {
 	
-	func numberOfRows(in tableView: NSTableView) -> Int
-	{
+	func numberOfRows(in tableView: NSTableView) -> Int {
 		return self.routeDao.list()!.count
 	}
     
-    fileprivate enum CellIdentifiers
-    {
+    fileprivate enum CellIdentifiers {
         static let CellRouteNumber = "cellRouteNumber"
         static let CellStreet = "cellStreet"
     }
     
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
-    {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var text: String = ""
         var cellIdentifier: String = ""
 		
 		let route = self.routeDao.list()![row]
 
-        if tableColumn == tableView.tableColumns[0]
-        {
+        if tableColumn == tableView.tableColumns[0] {
             text = route.routenumber!
             cellIdentifier = CellIdentifiers.CellRouteNumber
-        }
-        else if tableColumn == tableView.tableColumns[1]
-        {
+			
+        } else if tableColumn == tableView.tableColumns[1] {
             text = route.street!
             cellIdentifier = CellIdentifiers.CellStreet
         }
         
-		if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView
-        {
+		if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
             cell.textField?.stringValue = text
             return cell
         }

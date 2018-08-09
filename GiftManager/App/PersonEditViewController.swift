@@ -189,12 +189,4 @@ class PersonEditViewController: NSViewController
 		self.textOrganization.isEnabled = isEnabled
 	}
     
-	@IBAction func ButtonOK_Action(_ sender: NSButton) {
-		
-	}
-	
-	@IBAction func ButtonCancel_Action(_ sender: NSButton) {
-		
-	}
-	
 }

@@ -364,16 +364,81 @@
                             <constraint firstAttribute="trailing" secondItem="s0u-HG-IWS" secondAttribute="trailing" constant="11" id="vsu-AQ-NSX"/>
                         </constraints>
                     </view>
+                    <touchBar key="touchBar" id="Vib-2Z-mxQ">
+                        <touchBarItems>
+                            <touchBarItem id="eEq-hv-LCd">
+                                <viewController key="viewController" id="YWa-ig-V7K">
+                                    <textField key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4E7-V7-GOs">
+                                        <rect key="frame" x="0.0" y="0.0" width="41" height="24"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" borderStyle="bezel" alignment="left" title="Orgs" drawsBackground="YES" id="sMe-dh-9Zq">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarItem id="9Dh-f3-QG5">
+                                <viewController key="viewController" id="pMc-h5-tWv">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hun-6F-5Gr">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TMy-xg-gKr">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="btnAddOrg_Action:" target="3OU-TJ-GBe" id="DXm-YF-e9W"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarItem id="7jR-sG-gHq">
+                                <viewController key="viewController" id="Rmw-Vf-Jw5">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3xH-7k-KMg">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Udq-xG-Sqf">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="0.99942404029999998" green="0.97558963659999998" blue="0.15324017079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="btnUpdateOrg_Action:" target="3OU-TJ-GBe" id="3Gx-0y-8s8"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                            <touchBarItem id="a2x-IF-uDM">
+                                <viewController key="viewController" id="t4j-tk-yhe">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ymh-og-mwl">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uqy-OI-GTe">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="btnDeleteOrg_Action:" target="3OU-TJ-GBe" id="eSd-J1-MKZ"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                            </touchBarItem>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
-                        <outlet property="btnAddOrg" destination="WqI-d3-mCm" id="1qO-fu-wtm"/>
-                        <outlet property="btnDeleteOrg" destination="s0u-HG-IWS" id="cal-EQ-D4h"/>
-                        <outlet property="btnUpdateOrg" destination="W5w-Lx-A7J" id="CLC-WO-cK9"/>
+                        <outlet property="btnAddOrg" destination="hun-6F-5Gr" id="gCk-gl-glT"/>
+                        <outlet property="btnDeleteOrg" destination="ymh-og-mwl" id="5rz-Ot-O2Y"/>
+                        <outlet property="btnUpdateOrg" destination="3xH-7k-KMg" id="60j-aI-a6b"/>
                         <outlet property="tableView" destination="zZ5-uE-0MW" id="bdW-Jf-fcm"/>
                     </connections>
                 </viewController>
                 <customObject id="VFV-mt-Qbk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="1268"/>
+            <point key="canvasLocation" x="818" y="1264"/>
         </scene>
         <!--Edit Organization-->
         <scene sceneID="MR3-ej-ajd">
@@ -452,7 +517,7 @@
                 </viewController>
                 <customObject id="Nqh-Dt-FWi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="1761"/>
+            <point key="canvasLocation" x="818" y="1725"/>
         </scene>
         <!--Houses-->
         <scene sceneID="uXP-F6-bX7">
@@ -1138,6 +1203,20 @@
                     </view>
                     <touchBar key="touchBar" id="fe6-i6-2ts">
                         <touchBarItems>
+                            <touchBarItem id="rNX-aH-mLV">
+                                <viewController key="viewController" id="TgN-WJ-f5I">
+                                    <textField key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iGw-3n-ngH">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="24"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" borderStyle="bezel" alignment="left" title="Houses" drawsBackground="YES" id="E3d-tG-i3x">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </viewController>
+                                <size key="designTimeSize" width="60" height="24"/>
+                            </touchBarItem>
                             <touchBarItem id="PQy-Tt-kQm">
                                 <viewController key="viewController" id="XnC-9B-D8x">
                                     <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TYh-Yb-T60">
@@ -1189,7 +1268,7 @@
                 </viewController>
                 <customObject id="qBu-WX-xKo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432.5" y="1277"/>
+            <point key="canvasLocation" x="1726" y="1266"/>
         </scene>
         <!--Edit Person-->
         <scene sceneID="Xhb-hR-Hih">
@@ -1329,48 +1408,6 @@
                             </textField>
                         </subviews>
                     </view>
-                    <touchBar key="touchBar" id="5Sv-Ia-gOQ">
-                        <touchBarItems>
-                            <touchBarItem id="NcM-jA-g7U">
-                                <viewController key="viewController" id="94L-yf-hhp">
-                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JMK-Vg-qTO">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="a3t-AK-CJV">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                            <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                                        </buttonCell>
-                                        <color key="bezelColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="ButtonOK_Action:" target="evN-ly-c7O" id="UIe-Tq-sj8"/>
-                                        </connections>
-                                    </button>
-                                </viewController>
-                            </touchBarItem>
-                            <touchBarItem id="LJC-dz-9cH">
-                                <viewController key="viewController" id="jBj-OX-VcS">
-                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jNY-qR-rEh">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nmv-Mm-zyB">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                            <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                                        </buttonCell>
-                                        <color key="bezelColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="ButtonCancel_Action:" target="evN-ly-c7O" id="MHd-0O-7JK"/>
-                                        </connections>
-                                    </button>
-                                </viewController>
-                            </touchBarItem>
-                        </touchBarItems>
-                    </touchBar>
                     <connections>
                         <outlet property="btnCancel" destination="PBB-er-U35" id="kps-bo-aCz"/>
                         <outlet property="btnOk" destination="nMf-hE-U7g" id="6sq-LL-xzr"/>
@@ -1390,7 +1427,7 @@ Gw
                 </viewController>
                 <customObject id="o1h-Bn-ZQC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1951" y="1847"/>
+            <point key="canvasLocation" x="2138" y="1795"/>
         </scene>
         <!--Edit House-->
         <scene sceneID="4Ya-m6-tq0">
@@ -1553,48 +1590,6 @@ Gw
                             </button>
                         </subviews>
                     </view>
-                    <touchBar key="touchBar" id="Fg1-kQ-Yg8">
-                        <touchBarItems>
-                            <touchBarItem id="QnU-GF-ttP">
-                                <viewController key="viewController" id="haP-oB-mgT">
-                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tqc-h8-yMF">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZdT-dJ-2XX">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                            <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                                        </buttonCell>
-                                        <color key="bezelColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="ButtonOK_Action:" target="TMK-UZ-vgo" id="wME-q2-EVv"/>
-                                        </connections>
-                                    </button>
-                                </viewController>
-                            </touchBarItem>
-                            <touchBarItem id="NDi-sQ-Urg">
-                                <viewController key="viewController" id="l1f-zX-r5J">
-                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hiq-Db-089">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="J2O-p7-Kwg">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                            <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                                        </buttonCell>
-                                        <color key="bezelColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="ButtonCancel_Action:" target="TMK-UZ-vgo" id="4QV-JM-Dyl"/>
-                                        </connections>
-                                    </button>
-                                </viewController>
-                            </touchBarItem>
-                        </touchBarItems>
-                    </touchBar>
                     <connections>
                         <outlet property="btnCancel" destination="oT7-BP-bAT" id="d9V-yo-5YA"/>
                         <outlet property="btnOk" destination="Ojp-af-dYx" id="JSz-SB-Ygi"/>
@@ -1616,7 +1611,7 @@ Gw
                 </viewController>
                 <customObject id="qKx-qA-akB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1173" y="1847"/>
+            <point key="canvasLocation" x="1455" y="1811"/>
         </scene>
         <!--Routes-->
         <scene sceneID="R1W-hq-svM">
@@ -1776,16 +1771,85 @@ Gw
                             <constraint firstItem="smm-SP-eD7" firstAttribute="trailing" secondItem="p9l-1g-Qng" secondAttribute="trailing" id="zyn-tu-cy0"/>
                         </constraints>
                     </view>
+                    <touchBar key="touchBar" id="AOr-WJ-QDp">
+                        <touchBarItems>
+                            <touchBarItem id="FNP-XS-RGS">
+                                <viewController key="viewController" id="aTz-1Y-PDP">
+                                    <textField key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kSU-3u-iUN">
+                                        <rect key="frame" x="0.0" y="0.0" width="57" height="24"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" borderStyle="bezel" alignment="left" title="Routes" drawsBackground="YES" id="zAg-Pq-YB7">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </viewController>
+                                <size key="designTimeSize" width="57" height="24"/>
+                            </touchBarItem>
+                            <touchBarItem id="Srg-9B-xfn">
+                                <viewController key="viewController" id="o8w-DT-hZh">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mOj-oD-3sF">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zGq-XV-4WS">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="btnAdd_Action:" target="A4C-ce-F9C" id="hww-ja-35H"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                            <touchBarItem id="Fja-gH-4Ye">
+                                <viewController key="viewController" id="psD-Sw-rGF">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SpC-rX-Dl2">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zmj-Dl-4l5">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="0.99942404029999998" green="0.97558963659999998" blue="0.15324017079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="btnUpdate_Action:" target="A4C-ce-F9C" id="win-4J-wA2"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                            <touchBarItem id="nHd-c4-W9Z">
+                                <viewController key="viewController" id="orI-WQ-BmM">
+                                    <button key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PqS-OH-UOi">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DF1-4b-Roc">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                        </buttonCell>
+                                        <color key="bezelColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="btnDelete_Action:" target="A4C-ce-F9C" id="bZJ-o4-7g2"/>
+                                        </connections>
+                                    </button>
+                                </viewController>
+                                <size key="designTimeSize" width="72" height="30"/>
+                            </touchBarItem>
+                        </touchBarItems>
+                    </touchBar>
                     <connections>
-                        <outlet property="btnAdd" destination="Nud-ov-dDq" id="3bi-od-Bwb"/>
-                        <outlet property="btnDelete" destination="smm-SP-eD7" id="RcY-kX-HeP"/>
-                        <outlet property="btnUpdate" destination="e9i-vn-Shy" id="xB7-iC-XIn"/>
+                        <outlet property="btnAdd" destination="mOj-oD-3sF" id="NdA-dc-FHp"/>
+                        <outlet property="btnDelete" destination="PqS-OH-UOi" id="2v8-LP-HQ7"/>
+                        <outlet property="btnUpdate" destination="SpC-rX-Dl2" id="Y7T-8v-oam"/>
                         <outlet property="tableView" destination="xj3-qO-MEt" id="2G6-av-7O7"/>
                     </connections>
                 </viewController>
                 <customObject id="v9F-rb-DnQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="1268"/>
+            <point key="canvasLocation" x="16" y="1264"/>
         </scene>
         <!--Edit Route-->
         <scene sceneID="APV-FZ-Y7U">
@@ -1864,7 +1928,7 @@ Gw
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-5" y="1761"/>
+            <point key="canvasLocation" x="16" y="1725"/>
         </scene>
     </scenes>
 </document>
