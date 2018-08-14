@@ -19,10 +19,12 @@ class HouseViewController: NSViewController
 	@IBOutlet var tablePersons: NSTableView!
 	
 	@IBOutlet weak var btnAddHouse: NSButton!
+	@IBOutlet weak var btnAddHouseTouchBar: NSButton!
     @IBOutlet weak var btnUpdateHouse: NSButton!
     @IBOutlet weak var btnDeleteHouse: NSButton!
 	
     @IBOutlet weak var btnAddPerson: NSButton!
+	@IBOutlet weak var btnAddPersonTouchBar: NSButton!
     @IBOutlet weak var btnUpdatePerson: NSButton!
     @IBOutlet weak var btnDeletePerson: NSButton!
 	

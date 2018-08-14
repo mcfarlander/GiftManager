@@ -17,6 +17,10 @@ class RouteViewController: NSViewController
     @IBOutlet weak var btnUpdate: NSButton!
     @IBOutlet weak var btnDelete: NSButton!
 	
+	@IBOutlet weak var btnAddTouchbar: NSButton!
+	@IBOutlet weak var btnUpdateTouchbar: NSButton!
+	@IBOutlet weak var btnDeleteTouchbar: NSButton!
+	
 	fileprivate let routeDao = RouteDao()
 	
 	fileprivate var currentRoute:Route? = nil
@@ -72,7 +76,6 @@ class RouteViewController: NSViewController
         self.routeEditViewController.operation = self.operation
 		
 		self.presentViewControllerAsSheet(routeEditViewController)
-        
     }
     
     fileprivate func enableUpdateDeleteButtons() {

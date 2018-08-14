@@ -430,9 +430,12 @@
                         </touchBarItems>
                     </touchBar>
                     <connections>
-                        <outlet property="btnAddOrg" destination="hun-6F-5Gr" id="gCk-gl-glT"/>
-                        <outlet property="btnDeleteOrg" destination="ymh-og-mwl" id="5rz-Ot-O2Y"/>
-                        <outlet property="btnUpdateOrg" destination="3xH-7k-KMg" id="60j-aI-a6b"/>
+                        <outlet property="btnAddOrg" destination="WqI-d3-mCm" id="9cA-me-4xH"/>
+                        <outlet property="btnAddOrgTouchbar" destination="hun-6F-5Gr" id="dOC-Bh-QS0"/>
+                        <outlet property="btnDeleteOrg" destination="s0u-HG-IWS" id="kNf-lT-68W"/>
+                        <outlet property="btnDeleteOrgTouchbar" destination="ymh-og-mwl" id="u1I-Jw-awT"/>
+                        <outlet property="btnUpdateOrg" destination="W5w-Lx-A7J" id="sNf-bi-Bai"/>
+                        <outlet property="btnUpdateOrgTouchbar" destination="3xH-7k-KMg" id="G0v-Tx-pwC"/>
                         <outlet property="tableView" destination="zZ5-uE-0MW" id="bdW-Jf-fcm"/>
                     </connections>
                 </viewController>
@@ -1254,8 +1257,10 @@
                         </touchBarItems>
                     </touchBar>
                     <connections>
-                        <outlet property="btnAddHouse" destination="TYh-Yb-T60" id="6sQ-bF-8pM"/>
-                        <outlet property="btnAddPerson" destination="IeD-7t-tmA" id="bDy-Qr-Fsu"/>
+                        <outlet property="btnAddHouse" destination="36a-73-XP2" id="a1p-uq-Q6P"/>
+                        <outlet property="btnAddHouseTouchBar" destination="TYh-Yb-T60" id="gOL-KU-9i2"/>
+                        <outlet property="btnAddPerson" destination="Ayp-ax-jEU" id="5vF-hW-gFC"/>
+                        <outlet property="btnAddPersonTouchBar" destination="IeD-7t-tmA" id="nXL-KM-HNy"/>
                         <outlet property="btnDeleteHouse" destination="Pn0-mT-K3e" id="F4Y-8V-K8V"/>
                         <outlet property="btnDeletePerson" destination="gwx-GB-NIC" id="ruF-PO-GO3"/>
                         <outlet property="btnUpdateHouse" destination="9eG-qp-NCG" id="uaS-3Z-McZ"/>
@@ -1841,15 +1846,18 @@
                         </touchBarItems>
                     </touchBar>
                     <connections>
-                        <outlet property="btnAdd" destination="mOj-oD-3sF" id="NdA-dc-FHp"/>
-                        <outlet property="btnDelete" destination="PqS-OH-UOi" id="2v8-LP-HQ7"/>
-                        <outlet property="btnUpdate" destination="SpC-rX-Dl2" id="Y7T-8v-oam"/>
+                        <outlet property="btnAdd" destination="Nud-ov-dDq" id="UCh-vo-ezv"/>
+                        <outlet property="btnAddTouchbar" destination="mOj-oD-3sF" id="kw3-iO-HhX"/>
+                        <outlet property="btnDelete" destination="smm-SP-eD7" id="OEU-On-0gg"/>
+                        <outlet property="btnDeleteTouchbar" destination="PqS-OH-UOi" id="LYa-d3-ALt"/>
+                        <outlet property="btnUpdate" destination="e9i-vn-Shy" id="ees-73-mHb"/>
+                        <outlet property="btnUpdateTouchbar" destination="SpC-rX-Dl2" id="Nj7-cO-E41"/>
                         <outlet property="tableView" destination="xj3-qO-MEt" id="2G6-av-7O7"/>
                     </connections>
                 </viewController>
                 <customObject id="v9F-rb-DnQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="1264"/>
+            <point key="canvasLocation" x="76" y="1264"/>
         </scene>
         <!--Edit Route-->
         <scene sceneID="APV-FZ-Y7U">
@@ -1904,7 +1912,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="btnCancel_Action:" target="dQ4-Bb-dcZ" id="IYe-kK-jNb"/>
+                                    <action selector="btnCancel_Action:" target="dQ4-Bb-dcZ" id="PVs-Gw-coE"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ewr-F0-NzQ">
@@ -1915,19 +1923,20 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="btnOk_Action:" target="dQ4-Bb-dcZ" id="6f1-WZ-efb"/>
+                                    <action selector="btnOk_Action:" target="dQ4-Bb-dcZ" id="Yzh-oQ-vaO"/>
                                 </connections>
                             </button>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="btnCancel_Action" destination="F9u-98-kF3" id="TmE-fF-d1b"/>
+                        <outlet property="btnCancel" destination="F9u-98-kF3" id="Z0P-fR-T4s"/>
+                        <outlet property="btnOk" destination="Ewr-F0-NzQ" id="ehN-ND-f4l"/>
                         <outlet property="txtRouteNumber" destination="keY-Q2-igk" id="Fgz-xE-Q8q"/>
                         <outlet property="txtStreetName" destination="6Uo-wX-8NI" id="rUD-SI-LdC"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="16" y="1725"/>
+            <point key="canvasLocation" x="76" y="1732"/>
         </scene>
     </scenes>
 </document>

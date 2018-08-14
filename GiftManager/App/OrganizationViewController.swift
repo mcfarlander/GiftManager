@@ -17,6 +17,10 @@ class OrganizationViewController: NSViewController
     @IBOutlet weak var btnUpdateOrg: NSButton!
     @IBOutlet weak var btnDeleteOrg: NSButton!
 	
+	@IBOutlet weak var btnAddOrgTouchbar: NSButton!
+	@IBOutlet weak var btnUpdateOrgTouchbar: NSButton!
+	@IBOutlet weak var btnDeleteOrgTouchbar: NSButton!
+	
 	fileprivate let organizationDao = OrganizationDao()
 	fileprivate var currentOrganization:Organization? = nil
 	fileprivate var operation:DataOperation = DataOperation.Add
