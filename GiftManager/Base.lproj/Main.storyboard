@@ -1904,7 +1904,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="dismissController:" target="dQ4-Bb-dcZ" id="m5o-II-V8c"/>
+                                    <action selector="btnCancel_Action:" target="dQ4-Bb-dcZ" id="IYe-kK-jNb"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ewr-F0-NzQ">
@@ -1921,8 +1921,7 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="btnCancel" destination="F9u-98-kF3" id="mq5-CI-tYU"/>
-                        <outlet property="btnOk" destination="Ewr-F0-NzQ" id="BfX-ns-hNy"/>
+                        <outlet property="btnCancel_Action" destination="F9u-98-kF3" id="TmE-fF-d1b"/>
                         <outlet property="txtRouteNumber" destination="keY-Q2-igk" id="Fgz-xE-Q8q"/>
                         <outlet property="txtStreetName" destination="6Uo-wX-8NI" id="rUD-SI-LdC"/>
                     </connections>

@@ -27,6 +27,11 @@ class RouteEditViewController: NSViewController {
     }
 	
 	override func viewDidAppear() {
+		
+		super.viewDidAppear()
+		self.view.window?.unbind(NSBindingName(rawValue: #keyPath(touchBar))) // unbind first
+		self.view.window?.bind(NSBindingName(rawValue: #keyPath(touchBar)), to: self, withKeyPath: #keyPath(touchBar), options: nil)
+		
 		txtRouteNumber.stringValue = (route?.routenumber!)!.trim()
 		txtStreetName.stringValue = (route?.street!)!.trim()
 		
@@ -62,6 +67,15 @@ class RouteEditViewController: NSViewController {
 			self.dismiss(self)
 		}
     }
+	
+	@IBAction func btnCancel_Action(_ sender: NSButton) {
+		
+		if self.operation == .Add {
+			self.routeDao.delete(route: self.route!)
+		}
+		
+		self.dismiss(self)
+	}
 	
 	private func validate() -> Bool {
 		

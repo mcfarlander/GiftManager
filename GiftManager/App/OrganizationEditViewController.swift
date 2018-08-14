@@ -65,6 +65,11 @@ class OrganizationEditViewController: NSViewController
     }
 	
 	@IBAction func btnCancel_Action(_ sender: NSButton) {
+		
+		if self.operation == .Add {
+			self.organizationDao.delete(organization: self.organization!)
+		}
+		
 		self.dismiss(self)
 	}
 	
