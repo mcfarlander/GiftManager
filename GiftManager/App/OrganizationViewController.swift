@@ -38,8 +38,6 @@ class OrganizationViewController: NSViewController
 		
 		self.tableView.delegate = self
 		self.tableView.dataSource = self
-		
-		self.enableUpdateDeleteButtons()
     }
 	
 	override func viewDidAppear() {
@@ -52,26 +50,37 @@ class OrganizationViewController: NSViewController
 		self.currentOrganization = self.organizationDao.create(name: " ", phone: " ")
 		self.operation = DataOperation.Add
 		self.performDataAction()
-        
     }
 
     @IBAction func btnUpdateOrg_Action(_ sender: NSButton) {
         NSLog("update org action")
-		self.currentOrganization = self.organizationDao.list()![tableView.selectedRow]
-		self.operation = DataOperation.Update
-		self.performDataAction()
+		
+		if self.currentOrganization != nil {
+			self.operation = DataOperation.Update
+			self.performDataAction()
+		} else {
+			NSLog("No organization selected")
+			showOkMessage(title:"Data", message:"Organization not selected.")
+		}
     }
     
     @IBAction func btnDeleteOrg_Action(_ sender: NSButton) {
         NSLog("delete org action")
-		self.currentOrganization = self.organizationDao.list()![tableView.selectedRow]
-		self.operation = DataOperation.Delete
-		self.performDataAction()
+
+		if self.currentOrganization != nil {
+			self.operation = DataOperation.Delete
+			self.performDataAction()
+		} else {
+			NSLog("No organization selected")
+			showOkMessage(title:"Data", message:"Organization not selected.")
+		}
     }
 	
 	fileprivate func enableUpdateDeleteButtons() {
-		self.btnUpdateOrg.isEnabled = self.organizationDao.list()!.count > 0
-		self.btnDeleteOrg.isEnabled = self.organizationDao.list()!.count > 0
+		self.btnUpdateOrg.isEnabled = currentOrganization != nil
+		self.btnUpdateOrgTouchbar.isEnabled = currentOrganization != nil
+		self.btnDeleteOrg.isEnabled = currentOrganization != nil
+		self.btnDeleteOrgTouchbar.isEnabled = currentOrganization != nil
 	}
 	
 	fileprivate func performDataAction() {
@@ -96,6 +105,21 @@ extension OrganizationViewController: NSTableViewDelegate, NSTableViewDataSource
 	
 	func numberOfRows(in tableView: NSTableView) -> Int {
 		return self.organizationDao.list()!.count
+	}
+	
+	func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+		
+		if row >= 0
+		{
+			self.currentOrganization = self.organizationDao.list()![row]
+			NSLog("selected organization: " + (self.currentOrganization?.name)!)
+		} else {
+			self.currentOrganization = nil;
+		}
+		
+		enableUpdateDeleteButtons()
+		
+		return true
 	}
 	
 	fileprivate enum CellIdentifiers {

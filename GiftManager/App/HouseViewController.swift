@@ -156,6 +156,7 @@ class HouseViewController: NSViewController
 	
 	fileprivate func enablePersonControls(isAddEnabled:Bool, isUpdateDeleteEnabled:Bool) {
 		self.btnAddPerson.isEnabled = isAddEnabled
+		self.btnAddPersonTouchBar.isEnabled = isAddEnabled
 		self.btnUpdatePerson.isEnabled = isUpdateDeleteEnabled
 		self.btnDeletePerson.isEnabled = isUpdateDeleteEnabled
 	}

@@ -38,9 +38,7 @@ class RouteViewController: NSViewController
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-		
-        self.enableUpdateDeleteButtons()
-        
+
     }
 	
 	override func viewDidAppear() {
@@ -57,17 +55,27 @@ class RouteViewController: NSViewController
     
     @IBAction func btnUpdate_Action(_ sender: NSButton) {
         NSLog("Routes view btnUpdate Action")
-        self.currentRoute = self.routeDao.list()![tableView.selectedRow]
-        self.operation = DataOperation.Update
-        self.performDataAction()
+		
+		if self.currentRoute != nil {
+			self.operation = DataOperation.Update
+			self.performDataAction()
+		} else {
+			NSLog("No route selected")
+			showOkMessage(title:"Data", message:"Route not selected.")
+		}
 
     }
     
     @IBAction func btnDelete_Action(_ sender: NSButton) {
         NSLog("Routes view btnDelete Action")
-        self.currentRoute = self.routeDao.list()![tableView.selectedRow]
-        self.operation = DataOperation.Delete
-        self.performDataAction()
+		
+		if self.currentRoute != nil {
+			self.operation = DataOperation.Delete
+			self.performDataAction()
+		} else {
+			NSLog("No route selected")
+			showOkMessage(title:"Data", message:"Rotue not selected.")
+		}
     }
     
     fileprivate func performDataAction() {
@@ -80,7 +88,9 @@ class RouteViewController: NSViewController
     
     fileprivate func enableUpdateDeleteButtons() {
         btnUpdate.isEnabled = self.routeDao.list()!.count > 0
+		btnUpdateTouchbar.isEnabled = self.routeDao.list()!.count > 0
         btnDelete.isEnabled = self.routeDao.list()!.count > 0
+		btnDeleteTouchbar.isEnabled = self.routeDao.list()!.count > 0
     }
     
 }
@@ -89,6 +99,7 @@ extension RouteViewController:SheetViewControllerDelegate
 {
 	func handleUpdate() {
 		self.tableView.reloadData()
+		self.enableUpdateDeleteButtons()
 	}
 }
 
@@ -103,6 +114,20 @@ extension RouteViewController: NSTableViewDelegate, NSTableViewDataSource
         static let CellRouteNumber = "cellRouteNumber"
         static let CellStreet = "cellStreet"
     }
+	
+	func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+		
+		if row >= 0 {
+			self.currentRoute = self.routeDao.list()![row]
+			NSLog("selected route: " + (self.currentRoute?.routenumber!)!)
+		} else {
+			self.currentRoute = nil;
+		}
+		
+		enableUpdateDeleteButtons()
+		
+		return true
+	}
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var text: String = ""

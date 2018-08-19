@@ -373,8 +373,8 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" borderStyle="bezel" alignment="left" title="Orgs" drawsBackground="YES" id="sMe-dh-9Zq">
                                             <font key="font" usesAppearanceFont="YES"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </textFieldCell>
                                     </textField>
                                 </viewController>
@@ -1208,17 +1208,17 @@
                         <touchBarItems>
                             <touchBarItem id="rNX-aH-mLV">
                                 <viewController key="viewController" id="TgN-WJ-f5I">
-                                    <textField key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iGw-3n-ngH">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="24"/>
+                                    <textField key="view" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iGw-3n-ngH">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="23"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" borderStyle="bezel" alignment="left" title="Houses" drawsBackground="YES" id="E3d-tG-i3x">
                                             <font key="font" usesAppearanceFont="YES"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </textFieldCell>
                                     </textField>
                                 </viewController>
-                                <size key="designTimeSize" width="60" height="24"/>
+                                <size key="designTimeSize" width="60" height="23"/>
                             </touchBarItem>
                             <touchBarItem id="PQy-Tt-kQm">
                                 <viewController key="viewController" id="XnC-9B-D8x">
@@ -1785,8 +1785,8 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <textFieldCell key="cell" borderStyle="bezel" alignment="left" title="Routes" drawsBackground="YES" id="zAg-Pq-YB7">
                                             <font key="font" usesAppearanceFont="YES"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </textFieldCell>
                                     </textField>
                                 </viewController>
