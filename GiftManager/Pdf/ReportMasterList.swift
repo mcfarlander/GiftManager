@@ -9,6 +9,7 @@
 import Foundation
 import Cocoa
 
+/// An implementation of ReportProtocol to create the master list report.
 class ReportMasterList {
 	
 	let report = ReportBase()

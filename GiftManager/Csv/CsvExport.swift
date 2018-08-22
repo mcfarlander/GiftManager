@@ -8,11 +8,9 @@
 
 import Foundation
 
-/**
- A customer class to export data to a CSV file.
- */
-class CsvExport
-{
+/// A customer class to export data to a CSV file.
+class CsvExport {
+
 	fileprivate var path:String = ""
 	fileprivate var separator:String = ","
 	fileprivate var lines:[String] = [""]
