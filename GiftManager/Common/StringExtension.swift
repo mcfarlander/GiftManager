@@ -22,6 +22,9 @@ extension String {
 		return Data(self.utf8).base64EncodedString()
 	}
 	
+	/// Converts an HTML string to an attributed string.
+	///
+	/// - Returns: the attributed string to use/display
 	func convertHtmlToAttributeString() -> NSAttributedString {
 		guard let data = data(using: .utf8) else { return NSAttributedString() }
 		do {

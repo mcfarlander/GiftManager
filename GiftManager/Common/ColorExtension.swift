@@ -12,6 +12,9 @@ import Cocoa
 
 public extension NSColor {
 	
+	/// Gets the hex value, as a string from an NSColor object.
+	///
+	/// - Returns: the hex value of a color, as a string
 	func toHex() -> String? {
 		
 			guard let rgbColor = usingColorSpaceName(NSColorSpaceName.calibratedRGB) else {

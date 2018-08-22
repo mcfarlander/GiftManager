@@ -21,9 +21,11 @@ class CommonFetches
 	fileprivate let personDao = PersonDao()
 
     // MARK: - Mock Data
-    
-    func mockData()
-    {
+	
+	
+    /// Mock data will delete all data in organizations, routes, houses and persons tables.
+	/// It will add some fake data for UI testing.
+    func mockData() {
         NSLog("mocking data")
 
 		// 1. clear out all previous data
@@ -55,6 +57,3 @@ class CommonFetches
     
     
 }
-
-
-
