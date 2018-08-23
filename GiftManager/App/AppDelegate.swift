@@ -24,12 +24,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let answer = dialogOKCancel(question: "Save Data?", text: "Data was changed and not saved. Recommended to save now or lose it.")
             
             if answer {
-                do
-                {
+                do {
                     try managedObjectContext.save()
-                }
-                catch
-                {
+                } catch {
                     let nserror = error as NSError
 					NSApplication.shared.presentError(nserror)
                 }

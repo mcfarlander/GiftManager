@@ -17,8 +17,12 @@ class CsvExport {
 	
 	var delegate:FileCreationDelegate?
 	
+	/// Create a new instance of CsvExport.
 	init() { }
 	
+	/// Create a new instance of CsvExport.
+	///
+	/// - Parameter path: the path where the csv file will reside.
 	init(path:String) {
 		self.path = path
 	}
@@ -32,7 +36,12 @@ class CsvExport {
 	/** Add a line to the file. No conversion of items is made. */
 	func appendLine(line:String) { self.lines.append(line) }
 	
-	/** Convert an array of strings to a single line, ready to be appended. */
+	/// Convert an array of strings to a single line, ready to be appended.
+	///
+	/// - Parameters:
+	///   - strings: the array of string to merge into a single string
+	///   - useQuotes: if the merged strings should be quoted
+	/// - Returns: the single string
 	func convertToLine(strings:[String], useQuotes:Bool) -> String {
 		var contents = ""
 		
@@ -58,13 +67,18 @@ class CsvExport {
 		
 	}
 	
-	/** Convert an array of strings to a single line and appends it to the array of lines immediately. */
+	/// Convert an array of strings to a single line and appends it to the array of lines immediately.
+	///
+	/// - Parameters:
+	///   - items: the array of string to merge into one
+	///   - useQuotes: flag if all the strings should be quoted
 	func convertAndAppendLines(items:[String], useQuotes:Bool) {
 		let line = convertToLine(strings: items, useQuotes: useQuotes)
 		self.appendLine(line: line)
 	}
 	
-	/** Write the array of lines to file on desktop. */
+
+	/// Write the array of lines to file on desktop.
 	func writeCsv() {
 		let urlPath = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop").appendingPathComponent(self.path)
 		var csvText = ""

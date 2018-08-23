@@ -11,6 +11,7 @@ import Cocoa
 
 /// Reporting protocol. Each subclass must implement these methods.
 protocol ReportProtocol {
+	
 	/**
 	Clients must set the report's name, which will also be
 	the file name when the html is saved to file.
