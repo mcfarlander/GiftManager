@@ -77,10 +77,10 @@ class OrganizationViewController: NSViewController
     }
 	
 	fileprivate func enableUpdateDeleteButtons() {
-		self.btnUpdateOrg.isEnabled = currentOrganization != nil
-		self.btnUpdateOrgTouchbar.isEnabled = currentOrganization != nil
-		self.btnDeleteOrg.isEnabled = currentOrganization != nil
-		self.btnDeleteOrgTouchbar.isEnabled = currentOrganization != nil
+		self.btnUpdateOrg.isEnabled = self.currentOrganization != nil
+		self.btnUpdateOrgTouchbar.isEnabled = self.currentOrganization != nil
+		self.btnDeleteOrg.isEnabled = self.currentOrganization != nil
+		self.btnDeleteOrgTouchbar.isEnabled = self.currentOrganization != nil
 	}
 	
 	fileprivate func performDataAction() {
@@ -95,8 +95,14 @@ class OrganizationViewController: NSViewController
 
 extension OrganizationViewController:SheetViewControllerDelegate
 {
-	func handleUpdate() {
+	func handleUpdate(isCanceled: Bool) {
+		
+		if isCanceled && self.operation == .Add {
+			self.currentOrganization = nil
+		}
+		
 		self.tableView.reloadData()
+		self.enableUpdateDeleteButtons()
 	}
 }
 
@@ -109,8 +115,7 @@ extension OrganizationViewController: NSTableViewDelegate, NSTableViewDataSource
 	
 	func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
 		
-		if row >= 0
-		{
+		if row >= 0 {
 			self.currentOrganization = self.organizationDao.list()![row]
 			NSLog("selected organization: " + (self.currentOrganization?.name)!)
 		} else {

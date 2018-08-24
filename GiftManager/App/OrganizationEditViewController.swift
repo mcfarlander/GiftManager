@@ -59,7 +59,7 @@ class OrganizationEditViewController: NSViewController
 				self.organizationDao.delete(organization: self.organization!)
 			}
 			
-			self.delegate?.handleUpdate()
+			self.delegate?.handleUpdate(isCanceled: false)
 			self.dismiss(self)
 		}
     }
@@ -70,6 +70,7 @@ class OrganizationEditViewController: NSViewController
 			self.organizationDao.delete(organization: self.organization!)
 		}
 		
+		self.delegate?.handleUpdate(isCanceled: true)
 		self.dismiss(self)
 	}
 	

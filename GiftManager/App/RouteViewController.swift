@@ -87,17 +87,22 @@ class RouteViewController: NSViewController
     }
     
     fileprivate func enableUpdateDeleteButtons() {
-        btnUpdate.isEnabled = self.routeDao.list()!.count > 0
-		btnUpdateTouchbar.isEnabled = self.routeDao.list()!.count > 0
-        btnDelete.isEnabled = self.routeDao.list()!.count > 0
-		btnDeleteTouchbar.isEnabled = self.routeDao.list()!.count > 0
+        btnUpdate.isEnabled = self.currentRoute != nil
+		btnUpdateTouchbar.isEnabled = self.currentRoute != nil
+        btnDelete.isEnabled = self.currentRoute != nil
+		btnDeleteTouchbar.isEnabled = self.currentRoute != nil
     }
     
 }
 
 extension RouteViewController:SheetViewControllerDelegate
 {
-	func handleUpdate() {
+	func handleUpdate(isCanceled: Bool) {
+		
+		if isCanceled  && self.operation == .Add {
+			self.currentRoute = nil
+		}
+		
 		self.tableView.reloadData()
 		self.enableUpdateDeleteButtons()
 	}

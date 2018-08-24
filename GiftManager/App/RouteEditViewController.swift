@@ -63,7 +63,7 @@ class RouteEditViewController: NSViewController {
 					self.routeDao.delete(route: self.route!)
 			}
 			
-			self.delegate?.handleUpdate()
+			self.delegate?.handleUpdate(isCanceled: false)
 			self.dismiss(self)
 		}
     }
@@ -74,6 +74,7 @@ class RouteEditViewController: NSViewController {
 			self.routeDao.delete(route: self.route!)
 		}
 		
+		self.delegate?.handleUpdate(isCanceled: true)
 		self.dismiss(self)
 	}
 	
