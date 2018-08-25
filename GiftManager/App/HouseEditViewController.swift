@@ -8,8 +8,9 @@
 
 import Cocoa
 
-class HouseEditViewController: NSViewController
-{
+/// The controller for performing a data operation on a House object.
+class HouseEditViewController: NSViewController {
+	
 	@IBOutlet var labelNumber: NSTextField!
 	@IBOutlet var textNumber: NSTextField!
 	@IBOutlet var labelContact: NSTextField!
@@ -35,11 +36,13 @@ class HouseEditViewController: NSViewController
 	fileprivate let houseDao = HouseDao()
 	fileprivate let routeDao = RouteDao()
 
+	/// The view loaded.
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
 
+	/// The view appeared, perhaps after being closed.
 	override func viewDidAppear() {
 		
 		self.populateRoutes()
@@ -72,6 +75,9 @@ class HouseEditViewController: NSViewController
 		}
 	}
 	
+	/// Attempt to complate the data operation.
+	///
+	/// - Parameter sender: the view's button
 	@IBAction func btnOk_Action(_ sender: NSButton) {
 		
 		if self.validate() {
@@ -109,6 +115,9 @@ class HouseEditViewController: NSViewController
 		}
 	}
 	
+	/// Cancel performing the data operation.
+	///
+	/// - Parameter sender: the view's button
 	@IBAction func btnCancel_Action(_ sender: NSButton) {
 		
 		if self.operation == .Add {
@@ -119,6 +128,7 @@ class HouseEditViewController: NSViewController
 		self.dismiss(self)
 	}
 	
+	/// Get a list of the routes and populate the drop-down control
 	private func populateRoutes() {
 		
 		self.textRoute.removeAllItems()
@@ -130,7 +140,11 @@ class HouseEditViewController: NSViewController
 		
 	}
 	
+	/// Validate the input is correct. If not, an alert is shown and the method returns false.
+	///
+	/// - Returns: flag if the input is valid
 	private func validate() -> Bool {
+		
 		if self.operation == .Delete {
 			return true
 		}
@@ -154,6 +168,7 @@ class HouseEditViewController: NSViewController
 	}
 	
 	private func enableControls(isEnabled:Bool) {
+		
 		self.textNumber.isEnabled = isEnabled
 		self.textContact.isEnabled = isEnabled
 		self.textPhone.isEnabled = isEnabled
@@ -162,7 +177,6 @@ class HouseEditViewController: NSViewController
 		self.textRoute.isEnabled = isEnabled
 		self.switchDeliver.isEnabled = isEnabled
 		self.switchPrinted.isEnabled = isEnabled
-		
 	}
 	
 }

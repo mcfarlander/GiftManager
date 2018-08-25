@@ -8,6 +8,7 @@
 
 import Cocoa
 
+/// The controller for performing a data operation on a Route object.
 class RouteEditViewController: NSViewController {
 	
     @IBOutlet weak var txtRouteNumber: NSTextField!
@@ -22,10 +23,12 @@ class RouteEditViewController: NSViewController {
 	
 	fileprivate let routeDao = RouteDao()
 	
+    /// The view loaded.
     override func viewDidLoad() {
 		super.viewDidLoad()
     }
 	
+	/// The view appeared, perhaps after being closed.
 	override func viewDidAppear() {
 		
 		super.viewDidAppear()
@@ -49,6 +52,9 @@ class RouteEditViewController: NSViewController {
 		}
 	}
 
+    /// Attempt to complate the data operation.
+    ///
+    /// - Parameter sender: the view's button
     @IBAction func btnOk_Action(_ sender: NSButton) {
 		
 		if validate() {
@@ -68,6 +74,9 @@ class RouteEditViewController: NSViewController {
 		}
     }
 	
+	/// Cancel performing the data operation.
+	///
+	/// - Parameter sender: the view's button
 	@IBAction func btnCancel_Action(_ sender: NSButton) {
 		
 		if self.operation == .Add {
@@ -78,6 +87,9 @@ class RouteEditViewController: NSViewController {
 		self.dismiss(self)
 	}
 	
+	/// Validate the input is correct. If not, an alert is shown and the method returns false.
+	///
+	/// - Returns: flag if the input is valid
 	private func validate() -> Bool {
 		
 		if self.operation == .Delete {

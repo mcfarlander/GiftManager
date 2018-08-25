@@ -8,6 +8,7 @@
 
 import Cocoa
 
+/// The controller for performing a data operation on an Organization object.
 class OrganizationEditViewController: NSViewController
 {
     @IBOutlet weak var txtName: NSTextField!
@@ -22,10 +23,12 @@ class OrganizationEditViewController: NSViewController
 	
 	fileprivate let organizationDao = OrganizationDao()
 
+	/// The view loaded.
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	}
 	
+	/// The view appeared, perhaps after being closed.
 	override func viewDidAppear() {
 		
 		txtName.stringValue = (self.organization?.name!)!.trim()
@@ -44,7 +47,10 @@ class OrganizationEditViewController: NSViewController
 			txtPhone.isEnabled = false
 		}
 	}
-    
+	
+	/// Attempt to complate the data operation.
+	///
+	/// - Parameter sender: the view's button
     @IBAction func btnOk_Action(_ sender: NSButton) {
 		
 		if validate() {
@@ -64,6 +70,9 @@ class OrganizationEditViewController: NSViewController
 		}
     }
 	
+	/// Cancel performing the data operation.
+	///
+	/// - Parameter sender: the view's button
 	@IBAction func btnCancel_Action(_ sender: NSButton) {
 		
 		if self.operation == .Add {
@@ -74,6 +83,9 @@ class OrganizationEditViewController: NSViewController
 		self.dismiss(self)
 	}
 	
+	/// Validate the input is correct. If not, an alert is shown and the method returns false.
+	///
+	/// - Returns: flag if the input is valid
 	private func validate() -> Bool {
 		
 		if self.operation == .Delete {

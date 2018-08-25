@@ -8,8 +8,9 @@
 
 import Cocoa
 
-class HouseViewController: NSViewController
-{
+/// A view controller to show the houses and person and allow the user to perform data operations on them.
+class HouseViewController: NSViewController {
+	
 	var managedContext = (NSApplication.shared.delegate as! AppDelegate).managedObjectContext
 
 	@IBOutlet var labelCount: NSTextField!
@@ -44,6 +45,7 @@ class HouseViewController: NSViewController
 	}()
 	
     override func viewDidLoad() {
+		
         super.viewDidLoad()
         // Do view setup here.
         NSLog("Houses view did load")
@@ -56,12 +58,10 @@ class HouseViewController: NSViewController
 		
 		self.enableHouseControls(isEnabled: false)
 		self.enablePersonControls(isAddEnabled: false, isUpdateDeleteEnabled: false)
-		
-
     }
 
-	override func keyDown(with event: NSEvent)
-	{
+	override func keyDown(with event: NSEvent) {
+		
 		switch event.modifierFlags.intersection(.deviceIndependentFlagsMask)
 		{
 		case [.command] where event.characters == "a", [.command, .shift] where event.characters == "a":
@@ -81,12 +81,18 @@ class HouseViewController: NSViewController
 		}
 	}
     
+    /// Button action to add a house.
+    ///
+    /// - Parameter sender: the view's button
     @IBAction func btnAddHouse_Action(_ sender: NSButton) {
         NSLog("add house action")
 		self.currentHouse = self.houseDao.create(contact: "", phone: "")
 		self.performHouseDataAction(operation: .Add)
     }
     
+    /// Button action to modify a house.
+    ///
+    /// - Parameter sender: the view's button
     @IBAction func btnUpdateHouse_Action(_ sender: NSButton) {
         NSLog("update house action")
 		
@@ -99,6 +105,9 @@ class HouseViewController: NSViewController
 		
     }
 
+    /// Button action to delete a house.
+    ///
+    /// - Parameter sender: the view's button
     @IBAction func btnDeleteHouse_Action(_ sender: NSButton) {
         NSLog("delete house action")
 		
@@ -110,6 +119,9 @@ class HouseViewController: NSViewController
 		}
     }
     
+    /// Button action to add a person.
+    ///
+    /// - Parameter sender: the view's button
     @IBAction func btnAddPerson_Action(_ sender: NSButton) {
         NSLog("add person action")
 		
@@ -127,6 +139,9 @@ class HouseViewController: NSViewController
 		}
     }
     
+    /// Button action to modify a person.
+    ///
+    /// - Parameter sender: the view's button
     @IBAction func btnUpdatePerson_Action(_ sender: NSButton) {
         NSLog("update person action")
 		
@@ -138,6 +153,9 @@ class HouseViewController: NSViewController
 		}
     }
     
+    /// Button action to delete a person.
+    ///
+    /// - Parameter sender: the view's button
     @IBAction func btnDeletePerson_Action(_ sender: NSButton) {
         NSLog("delete person action")
 		
@@ -149,11 +167,19 @@ class HouseViewController: NSViewController
 		}
     }
 	
+	/// Enable or disable the house controls depending on if a house is selected. The add button is always enabled.
+	///
+	/// - Parameter isEnabled: flag if the update and delete button are enabled
 	fileprivate func enableHouseControls(isEnabled:Bool) {
 		self.btnUpdateHouse.isEnabled = isEnabled
 		self.btnDeleteHouse.isEnabled = isEnabled
 	}
 	
+	/// Enable or disable the person buttons depending on if a house is selected and if there are persons associated with the house.
+	///
+	/// - Parameters:
+	///   - isAddEnabled: flag if the add button should be enabled
+	///   - isUpdateDeleteEnabled: flag if the update and delete buttons are enabled.
 	fileprivate func enablePersonControls(isAddEnabled:Bool, isUpdateDeleteEnabled:Bool) {
 		self.btnAddPerson.isEnabled = isAddEnabled
 		self.btnAddPersonTouchBar.isEnabled = isAddEnabled
@@ -161,6 +187,7 @@ class HouseViewController: NSViewController
 		self.btnDeletePerson.isEnabled = isUpdateDeleteEnabled
 	}
 	
+	/// Create the data operation on a house, the object to manipulate and open the sheet to perform the operation.
 	fileprivate func performHouseDataAction(operation:DataOperation) {
 		self.houseEditViewController.delegate = self
 		self.houseEditViewController.house = self.currentHouse!
@@ -169,6 +196,7 @@ class HouseViewController: NSViewController
 		self.presentViewControllerAsSheet(houseEditViewController)
 	}
 	
+	/// Create the data operation on a person, the object to manipulate and open the sheet to perform the operation.
 	fileprivate func performPersonDataAction(operation:DataOperation) {
 		self.personEditViewController.delegate = self
 		self.personEditViewController.person = self.currentPerson!
@@ -178,6 +206,8 @@ class HouseViewController: NSViewController
 	}
     
 }
+
+// MARK: - HousePersonViewControllerDelegate
 
 extension HouseViewController:HousePersonViewControllerDelegate {
 	
@@ -194,9 +224,12 @@ extension HouseViewController:HousePersonViewControllerDelegate {
 	}
 }
 
+// MARK: - NSTableViewDelegate, NSTableViewDataSource
+
 extension HouseViewController: NSTableViewDelegate, NSTableViewDataSource {
-	fileprivate enum CellIdentifiers
-	{
+	
+	fileprivate enum CellIdentifiers {
+		
 		static let CellHouseSequence 		= "cellHouseSequence"
 		static let CellHouseContact 		= "cellHouseContact"
 		static let CellHouseAddress 		= "cellHouseAddress"

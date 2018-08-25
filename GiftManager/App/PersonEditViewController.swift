@@ -8,8 +8,8 @@
 
 import Cocoa
 
-class PersonEditViewController: NSViewController
-{
+/// The controller for performing a data operation on a Person object.
+class PersonEditViewController: NSViewController {
 	
 	@IBOutlet var labelNumber: NSView!
 	@IBOutlet var textNumber: NSTextField!
@@ -34,14 +34,14 @@ class PersonEditViewController: NSViewController
 	fileprivate let personDao = PersonDao()
 	fileprivate let organizationDao = OrganizationDao()
 
-    override func viewDidLoad()
-	{
+	/// The view loaded.
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
 	
-	override func viewDidAppear()
-	{
+	/// The view appeared, perhaps after being closed.
+	override func viewDidAppear() {
 		populateGiftIdeas()
 		self.populateOrgs()
 		
@@ -62,30 +62,26 @@ class PersonEditViewController: NSViewController
 		}
 	}
 	
-	@IBAction func btnOk_Action(_ sender: NSButton)
-	{
-		if validate()
-		{
+	/// Attempt to complate the data operation.
+	///
+	/// - Parameter sender: the view's button
+	@IBAction func btnOk_Action(_ sender: NSButton) {
+		
+		if validate() {
 			
 			self.person?.sequence = self.textNumber.stringValue
 			self.person?.name = self.textName.stringValue
 			self.person?.age = self.textAge.stringValue
 			
-			if self.buttonIsMale.state == .on
-			{
+			if self.buttonIsMale.state == .on {
 				self.person?.ismale = true
-			}
-			else
-			{
+			} else {
 				self.person?.ismale = false
 			}
 			
-			if self.buttonIsHouseholdGift.state == .on
-			{
+			if self.buttonIsHouseholdGift.state == .on {
 				self.person?.ishousegift = true
-			}
-			else
-			{
+			} else {
 				self.person?.ishousegift = false
 			}
 			
@@ -106,10 +102,12 @@ class PersonEditViewController: NSViewController
 		}
 	}
 	
-	@IBAction func btnCancel_Action(_ sender: NSButton)
-	{
-		if self.operation == .Add
-		{
+	/// Cancel performing the data operation.
+	///
+	/// - Parameter sender: the view's button
+	@IBAction func btnCancel_Action(_ sender: NSButton) {
+		
+		if self.operation == .Add {
 			self.personDao.delete(person: self.person!)
 		}
 		
@@ -117,8 +115,8 @@ class PersonEditViewController: NSViewController
 		self.dismiss(self)
 	}
 	
-	private func populateGiftIdeas()
-	{
+	/// Populate the drop-down list of common gift ideas.
+	private func populateGiftIdeas() {
 		self.textGiftIdeas.removeAllItems()
 		
 		let items = [
@@ -137,40 +135,37 @@ class PersonEditViewController: NSViewController
 		
 	}
 	
-	private func populateOrgs()
-	{
+	/// Get the list of organizations and populate the org drop-down control.
+	private func populateOrgs() {
 		self.textOrganization.removeAllItems()
-		
 		self.textOrganization.addItem(withObjectValue: "")
 		
-		for org:Organization in self.organizationDao.list()!
-		{
+		for org:Organization in self.organizationDao.list()! {
 			self.textOrganization.addItem(withObjectValue: org.name!)
 		}
 		
 	}
 	
-	private func validate() -> Bool
-	{
-		if self.operation == .Delete
-		{
+	/// Validate the input is correct. If not, an alert is shown and the method returns false.
+	///
+	/// - Returns: flag if the input is valid
+	private func validate() -> Bool {
+		
+		if self.operation == .Delete {
 			return true
 		}
 		
-		if self.textNumber.stringValue.count == 0
-		{
+		if self.textNumber.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the sequence number")
 			return false
 		}
 		
-		if self.textName.stringValue.count == 0
-		{
+		if self.textName.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the name")
 			return false
 		}
 		
-		if self.textGiftIdeas.stringValue.count == 0
-		{
+		if self.textGiftIdeas.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the gift ideas")
 			return false
 		}
@@ -178,8 +173,10 @@ class PersonEditViewController: NSViewController
 		return true
 	}
 	
-	private func enableControls(isEnabled:Bool)
-	{
+	/// Enable or disable view controls.
+	///
+	/// - Parameter isEnabled: flag if the controls should be enabled or not
+	private func enableControls(isEnabled:Bool) {
 		self.textNumber.isEnabled = isEnabled
 		self.textName.isEnabled = isEnabled
 		self.textAge.isEnabled = isEnabled

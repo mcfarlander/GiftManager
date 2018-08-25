@@ -9,8 +9,8 @@
 import Cocoa
 import CoreData
 
-class RouteViewController: NSViewController
-{
+/// A view controller to show the routes and allow the user to perform data operations on them.
+class RouteViewController: NSViewController {
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var btnAdd: NSButton!
@@ -30,6 +30,7 @@ class RouteViewController: NSViewController
 		return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "RouteEditViewController")) as! RouteEditViewController
     }()
 
+	/// The view loaded.
     override func viewDidLoad() {
 		
         super.viewDidLoad()
@@ -41,11 +42,15 @@ class RouteViewController: NSViewController
 
     }
 	
+	/// The view appeared, perhaps after being closed.
 	override func viewDidAppear() {
 		self.enableUpdateDeleteButtons()
 		self.tableView.reloadData()
 	}
     
+    /// Button action to add a route.
+    ///
+    /// - Parameter sender: the view's add button
     @IBAction func btnAdd_Action(_ sender: NSButton) {
         NSLog("Routes view btnAdd Action")
         self.currentRoute = self.routeDao.create(routeNumber: " ", street: " ")
@@ -53,6 +58,9 @@ class RouteViewController: NSViewController
         self.performDataAction()
     }
     
+    /// Button action to modify a route.
+    ///
+    /// - Parameter sender: the view's update button
     @IBAction func btnUpdate_Action(_ sender: NSButton) {
         NSLog("Routes view btnUpdate Action")
 		
@@ -66,6 +74,9 @@ class RouteViewController: NSViewController
 
     }
     
+    /// Button action to delete a route.
+    ///
+    /// - Parameter sender: the view's delete button
     @IBAction func btnDelete_Action(_ sender: NSButton) {
         NSLog("Routes view btnDelete Action")
 		
@@ -78,6 +89,7 @@ class RouteViewController: NSViewController
 		}
     }
     
+    /// Create the data operation, the object to manipulate and open the sheet to perform the operation.
     fileprivate func performDataAction() {
 		self.routeEditViewController.delegate = self
 		self.routeEditViewController.route = self.currentRoute!
@@ -86,6 +98,7 @@ class RouteViewController: NSViewController
 		self.presentViewControllerAsSheet(routeEditViewController)
     }
     
+    /// Enable or disable the buttons on the view depending if a row has been selected.
     fileprivate func enableUpdateDeleteButtons() {
         btnUpdate.isEnabled = self.currentRoute != nil
 		btnUpdateTouchbar.isEnabled = self.currentRoute != nil
@@ -94,6 +107,8 @@ class RouteViewController: NSViewController
     }
     
 }
+
+// MARK: - SheetViewControllerDelegate
 
 extension RouteViewController:SheetViewControllerDelegate
 {
@@ -107,6 +122,8 @@ extension RouteViewController:SheetViewControllerDelegate
 		self.enableUpdateDeleteButtons()
 	}
 }
+
+// MARK: - NSTableViewDelegate, NSTableViewDataSource
 
 extension RouteViewController: NSTableViewDelegate, NSTableViewDataSource
 {
@@ -135,6 +152,7 @@ extension RouteViewController: NSTableViewDelegate, NSTableViewDataSource
 	}
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+		
         var text: String = ""
         var cellIdentifier: String = ""
 		

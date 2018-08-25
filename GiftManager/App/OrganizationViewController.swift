@@ -8,8 +8,9 @@
 
 import Cocoa
 
-class OrganizationViewController: NSViewController
-{
+/// A view controller to show the organizations and allow the user to perform data operations on them.
+class OrganizationViewController: NSViewController {
+	
 	var managedContext = (NSApplication.shared.delegate as! AppDelegate).managedObjectContext
     
 	@IBOutlet var tableView: NSTableView!
@@ -29,7 +30,8 @@ class OrganizationViewController: NSViewController
 	{
 			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "OrganizationEditViewController")) as! OrganizationEditViewController
 	}()
-    
+	
+	/// The view loaded.
     override func viewDidLoad() {
 		
         super.viewDidLoad()
@@ -40,19 +42,28 @@ class OrganizationViewController: NSViewController
 		self.tableView.dataSource = self
     }
 	
+	/// The view appeared, perhaps after being closed.
 	override func viewDidAppear() {
 		self.enableUpdateDeleteButtons()
 		self.tableView.reloadData()
 	}
 
+	/// Button action to add an organization.
+	///
+	/// - Parameter sender: the view's add button
     @IBAction func btnAddOrg_Action(_ sender: NSButton) {
+		
         NSLog("add org action")
 		self.currentOrganization = self.organizationDao.create(name: " ", phone: " ")
 		self.operation = DataOperation.Add
 		self.performDataAction()
     }
 
+	/// Button action to modify an organization.
+	///
+	/// - Parameter sender: the view's update button
     @IBAction func btnUpdateOrg_Action(_ sender: NSButton) {
+		
         NSLog("update org action")
 		
 		if self.currentOrganization != nil {
@@ -63,8 +74,12 @@ class OrganizationViewController: NSViewController
 			showOkMessage(title:"Data", message:"Organization not selected.")
 		}
     }
-    
+	
+	/// Button action to delete an organization.
+	///
+	/// - Parameter sender: the view's delete button
     @IBAction func btnDeleteOrg_Action(_ sender: NSButton) {
+		
         NSLog("delete org action")
 
 		if self.currentOrganization != nil {
@@ -76,6 +91,7 @@ class OrganizationViewController: NSViewController
 		}
     }
 	
+	/// Enable or disable the buttons on the view depending if a row has been selected.
 	fileprivate func enableUpdateDeleteButtons() {
 		self.btnUpdateOrg.isEnabled = self.currentOrganization != nil
 		self.btnUpdateOrgTouchbar.isEnabled = self.currentOrganization != nil
@@ -83,6 +99,7 @@ class OrganizationViewController: NSViewController
 		self.btnDeleteOrgTouchbar.isEnabled = self.currentOrganization != nil
 	}
 	
+	/// Create the data operation, the object to manipulate and open the sheet to perform the operation.
 	fileprivate func performDataAction() {
 		self.organizationEditViewController.delegate = self
 		self.organizationEditViewController.organization = self.currentOrganization!
@@ -92,6 +109,8 @@ class OrganizationViewController: NSViewController
 	}
 	
 }
+
+// MARK: - SheetViewControllerDelegate
 
 extension OrganizationViewController:SheetViewControllerDelegate
 {
@@ -105,6 +124,8 @@ extension OrganizationViewController:SheetViewControllerDelegate
 		self.enableUpdateDeleteButtons()
 	}
 }
+
+// MARK: - NSTableViewDelegate, NSTableViewDataSource
 
 extension OrganizationViewController: NSTableViewDelegate, NSTableViewDataSource
 {
@@ -133,6 +154,7 @@ extension OrganizationViewController: NSTableViewDelegate, NSTableViewDataSource
 	}
 	
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+		
 		var text: String = ""
 		var cellIdentifier: String = ""
 		
