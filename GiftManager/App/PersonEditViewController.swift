@@ -117,21 +117,9 @@ class PersonEditViewController: NSViewController {
 	
 	/// Populate the drop-down list of common gift ideas.
 	private func populateGiftIdeas() {
+		
 		self.textGiftIdeas.removeAllItems()
-		
-		let items = [
-			"",
-			"McFarland Resaurant Gift Card",
-			"McFarland Retail Store Gift Card",
-			"McFarland Gas Station Gift Card",
-			"Culvers Gift Card",
-			"Walgreens Gift Card",
-			"Medicine Shoppe Gift Card",
-			"McFarland House Cafe Gift Card",
-			"Dollar General Gift Card",
-			"Kwik Trip Gift Card"]
-		
-		self.textGiftIdeas.addItems(withObjectValues: items)
+		self.textGiftIdeas.addItems(withObjectValues: CommonItems.items)
 		
 	}
 	
