@@ -2,8 +2,8 @@
 //  ReportBase.swift
 //  GiftManager
 //
-//  Created by Dave on 1/20/18.
-//  Copyright © 2018 org.djohnson. All rights reserved.
+//  Created by David Johnson on 1/20/18.
+//  Copyright © 2018 David Johnson. All rights reserved.
 //
 
 import Foundation

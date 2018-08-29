@@ -3,7 +3,7 @@
 //  GiftManager
 //
 //  Created by David Johnson on 11/15/16.
-//  Copyright © 2016 org.djohnson. All rights reserved.
+//  Copyright © 2016 David Johnson. All rights reserved.
 //
 
 import AppKit

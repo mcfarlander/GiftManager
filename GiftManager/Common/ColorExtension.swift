@@ -2,8 +2,8 @@
 //  ColorExtension.swift
 //  GiftManager
 //
-//  Created by Dave on 4/15/18.
-//  Copyright © 2018 org.djohnson. All rights reserved.
+//  Created by David Johnson on 4/15/18.
+//  Copyright © 2018 David Johnson. All rights reserved.
 //
 
 import Foundation

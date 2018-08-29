@@ -2,8 +2,8 @@
 //  CvsExport.swift
 //  GiftManager
 //
-//  Created by Dave on 12/30/17.
-//  Copyright © 2017 org.djohnson. All rights reserved.
+//  Created by David Johnson on 12/30/17.
+//  Copyright © 2017 David Johnson. All rights reserved.
 //
 
 import Foundation

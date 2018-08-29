@@ -3,7 +3,7 @@
 //  GiftManager
 //
 //  Created by David Johnson on 2/5/17.
-//  Copyright © 2017 org.djohnson. All rights reserved.
+//  Copyright © 2017 David Johnson. All rights reserved.
 //
 
 import Cocoa
