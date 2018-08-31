@@ -10,82 +10,73 @@ import Foundation
 import Cocoa
 import WebKit
 
-/**
-Report base implements ReportProtocol.
-General guidelines:
-	let report = ReportBase()
-	report.report.createHeader(title: "My title", name: "My name", reportDescrption: "My description")
-	report.createTable(["Col1", "Col2"])
-	report.createTableRow(["Val1", "Val3"])
-	report.endTable()
-	report.createFooter()
-	report.saveReportPdf()
-*/
+/// Report base implements ReportProtocol.
+/// General guidelines:
+/// 	let report = ReportBase()
+/// 	report.report.createHeader(title: "My title", name: "My name", reportDescrption: "My description")
+/// 	report.createTable(["Col1", "Col2"])
+/// 	report.createTableRow(["Val1", "Val3"])
+/// 	report.endTable()
+/// 	report.createFooter()
+/// 	report.saveReportPdf()
 class ReportBase : ReportProtocol
 {
-	/** The m_report name. */
+	/// The m_report name.
 	private var m_reportName = ""
 	
-	/** The m_report title. */
+	/// The m_report title.
 	private var m_reportTitle = ""
 	
-	/** The m_report description. */
+	/// The m_report description.
 	private var m_reportDescription = ""
 	
-	/** The m_buffer. */
+	///The m_buffer.
 	private var m_buffer = ""
 	
-	/** The delegate to inform clients the file has been created and if there was a problem. */
+	/// The delegate to inform clients the file has been created and if there was a problem.
 	var delegate:FileCreationDelegate?
 	
-	/**
-	Set the report name.
-	*/
+	/// Set the report name.
+	///
+	/// - Parameter name: the name for the report
 	func setReportName(name:String){ m_reportName = name }
-	
-	/**
-	Gets the report name.
-	@return the report name
-	*/
+
+	/// Gets the report name.
+	///
+	/// - Returns: the report's name
 	func getReportName()-> String { return m_reportName }
 	
-	/**
-	*/
-	func setReportTitle(title: String){ m_reportTitle = title }
+	/// Set the report's title.
+	///
+	/// - Parameter title: the new title of the report
+	func setReportTitle(title: String) { m_reportTitle = title }
 	
-	/**
-	Set the report description
-	@param descr the report description
-	*/
+	/// Set the report description
+	///
+	/// - Parameter descr: the report description
 	func setReportDescription(descr: String) { m_reportDescription = descr }
 	
-	/**
-	Get the string buffer.
-	*/
+	/// Get the string buffer, which is the report textual contents.
+	///
+	/// - Returns: the report contents as a string
 	func getBuffer() -> String { return m_buffer; }
 	
-	/**
-	* Default constructor.
-	*/
+	/// Default constructor.
 	init(){}
-	
-	/**
-	Overloaded constructor to set the name (also file name), title
-	and description used within the html.
-	
-	@param name the name
-	@param title the title
-	@param description the description
-	*/
+
+	/// Overloaded constructor to set the name (also file name), title and description used within the html.
+	///
+	/// - Parameters:
+	///   - name: the name of the report
+	///   - title: the title to appear in the report
+	///   - description: the description of the report
 	init (name:String, title:String, description:String) {
 		self.m_reportName = name
 		self.m_reportTitle = title
 		self.m_reportDescription = description
 	}
 	
-	/**
-	Implementation of IReportBase.createHeader().
-	*/
+	/// Implementation of IReportBase.createHeader().
 	func createHeader() {
 		
 		m_buffer.append("<html>")
@@ -180,32 +171,20 @@ class ReportBase : ReportProtocol
 	}
 	
 	/// Finish the html table
-	///
 	func endTable() {
 		m_buffer.append("</table>")
 		m_buffer.append("<br>")
 	}
 	
-	/**
-	Method subclasses must implement to create the embedded html table.
-	*/
-	//public abstract void createReportTable();
-	
-	/**
-	Implementation of IReportBase.createFooter.
-	*/
+	/// Implementation of IReportBase.createFooter.
 	func createFooter() {
 		m_buffer.append("</body>")
 		m_buffer.append("</html>")
-		
 	}
-	
-	/**
-	Implementation of IReportBase.saveReport. Takes the
-	report's name and saves it to the same path the class is on.
-	
-	@return the string
-	*/
+
+	/// Implementation of IReportBase.saveReport. Takes the report's name and saves it to the user's desktop path.
+	///
+	/// - Returns: the path where the file was saved to
 	func saveReport() -> String {
 		let dateCode = DateUtils.formatDateYyyyMMddNoDash(timestamp: Date())
 		let fileName = self.m_reportName + "_" + dateCode + ".html"
@@ -224,13 +203,11 @@ class ReportBase : ReportProtocol
 		
 		return sReturn
 		
-	}	// end of saveReport
-	
-	/**
-	Implementation of IReportBase.saveReportPdf. Takes the
-	report and saves it to the same path the class is on.
-	@return the path
-	*/
+	}
+
+	/// Implementation of IReportBase.saveReportPdf. Takes the report and saves it to user's desktop path.
+	///
+	/// - Returns: the path the file was saved to
 	func saveReportPdf() -> String {
 		
 		let dateCode = DateUtils.formatDateYyyyMMddNoDash(timestamp: Date())

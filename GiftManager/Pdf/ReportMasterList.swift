@@ -16,6 +16,9 @@ class ReportMasterList {
 	private let houseDao = HouseDao()
 	private let personDao = PersonDao()
 	
+	/// Generate a CSV file with the houses and persons.
+	///
+	/// - Returns: the path where the file was saved to
 	func generateMasterListReport() -> String? {
 		
 		let titles = ["House", "Address", "Phone", "Route", "Person", "Name", "Age", "Gender"]

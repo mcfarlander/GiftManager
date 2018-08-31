@@ -26,14 +26,20 @@ class CsvExport {
 	init(path:String) {
 		self.path = path
 	}
-	
-	/** Set the file path where the CSV file will be written to. */
+
+	/// Set the file path where the CSV file will be written to.
+	///
+	/// - Parameter path: the path to use
 	func setPath(path:String) { self.path = path }
-	
-	/** Set the separator between items. Defaults to a comma. */
+
+	/// Set the separator between items. Defaults to a comma.
+	///
+	/// - Parameter separator: the separator to use
 	func setSeparator(separator:String) { self.separator = separator }
 	
-	/** Add a line to the file. No conversion of items is made. */
+	/// Add a line to the file. No conversion of items is made.
+	///
+	/// - Parameter line: the line of text to add
 	func appendLine(line:String) { self.lines.append(line) }
 	
 	/// Convert an array of strings to a single line, ready to be appended.
