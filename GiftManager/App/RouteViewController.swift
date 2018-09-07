@@ -94,7 +94,7 @@ class RouteViewController: NSViewController {
 		self.routeEditViewController.delegate = self
 		self.routeEditViewController.route = self.currentRoute!
         self.routeEditViewController.operation = self.operation
-		
+
 		self.presentViewControllerAsSheet(routeEditViewController)
     }
     

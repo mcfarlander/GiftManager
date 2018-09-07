@@ -9,8 +9,8 @@
 import Cocoa
 
 /// The controller for performing a data operation on an Organization object.
-class OrganizationEditViewController: NSViewController
-{
+class OrganizationEditViewController: NSViewController, NSTouchBarDelegate {
+	
     @IBOutlet weak var txtName: NSTextField!
     @IBOutlet weak var txtPhone: NSTextField!
     
@@ -46,6 +46,48 @@ class OrganizationEditViewController: NSViewController
 			txtName.isEnabled = false
 			txtPhone.isEnabled = false
 		}
+	}
+	
+	override func makeTouchBar() -> NSTouchBar? {
+		
+		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier(rawValue: "org.giftmanager.org.TouchBarRoute")
+		let touchBarOkIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.org.Ok.button")
+		let touchBarCancelIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.org.Cancel.button")
+		
+		let touchBar = NSTouchBar()
+		touchBar.delegate = self
+		touchBar.customizationIdentifier = touchBarIdenitifier
+		touchBar.defaultItemIdentifiers = [touchBarOkIdentifier, touchBarCancelIdentifier, .fixedSpaceLarge, .otherItemsProxy]
+		touchBar.customizationAllowedItemIdentifiers = [touchBarCancelIdentifier]
+		
+		return touchBar
+	}
+	
+	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
+		
+		if identifier.rawValue == "org.giftmanager.org.Ok.button" {
+			let custom = NSCustomTouchBarItem(identifier: identifier)
+			custom.customizationLabel = "OK"
+			
+			let label = NSTextField.init(labelWithString: "OK")
+			custom.view = label
+			
+			return custom
+			
+		} else if identifier.rawValue == "org.giftmanager.org.Cancel.button" {
+			
+			let custom = NSCustomTouchBarItem(identifier: identifier)
+			custom.customizationLabel = "Cancel"
+			
+			let label = NSTextField.init(labelWithString: "Cancel")
+			custom.view = label
+			
+			return custom
+			
+		}
+		
+		return nil
+		
 	}
 	
 	/// Attempt to complate the data operation.

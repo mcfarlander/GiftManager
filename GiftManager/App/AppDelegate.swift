@@ -58,12 +58,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog("Clear Houses")
         let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all house data.")
         
-        if (answer)
-        {
+        if (answer) {
             let answer2 = dialogOKCancel(question: "CONFIRM Continue", text: "Second Warning! This will clear all house data.")
             
-            if answer2
-            {
+            if answer2 {
 				let houseDao = HouseDao()
 				let personDao = PersonDao()
 				
@@ -77,8 +75,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog("Clear Organizations")
         let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all organization data.")
         
-        if (answer)
-        {
+        if (answer) {
 			let orgDao = OrganizationDao()
 			orgDao.deleteAll()
         }
@@ -89,8 +86,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog("Clear Routes")
         let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all route data.")
         
-        if (answer)
-        {
+        if (answer) {
 			let routeDao = RouteDao()
 			routeDao.deleteAll()
         }
@@ -101,8 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let answer = dialogOKCancel(question: "Continue?", text: "Warning! This will clear all data and replace with mock data.")
         
-        if (answer)
-        {
+        if (answer) {
             let commonFetches = CommonFetches()
             commonFetches.mockData()
         }
@@ -293,7 +288,6 @@ extension AppDelegate: FileCreationDelegate
 			NSLog("error writing file \(errorMessage)")
 			self.showOkMessage(title: "Failed to write file", message: errorMessage)
 		}
-		
 	}
 }
 

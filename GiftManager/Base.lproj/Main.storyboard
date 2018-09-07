@@ -437,7 +437,6 @@
                         <outlet property="btnUpdateOrg" destination="W5w-Lx-A7J" id="sNf-bi-Bai"/>
                         <outlet property="btnUpdateOrgTouchbar" destination="3xH-7k-KMg" id="G0v-Tx-pwC"/>
                         <outlet property="tableView" destination="zZ5-uE-0MW" id="bdW-Jf-fcm"/>
-                        <segue destination="nZT-sa-d4E" kind="sheet" identifier="shoeRouteEdit" id="JtR-ZD-PwN"/>
                     </connections>
                 </viewController>
                 <customObject id="VFV-mt-Qbk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -512,23 +511,6 @@
                             </textField>
                         </subviews>
                     </view>
-                    <touchBar key="touchBar" id="nmK-nq-B2U">
-                        <touchBarItems>
-                            <touchBarItem id="6wl-wS-RC9">
-                                <viewController key="viewController" id="aZt-NA-zJM">
-                                    <textField key="view" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bje-2v-D3j">
-                                        <rect key="frame" x="0.0" y="0.0" width="36" height="24"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <textFieldCell key="cell" borderStyle="bezel" alignment="left" title="Edit" drawsBackground="YES" id="Xbk-Ai-Yfn">
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                </viewController>
-                            </touchBarItem>
-                        </touchBarItems>
-                    </touchBar>
                     <connections>
                         <outlet property="btnCancel" destination="5as-i9-VnE" id="ztm-Lg-ChS"/>
                         <outlet property="btnOk" destination="qyy-uL-ef0" id="DjO-xg-nHm"/>
@@ -1431,6 +1413,9 @@
                             </textField>
                         </subviews>
                     </view>
+                    <touchBar key="touchBar" id="DHD-UO-Mg3">
+                        <nil name="touchBarItems"/>
+                    </touchBar>
                     <connections>
                         <outlet property="btnCancel" destination="PBB-er-U35" id="kps-bo-aCz"/>
                         <outlet property="btnOk" destination="nMf-hE-U7g" id="6sq-LL-xzr"/>
