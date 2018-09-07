@@ -52,6 +52,9 @@ class RouteEditViewController: NSViewController, NSTouchBarDelegate {
 		}
 	}
 	
+	/// Creates the touchbar for this view.
+	///
+	/// - Returns: the new touchbar
 	override func makeTouchBar() -> NSTouchBar? {
 		
 		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier(rawValue: "org.giftmanager.route.TouchBarRoute")
@@ -67,6 +70,12 @@ class RouteEditViewController: NSViewController, NSTouchBarDelegate {
 		return touchBar
 	}
 	
+	/// Callback for when the touchbar is touched.
+	///
+	/// - Parameters:
+	///   - touchBar: the view's touch bar
+	///   - identifier: the identifier of the control being touched
+	/// - Returns: the touch bar item
 	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
 		
 		if identifier.rawValue == "org.giftmanager.route.Ok.button" {
