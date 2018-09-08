@@ -22,6 +22,7 @@
 		55C176682115E5CA001C20C4 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C176672115E5CA001C20C4 /* TouchBarController.swift */; };
 		55E538161FE215B2001EA573 /* HouseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538151FE215B2001EA573 /* HouseEditViewController.swift */; };
 		55E538181FE215D0001EA573 /* PersonEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E538171FE215D0001EA573 /* PersonEditViewController.swift */; };
+		55F5F9652143754B0086F50A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F5F9642143754B0086F50A /* Constants.swift */; };
 		C010A8CA1DFC4F9C001325C0 /* AppWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */; };
 		C02AFCFB1FDCAC2D001F0F5F /* SheetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02AFCFA1FDCAC2D001F0F5F /* SheetProtocol.swift */; };
 		C02AFCFE1FDCAE46001F0F5F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02AFCFD1FDCAE46001F0F5F /* StringExtension.swift */; };
@@ -72,6 +73,7 @@
 		55C176672115E5CA001C20C4 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
 		55E538151FE215B2001EA573 /* HouseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseEditViewController.swift; sourceTree = "<group>"; };
 		55E538171FE215D0001EA573 /* PersonEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonEditViewController.swift; sourceTree = "<group>"; };
+		55F5F9642143754B0086F50A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C010A8C91DFC4F9C001325C0 /* AppWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppWindowController.swift; sourceTree = "<group>"; };
 		C02AFCFA1FDCAC2D001F0F5F /* SheetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetProtocol.swift; sourceTree = "<group>"; };
 		C02AFCFD1FDCAE46001F0F5F /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				55B75022208406D800198B52 /* ColorExtension.swift */,
 				5525A35320CE099F0012F3F7 /* FileCreationDelegate.swift */,
 				5597D9F721375DFE0031926E /* CommonItems.swift */,
+				55F5F9642143754B0086F50A /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				55BFC6461FF1A593002682CF /* IntExtensions.swift in Sources */,
 				C02C03BC1FDB6F540050EF36 /* BaseDao.swift in Sources */,
 				55B75023208406D800198B52 /* ColorExtension.swift in Sources */,
+				55F5F9652143754B0086F50A /* Constants.swift in Sources */,
 				5523F81A2083D795002C1994 /* ReportMasterList.swift in Sources */,
 				C0B429A91F5E316D00F7C9B9 /* Option+CoreDataProperties.swift in Sources */,
 				C0B429B91F5E31BD00F7C9B9 /* Person+CoreDataProperties.swift in Sources */,

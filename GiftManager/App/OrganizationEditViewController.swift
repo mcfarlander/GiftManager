@@ -74,28 +74,27 @@ class OrganizationEditViewController: NSViewController, NSTouchBarDelegate {
 	/// - Returns: the touch bar item
 	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
 		
-		if identifier.rawValue == "org.giftmanager.org.Ok.button" {
-			let custom = NSCustomTouchBarItem(identifier: identifier)
-			custom.customizationLabel = "OK"
+		let custom = NSCustomTouchBarItem(identifier: identifier)
+		
+		switch identifier.rawValue {
 			
-			let label = NSTextField.init(labelWithString: "OK")
-			custom.view = label
-			
-			return custom
-			
-		} else if identifier.rawValue == "org.giftmanager.org.Cancel.button" {
-			
-			let custom = NSCustomTouchBarItem(identifier: identifier)
-			custom.customizationLabel = "Cancel"
-			
-			let label = NSTextField.init(labelWithString: "Cancel")
-			custom.view = label
-			
-			return custom
-			
+		case "org.giftmanager.org.Ok.button":
+		
+			let button = NSButton(title: Constants.Text_Button_OK, target: self, action: #selector(btnOk_Action(_:)))
+			button.bezelColor = Constants.Color_Button_OK
+			custom.view = button
+		
+		case "org.giftmanager.org.Cancel.button":
+		
+			let button = NSButton(title: Constants.Text_Button_Cancel, target: self, action: #selector(btnCancel_Action(_:)))
+			button.bezelColor = Constants.Color_Button_Cancel
+			custom.view = button
+		
+		default:
+			return nil
 		}
 		
-		return nil
+		return custom
 		
 	}
 	

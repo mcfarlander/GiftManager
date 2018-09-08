@@ -101,28 +101,27 @@ class HouseEditViewController: NSViewController, NSTouchBarDelegate {
 	/// - Returns: the touch bar item
 	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
 		
-		if identifier.rawValue == "org.giftmanager.house.Ok.button" {
-			let custom = NSCustomTouchBarItem(identifier: identifier)
-			custom.customizationLabel = "OK"
+		let custom = NSCustomTouchBarItem(identifier: identifier)
+		
+		switch identifier.rawValue {
 			
-			let label = NSTextField.init(labelWithString: "OK")
-			custom.view = label
+		case "org.giftmanager.house.Ok.button":
 			
-			return custom
+			let button = NSButton(title: Constants.Text_Button_OK, target: self, action: #selector(btnOk_Action(_:)))
+			button.bezelColor = Constants.Color_Button_OK
+			custom.view = button
 			
-		} else if identifier.rawValue == "org.giftmanager.house.Cancel.button" {
+		case "org.giftmanager.house.Cancel.button":
 			
-			let custom = NSCustomTouchBarItem(identifier: identifier)
-			custom.customizationLabel = "Cancel"
+			let button = NSButton(title: Constants.Text_Button_Cancel, target: self, action: #selector(btnCancel_Action(_:)))
+			button.bezelColor = Constants.Color_Button_Cancel
+			custom.view = button
 			
-			let label = NSTextField.init(labelWithString: "Cancel")
-			custom.view = label
-			
-			return custom
-			
+		default:
+			return nil
 		}
 		
-		return nil
+		return custom
 		
 	}
 	
