@@ -42,7 +42,8 @@ class PersonEditViewController: NSViewController, NSTouchBarDelegate {
 	
 	/// The view appeared, perhaps after being closed.
 	override func viewDidAppear() {
-		populateGiftIdeas()
+		
+		self.populateGiftIdeas()
 		self.populateOrgs()
 		
 		self.textNumber.stringValue = (person?.sequence!)!
