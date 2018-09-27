@@ -36,12 +36,12 @@ class HouseViewController: NSViewController {
 	
 	lazy var houseEditViewController: HouseEditViewController =
 	{
-			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "HouseEditViewController")) as! HouseEditViewController
+			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("HouseEditViewController")) as! HouseEditViewController
 	}()
 	
 	lazy var personEditViewController: PersonEditViewController =
 	{
-			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PersonEditViewController")) as! PersonEditViewController
+			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("PersonEditViewController")) as! PersonEditViewController
 	}()
 	
     override func viewDidLoad() {
@@ -193,7 +193,7 @@ class HouseViewController: NSViewController {
 		self.houseEditViewController.house = self.currentHouse!
 		self.houseEditViewController.operation = operation
 		
-		self.presentViewControllerAsSheet(houseEditViewController)
+		self.presentAsSheet(houseEditViewController)
 	}
 	
 	/// Create the data operation on a person, the object to manipulate and open the sheet to perform the operation.
@@ -202,7 +202,7 @@ class HouseViewController: NSViewController {
 		self.personEditViewController.person = self.currentPerson!
 		self.personEditViewController.operation = operation
 		
-		self.presentViewControllerAsSheet(personEditViewController)
+		self.presentAsSheet(personEditViewController)
 	}
     
 }

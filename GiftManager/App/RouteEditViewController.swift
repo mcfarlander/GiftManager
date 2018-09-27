@@ -57,7 +57,7 @@ class RouteEditViewController: NSViewController, NSTouchBarDelegate {
 	/// - Returns: the new touchbar
 	override func makeTouchBar() -> NSTouchBar? {
 		
-		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier(rawValue: "org.giftmanager.route.TouchBarRoute")
+		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier("org.giftmanager.route.TouchBarRoute")
 		let touchBarOkIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.route.Ok.button")
 		let touchBarCancelIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.route.Cancel.button")
 		

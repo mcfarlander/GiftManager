@@ -80,7 +80,7 @@ class HouseEditViewController: NSViewController, NSTouchBarDelegate {
 	/// - Returns: the new touchbar
 	override func makeTouchBar() -> NSTouchBar? {
 		
-		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier(rawValue: "org.giftmanager.house.TouchBarRoute")
+		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier("org.giftmanager.house.TouchBarRoute")
 		let touchBarOkIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.house.Ok.button")
 		let touchBarCancelIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.house.Cancel.button")
 		

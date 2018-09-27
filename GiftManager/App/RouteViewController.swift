@@ -27,7 +27,7 @@ class RouteViewController: NSViewController {
     fileprivate var operation:DataOperation = DataOperation.Add
     
     lazy var routeEditViewController: RouteEditViewController = {
-		return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "RouteEditViewController")) as! RouteEditViewController
+		return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("RouteEditViewController")) as! RouteEditViewController
     }()
 
 	/// The view loaded.
@@ -95,7 +95,7 @@ class RouteViewController: NSViewController {
 		self.routeEditViewController.route = self.currentRoute!
         self.routeEditViewController.operation = self.operation
 
-		self.presentViewControllerAsSheet(routeEditViewController)
+		self.presentAsSheet(routeEditViewController)
     }
     
     /// Enable or disable the buttons on the view depending if a row has been selected.

@@ -17,7 +17,7 @@ public extension NSColor {
 	/// - Returns: the hex value of a color, as a string
 	func toHex() -> String? {
 		
-			guard let rgbColor = usingColorSpaceName(NSColorSpaceName.calibratedRGB) else {
+			guard let rgbColor = usingColorSpace(NSColorSpace.genericRGB) else {
 				return "FFFFFF"
 			}
 			let red = Int(round(rgbColor.redComponent * 0xFF))

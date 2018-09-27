@@ -67,7 +67,7 @@ class PersonEditViewController: NSViewController, NSTouchBarDelegate {
 	/// - Returns: the new touchbar
 	override func makeTouchBar() -> NSTouchBar? {
 		
-		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier(rawValue: "org.giftmanager.person.TouchBarRoute")
+		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier("org.giftmanager.person.TouchBarRoute")
 		let touchBarOkIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.person.Ok.button")
 		let touchBarCancelIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.person.Cancel.button")
 		

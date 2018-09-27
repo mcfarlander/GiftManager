@@ -28,7 +28,7 @@ class OrganizationViewController: NSViewController {
 	
 	lazy var organizationEditViewController: OrganizationEditViewController =
 	{
-			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "OrganizationEditViewController")) as! OrganizationEditViewController
+			return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("OrganizationEditViewController")) as! OrganizationEditViewController
 	}()
 	
 	/// The view loaded.
@@ -105,7 +105,7 @@ class OrganizationViewController: NSViewController {
 		self.organizationEditViewController.organization = self.currentOrganization!
 		self.organizationEditViewController.operation = self.operation
 		
-		self.presentViewControllerAsSheet(organizationEditViewController)
+		self.presentAsSheet(organizationEditViewController)
 	}
 	
 }

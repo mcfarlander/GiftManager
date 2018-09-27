@@ -214,8 +214,8 @@ class ReportBase : ReportProtocol
 		let fileName = self.m_reportName + "_" + dateCode + ".pdf"
 		let urlPath = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop").appendingPathComponent(fileName)
 		
-		let webView = WebView()
-		webView.mainFrame.loadHTMLString(self.getBuffer(), baseURL: nil)
+		let webView = WKWebView()
+		webView.loadHTMLString(self.getBuffer(), baseURL: nil)
 		let when = DispatchTime.now() + 2
 		
 		DispatchQueue.main.asyncAfter(deadline: when) {
@@ -223,14 +223,14 @@ class ReportBase : ReportProtocol
 			let printOpts: [NSPrintInfo.AttributeKey: Any] = [NSPrintInfo.AttributeKey.jobDisposition: NSPrintInfo.JobDisposition.save, NSPrintInfo.AttributeKey.jobSavingURL: urlPath]
 			
 			let printInfo = NSPrintInfo(dictionary: printOpts)
-			printInfo.horizontalPagination = NSPrintInfo.PaginationMode.autoPagination
-			printInfo.verticalPagination = NSPrintInfo.PaginationMode.autoPagination
+			printInfo.horizontalPagination = NSPrintInfo.PaginationMode.automatic
+			printInfo.verticalPagination = NSPrintInfo.PaginationMode.automatic
 			printInfo.topMargin = 10.0
 			printInfo.leftMargin = 10.0
 			printInfo.rightMargin = 10.0
 			printInfo.bottomMargin = 10.0
 
-			let printOp: NSPrintOperation = NSPrintOperation(view: webView.mainFrame.frameView.documentView, printInfo: printInfo)
+			let printOp: NSPrintOperation = NSPrintOperation(view: (webView.enclosingScrollView?.documentView)!, printInfo: printInfo)
 			printOp.showsPrintPanel = false
 			printOp.showsProgressPanel = false
 			let success = printOp.run()

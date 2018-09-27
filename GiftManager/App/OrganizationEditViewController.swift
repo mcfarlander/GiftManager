@@ -53,7 +53,7 @@ class OrganizationEditViewController: NSViewController, NSTouchBarDelegate {
 	/// - Returns: the new touchbar
 	override func makeTouchBar() -> NSTouchBar? {
 		
-		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier(rawValue: "org.giftmanager.org.TouchBarRoute")
+		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier("org.giftmanager.org.TouchBarRoute")
 		let touchBarOkIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.org.Ok.button")
 		let touchBarCancelIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.org.Cancel.button")
 		
