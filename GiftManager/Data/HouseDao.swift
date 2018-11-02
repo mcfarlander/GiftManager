@@ -39,7 +39,7 @@ class HouseDao : BaseDao {
 	///
 	/// - Returns: the next sequence
 	func getNextSequence() -> Int {
-		return self.list()!.count + 1
+		return self.list()!.count 
 	}
 	
 	/// Create a new house record with minimum parameters.

@@ -87,6 +87,7 @@ class HouseViewController: NSViewController {
     @IBAction func btnAddHouse_Action(_ sender: NSButton) {
         NSLog("add house action")
 		self.currentHouse = self.houseDao.create(contact: "", phone: "")
+		self.tablePersons.reloadData()
 		self.performHouseDataAction(operation: .Add)
     }
     
@@ -212,11 +213,23 @@ class HouseViewController: NSViewController {
 extension HouseViewController:HousePersonViewControllerDelegate {
 	
 	func handleUpdateHouse(isCanceled:Bool) {
+		
 		self.tableHouses.reloadData()
 		
-		if isCanceled &&  self.houseEditViewController.operation == DataOperation.Add {
-			self.currentHouse = nil
+		if self.houseEditViewController.operation == DataOperation.Add {
+			
+			if isCanceled {
+				self.currentHouse = nil
+			} else {
+				// select the last row and let the add person button be active
+				let indexSet:IndexSet = NSIndexSet(index:self.houseDao.list()!.count - 1) as IndexSet
+				self.tableHouses.selectRowIndexes(indexSet as IndexSet, byExtendingSelection: false)
+				self.currentHouse = self.houseDao.list()?.last
+				self.enablePersonControls(isAddEnabled: true, isUpdateDeleteEnabled: false)
+			}
+			
 		}
+		
 	}
 	
 	func handleUpdatePerson(isCanceled:Bool) {

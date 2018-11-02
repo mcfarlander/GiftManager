@@ -199,7 +199,7 @@ class PersonEditViewController: NSViewController, NSTouchBarDelegate {
 			return false
 		}
 		
-		if self.textName.stringValue.count == 0 {
+		if self.buttonIsHouseholdGift.state == .off && self.textName.stringValue.count == 0 {
 			self.showOkMessage(title: "Input Needed", message: "Please enter the name")
 			return false
 		}

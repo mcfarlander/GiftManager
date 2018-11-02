@@ -23,7 +23,9 @@ class CommonItems {
 		"Medicine Shoppe Gift Card",
 		"McFarland House Cafe Gift Card",
 		"Dollar General Gift Card",
-		"Kwik Trip Gift Card"]
+		"Kwik Trip Gift Card",
+		"BP Gas Station Gift Card",
+		"Pick 'N Save Gift Card"]
 	
 	
 }
