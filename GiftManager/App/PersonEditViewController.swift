@@ -61,6 +61,10 @@ class PersonEditViewController: NSViewController, NSTouchBarDelegate {
 		case DataOperation.Delete:
 			self.enableControls(isEnabled: false)
 		}
+		
+		self.textName.selectText(self)
+		self.textName.currentEditor()?.selectAll(self)
+
 	}
 	
 	/// Creates the touchbar for this view.
@@ -68,14 +72,18 @@ class PersonEditViewController: NSViewController, NSTouchBarDelegate {
 	/// - Returns: the new touchbar
 	override func makeTouchBar() -> NSTouchBar? {
 		
-		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier("org.giftmanager.person.TouchBarRoute")
+		let touchBarIdenitifier = NSTouchBar.CustomizationIdentifier("org.giftmanager.person.TouchBarPerson")
+		
+		let touchBarToggleMaleIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.person.ToggleMale.button")
+		let touchBarToggleHouseIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.person.ToggleHouse.button")
+		
 		let touchBarOkIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.person.Ok.button")
 		let touchBarCancelIdentifier = NSTouchBarItem.Identifier(rawValue: "org.giftmanager.person.Cancel.button")
 		
 		let touchBar = NSTouchBar()
 		touchBar.delegate = self
 		touchBar.customizationIdentifier = touchBarIdenitifier
-		touchBar.defaultItemIdentifiers = [touchBarOkIdentifier, touchBarCancelIdentifier, .fixedSpaceLarge, .otherItemsProxy]
+		touchBar.defaultItemIdentifiers = [touchBarToggleMaleIdentifier, touchBarToggleHouseIdentifier,touchBarOkIdentifier, touchBarCancelIdentifier, .fixedSpaceLarge, .otherItemsProxy]
 		touchBar.customizationAllowedItemIdentifiers = [touchBarCancelIdentifier]
 		
 		return touchBar
@@ -103,6 +111,18 @@ class PersonEditViewController: NSViewController, NSTouchBarDelegate {
 			
 			let button = NSButton(title: Constants.Text_Button_Cancel, target: self, action: #selector(btnCancel_Action(_:)))
 			button.bezelColor = Constants.Color_Button_Cancel
+			custom.view = button
+			
+		case "org.giftmanager.person.ToggleMale.button":
+			
+			let button = NSButton(title: Constants.Text_Button_Toggle_Male, target: self, action: #selector(toggleIsMale))
+			button.bezelColor = Constants.Color_Button_Toggle_Male
+			custom.view = button
+			
+		case "org.giftmanager.person.ToggleHouse.button":
+			
+			let button = NSButton(title: Constants.Text_Button_Toggle_House, target: self, action: #selector(toggleIsHouse))
+			button.bezelColor = Constants.Color_Button_Toggle_House
 			custom.view = button
 			
 		default:
@@ -164,6 +184,26 @@ class PersonEditViewController: NSViewController, NSTouchBarDelegate {
 		
 		self.delegate?.handleUpdatePerson(isCanceled: true)
 		self.dismiss(self)
+	}
+	
+	/// Toggle the is male checkbox
+	@objc private func toggleIsMale() {
+		
+		if self.buttonIsMale.state == .on {
+			self.buttonIsMale.state = .off
+		} else {
+			self.buttonIsMale.state = .on
+		}
+	}
+	
+	/// Toggle the is male checkbox
+	@objc private func toggleIsHouse() {
+		
+		if self.buttonIsHouseholdGift.state == .on {
+			self.buttonIsHouseholdGift.state = .off
+		} else {
+			self.buttonIsHouseholdGift.state = .on
+		}
 	}
 	
 	/// Populate the drop-down list of common gift ideas.

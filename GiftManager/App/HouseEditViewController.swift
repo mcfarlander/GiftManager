@@ -73,6 +73,9 @@ class HouseEditViewController: NSViewController, NSTouchBarDelegate {
 		case DataOperation.Delete:
 			self.enableControls(isEnabled: false)
 		}
+		
+		self.textContact.selectText(self)
+		self.textContact.currentEditor()?.selectAll(self)
 	}
 	
 	/// Creates the touchbar for this view.
