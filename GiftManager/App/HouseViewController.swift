@@ -10,8 +10,6 @@ import Cocoa
 
 /// A view controller to show the houses and person and allow the user to perform data operations on them.
 class HouseViewController: NSViewController {
-	
-	var managedContext = (NSApplication.shared.delegate as! AppDelegate).managedObjectContext
 
 	@IBOutlet var labelCount: NSTextField!
 	@IBOutlet var labelCountValue: NSTextField!
