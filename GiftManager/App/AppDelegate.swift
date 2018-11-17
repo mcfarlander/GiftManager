@@ -51,7 +51,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		export.createCvsForMailMerge()
 	}
 	
-	
 	// MARK: - Data Menu items
     
     @IBAction func mnuClearHouses_Action(_ sender: NSMenuItem) {

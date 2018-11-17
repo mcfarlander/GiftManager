@@ -21,6 +21,8 @@ class RouteViewController: NSViewController {
 	@IBOutlet weak var btnUpdateTouchbar: NSButton!
 	@IBOutlet weak var btnDeleteTouchbar: NSButton!
 	
+	@IBOutlet var btnShowMapp: NSButton!
+	
 	fileprivate let routeDao = RouteDao()
 	
 	fileprivate var currentRoute:Route? = nil
@@ -29,6 +31,10 @@ class RouteViewController: NSViewController {
     lazy var routeEditViewController: RouteEditViewController = {
 		return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("RouteEditViewController")) as! RouteEditViewController
     }()
+	
+	lazy var mapViewController: MapViewController = {
+		return self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("MapViewController")) as! MapViewController
+	}()
 
 	/// The view loaded.
     override func viewDidLoad() {
@@ -105,7 +111,14 @@ class RouteViewController: NSViewController {
         btnDelete.isEnabled = self.currentRoute != nil
 		btnDeleteTouchbar.isEnabled = self.currentRoute != nil
     }
-    
+	
+	/// Button action to display the map.
+	///
+	/// - Parameter sender: the view's show map button
+	@IBAction func btnShowMap_Action(_ sender: NSButton) {
+		self.presentAsSheet(mapViewController)
+	}
+	
 }
 
 // MARK: - SheetViewControllerDelegate

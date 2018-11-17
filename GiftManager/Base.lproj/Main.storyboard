@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaDFRPlugin" version="14460.1"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="the Touch Bar" minToolsVersion="8.1" minSystemVersion="10.12.2" requiredIntegratedClassName="NSTouchBar"/>
     </dependencies>
@@ -740,6 +741,43 @@
                 <customObject id="Nqh-Dt-FWi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818" y="1725"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="eWl-Zw-EMz">
+            <objects>
+                <viewController title="Map" storyboardIdentifier="MapViewController" id="xh1-JF-J74" customClass="MapViewController" customModule="GiftManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="wa9-UA-NcO">
+                        <rect key="frame" x="0.0" y="0.0" width="605" height="432"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <mapView fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tcY-r4-wgK">
+                                <rect key="frame" x="5" y="50" width="595" height="376"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            </mapView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFZ-Kl-pWp">
+                                <rect key="frame" x="518" y="4" width="88" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qhG-ka-5WM">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnOk_Action:" target="xh1-JF-J74" id="hDg-xP-Pyg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="btnOk" destination="iFZ-Kl-pWp" id="5Ds-z0-O3X"/>
+                        <outlet property="mapView" destination="tcY-r4-wgK" id="dQ5-oV-976"/>
+                    </connections>
+                </viewController>
+                <customObject id="JR0-ZQ-2p4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311" y="1862"/>
         </scene>
         <!--Houses-->
         <scene sceneID="uXP-F6-bX7">
@@ -1979,6 +2017,16 @@
                                     <action selector="btnUpdate_Action:" target="A4C-ce-F9C" id="68V-i3-b6r"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AJ2-os-pPp">
+                                <rect key="frame" x="7" y="13" width="104" height="32"/>
+                                <buttonCell key="cell" type="push" title="Show Map" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rRx-I6-WHo">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnShowMap_Action:" target="A4C-ce-F9C" id="wGz-Hb-qU9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="p9l-1g-Qng" secondAttribute="trailing" constant="10" id="GM9-ye-b3e"/>
@@ -1986,10 +2034,13 @@
                             <constraint firstAttribute="bottom" secondItem="smm-SP-eD7" secondAttribute="bottom" constant="20" symbolic="YES" id="SPb-Om-wBy"/>
                             <constraint firstItem="p9l-1g-Qng" firstAttribute="leading" secondItem="xSx-Cc-IAi" secondAttribute="leading" constant="13" id="W4v-ON-eBc"/>
                             <constraint firstItem="e9i-vn-Shy" firstAttribute="baseline" secondItem="Nud-ov-dDq" secondAttribute="baseline" id="bJ2-CP-0Ex"/>
+                            <constraint firstItem="AJ2-os-pPp" firstAttribute="leading" secondItem="xSx-Cc-IAi" secondAttribute="leading" constant="13" id="e4V-y1-vEa"/>
+                            <constraint firstItem="AJ2-os-pPp" firstAttribute="top" secondItem="p9l-1g-Qng" secondAttribute="bottom" constant="11" id="hoR-Ml-dv5"/>
                             <constraint firstItem="e9i-vn-Shy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xSx-Cc-IAi" secondAttribute="leading" constant="20" symbolic="YES" id="iMf-cY-IUX"/>
                             <constraint firstItem="Nud-ov-dDq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xSx-Cc-IAi" secondAttribute="leading" constant="20" symbolic="YES" id="lmB-Ko-e8q"/>
                             <constraint firstItem="p9l-1g-Qng" firstAttribute="top" secondItem="xSx-Cc-IAi" secondAttribute="top" constant="20" id="mVw-4B-K9o"/>
                             <constraint firstItem="smm-SP-eD7" firstAttribute="top" secondItem="p9l-1g-Qng" secondAttribute="bottom" constant="11" id="mkP-jV-zMp"/>
+                            <constraint firstAttribute="bottom" secondItem="AJ2-os-pPp" secondAttribute="bottom" constant="20" id="nXH-Qq-DFM"/>
                             <constraint firstAttribute="trailing" secondItem="Nud-ov-dDq" secondAttribute="trailing" constant="164" id="rfo-oq-gyr"/>
                             <constraint firstItem="smm-SP-eD7" firstAttribute="leading" secondItem="e9i-vn-Shy" secondAttribute="trailing" constant="6" id="uX1-a5-aZY"/>
                             <constraint firstItem="smm-SP-eD7" firstAttribute="trailing" secondItem="p9l-1g-Qng" secondAttribute="trailing" id="zyn-tu-cy0"/>
@@ -2069,6 +2120,7 @@
                         <outlet property="btnAddTouchbar" destination="mOj-oD-3sF" id="kw3-iO-HhX"/>
                         <outlet property="btnDelete" destination="smm-SP-eD7" id="OEU-On-0gg"/>
                         <outlet property="btnDeleteTouchbar" destination="PqS-OH-UOi" id="LYa-d3-ALt"/>
+                        <outlet property="btnShowMapp" destination="AJ2-os-pPp" id="Mfc-Xl-EDv"/>
                         <outlet property="btnUpdate" destination="e9i-vn-Shy" id="ees-73-mHb"/>
                         <outlet property="btnUpdateTouchbar" destination="SpC-rX-Dl2" id="Nj7-cO-E41"/>
                         <outlet property="tableView" destination="xj3-qO-MEt" id="2G6-av-7O7"/>
@@ -2155,7 +2207,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="76" y="1732"/>
+            <point key="canvasLocation" x="-201" y="1738"/>
         </scene>
     </scenes>
 </document>
