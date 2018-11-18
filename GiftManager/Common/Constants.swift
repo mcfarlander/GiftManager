@@ -32,5 +32,8 @@ class Constants {
 	/// The button text for all ok buttons
 	static let Text_Button_Toggle_House = "Household?"
 	
-	
+	/// Depending on how much information is entered for the address of a house,
+	/// use this prefix to add enough information to geolocated it for the map.
+	/// This is strictly by-usasge. If not used, set this to an empty string.
+	static let ADDRRESS_PREFIX = "United States, Wisconsin, McFarland, "
 }
