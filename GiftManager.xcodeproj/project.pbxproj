@@ -10,6 +10,7 @@
 		5523F81A2083D795002C1994 /* ReportMasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523F8192083D795002C1994 /* ReportMasterList.swift */; };
 		5525A35420CE099F0012F3F7 /* FileCreationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525A35320CE099F0012F3F7 /* FileCreationDelegate.swift */; };
 		5525EE631FF9794300F23523 /* CsvMailMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525EE621FF9794300F23523 /* CsvMailMerge.swift */; };
+		5528AC3A21A216E10060D56C /* CsvMasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528AC3921A216E10060D56C /* CsvMasterList.swift */; };
 		552D618721A09F30005436B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D618621A09F30005436B0 /* MapViewController.swift */; };
 		5558CE3A1FF7F63600764528 /* CsvExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558CE391FF7F63600764528 /* CsvExport.swift */; };
 		5573FE43200EBC15007051EA /* ReportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE42200EBC15007051EA /* ReportProtocol.swift */; };
@@ -62,6 +63,7 @@
 		5523F8192083D795002C1994 /* ReportMasterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMasterList.swift; sourceTree = "<group>"; };
 		5525A35320CE099F0012F3F7 /* FileCreationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCreationDelegate.swift; sourceTree = "<group>"; };
 		5525EE621FF9794300F23523 /* CsvMailMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvMailMerge.swift; sourceTree = "<group>"; };
+		5528AC3921A216E10060D56C /* CsvMasterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvMasterList.swift; sourceTree = "<group>"; };
 		552D618621A09F30005436B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5558CE391FF7F63600764528 /* CsvExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvExport.swift; sourceTree = "<group>"; };
 		5573FE42200EBC15007051EA /* ReportProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportProtocol.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				5558CE391FF7F63600764528 /* CsvExport.swift */,
 				5525EE621FF9794300F23523 /* CsvMailMerge.swift */,
+				5528AC3921A216E10060D56C /* CsvMasterList.swift */,
 			);
 			path = Csv;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				C0FB4CA01DFC1A92006CD10C /* HouseViewController.swift in Sources */,
 				C02AFCFB1FDCAC2D001F0F5F /* SheetProtocol.swift in Sources */,
 				C0B429B71F5E31BD00F7C9B9 /* House+CoreDataProperties.swift in Sources */,
+				5528AC3A21A216E10060D56C /* CsvMasterList.swift in Sources */,
 				5597D9F821375DFE0031926E /* CommonItems.swift in Sources */,
 				C05215F41DFC49E6003AB009 /* AppTabViewController.swift in Sources */,
 				55B7B7CB20136C99000DBB6A /* ReportBase.swift in Sources */,

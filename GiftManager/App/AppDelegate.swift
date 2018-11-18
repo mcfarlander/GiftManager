@@ -51,6 +51,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		export.createCvsForMailMerge()
 	}
 	
+	@IBAction func mnuCsvMasterList_Action(_ sender: NSMenuItem) {
+		NSLog("menu -> create csv master list file")
+		let export = CsvMasterList()
+		export.csvExport.delegate = self
+		export.createCvsForMasterList()
+	}
+	
 	// MARK: - Data Menu items
     
     @IBAction func mnuClearHouses_Action(_ sender: NSMenuItem) {
