@@ -10,7 +10,9 @@ import Foundation
 
 extension Int32 {
 	
-	/** Get a string from the integer. */
+	/// Get a string from the integer.
+	///
+	/// - Returns: the integer as a string
 	func toString() -> String {
 		return "\(self)"
 	}
@@ -19,7 +21,9 @@ extension Int32 {
 
 extension Int {
 	
-	/** Get a string from the integer. */
+	/// Get a string from the integer.
+	///
+	/// - Returns: the integer as a string
 	func toString() -> String {
 		return "\(self)"
 	}

@@ -12,12 +12,16 @@ import Cocoa
 
 extension String {
 	
-	/** Trim front and back whitespace. */
+	/// Trim front and back whitespace.
+	///
+	/// - Returns: The same string with spaces remove in front and back
 	func trim() -> String {
 		return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
 	}
 	
-	/** Converts a string to an encoded base 64 string. */
+	/// Converts a string to an encoded base 64 string.
+	///
+	/// - Returns: the base 64 version of the string
 	func toBase64() -> String {
 		return Data(self.utf8).base64EncodedString()
 	}

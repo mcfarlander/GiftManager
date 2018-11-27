@@ -9,8 +9,7 @@
 import Foundation
 import CoreData
 
-class RouteDao : BaseDao
-{
+class RouteDao : BaseDao {
 	/// Get an array of route objects from the table
 	///
 	/// - Returns: an array of route objects

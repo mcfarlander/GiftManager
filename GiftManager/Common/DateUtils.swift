@@ -7,10 +7,7 @@
 //
 import Foundation
 
-/**
-* Various helper methods for manipulating and formating dates.
-*
-*/
+/// Various helper methods for manipulating and formating dates.
 class DateUtils {
 	
 	private static let formatyyyyMMddHHmm = "yyyy-MM-dd HH:mm"
