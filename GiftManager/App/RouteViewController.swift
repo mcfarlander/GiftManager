@@ -172,7 +172,8 @@ extension RouteViewController: NSTableViewDelegate, NSTableViewDataSource
 		let route = self.routeDao.list()![row]
 
         if tableColumn == tableView.tableColumns[0] {
-            text = route.routenumber!
+//            text = route.routenumber!
+			text = route.getFormatedRoute
             cellIdentifier = CellIdentifiers.CellRouteNumber
 			
         } else if tableColumn == tableView.tableColumns[1] {
