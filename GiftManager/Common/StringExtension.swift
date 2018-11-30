@@ -37,4 +37,19 @@ extension String {
 			return NSAttributedString()
 		}
 	}
+	
+	/// Left pad a string to a desired length with the selected character.
+	///
+	/// - Parameters:
+	///   - toLength: the length the resulting string should be
+	///   - character: the character to pad with
+	/// - Returns: a new string that is padded
+	func leftPadding(toLength: Int, withPad character: Character) -> String {
+		let stringLength = self.count
+		if stringLength < toLength {
+			return String(repeatElement(character, count: toLength - stringLength)) + self
+		} else {
+			return String(self.suffix(toLength))
+		}
+	}
 }
