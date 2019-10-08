@@ -1,6 +1,6 @@
 # GiftManager
 
-A macOS application written in Swift. 
+A macOS application written in Swift. It runs only on an OSX Desktop, 10.14 or later.
 
 This project creates a database of houses, persons within the house and allows the user to set gift ideas, assign to organizations, set delivery routes and run reports. 
 It is used during the holiday season to help organize gift cards from people, send them to organizations to fulfill and finally set them along routes.
@@ -22,5 +22,7 @@ A route is a represented by an alpha-numeric number and street name. Any street 
 ## Organization
 
 An organization is represented by a name and phone number. These are the organizations that person tickets are assigned to.
+
+
 
 
