@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+/// DAO pattern class for the route table.
 class RouteDao : BaseDao {
 	
 	/// Get an array of route objects from the table

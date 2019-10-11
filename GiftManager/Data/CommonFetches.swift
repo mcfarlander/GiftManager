@@ -10,18 +10,16 @@ import AppKit
 import Foundation
 import CoreData
 
-/**
- A class to contain various common fetch requests.
- */
-class CommonFetches
-{
+
+/// A class to contain various common fetch requests.
+class CommonFetches {
+	
 	fileprivate let routeDao = RouteDao()
 	fileprivate let organizationDao = OrganizationDao()
 	fileprivate let houseDao = HouseDao()
 	fileprivate let personDao = PersonDao()
 
     // MARK: - Mock Data
-	
 	
     /// Mock data will delete all data in organizations, routes, houses and persons tables.
 	/// It will add some fake data for UI testing.
