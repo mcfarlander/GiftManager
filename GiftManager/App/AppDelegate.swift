@@ -73,6 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 				
 				houseDao.deleteAll()
 				personDao.deleteAll()
+
             }
         }
     }

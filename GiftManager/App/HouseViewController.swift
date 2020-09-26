@@ -27,6 +27,8 @@ class HouseViewController: NSViewController {
     @IBOutlet weak var btnUpdatePerson: NSButton!
     @IBOutlet weak var btnDeletePerson: NSButton!
 	
+	@IBOutlet weak var btnRefreshView: NSButton!
+	
 	fileprivate let houseDao = HouseDao()
 	fileprivate let personDao = PersonDao()
 	fileprivate var currentHouse:House? = nil
@@ -165,6 +167,14 @@ class HouseViewController: NSViewController {
 			showOkMessage(title:"Data", message:"Person not selected.")
 		}
     }
+	
+	/// Button action to refresh the view.
+	///
+	/// - Parameter sender: the view's button
+	@IBAction func btnRefreshView_Action(_ sender: NSButton) {
+		self.tableHouses.reloadData()
+		self.tablePersons.reloadData()
+	}
 	
 	/// Enable or disable the house controls depending on if a house is selected. The add button is always enabled.
 	///
