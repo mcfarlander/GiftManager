@@ -58,6 +58,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		export.createCvsForMasterList()
 	}
 	
+	@IBAction func mnuCsvOrgList_Action(_ sender: NSMenuItem) {
+		NSLog("menu -> create csv organization file")
+		let export = CsvOrgList()
+		export.csvExport.delegate = self
+		export.createCvsForOrganizations()
+	}
+	
 	// MARK: - Data Menu items
     
     @IBAction func mnuClearHouses_Action(_ sender: NSMenuItem) {

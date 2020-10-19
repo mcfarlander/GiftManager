@@ -18,7 +18,7 @@ class CsvOrgList {
 	fileprivate let houseDao = HouseDao()
 	let csvExport = CsvExport()
 	
-	fileprivate let FILE_NAME = "mail_merge"
+	fileprivate let FILE_NAME = "org_list"
 	fileprivate let FILE_EXT = ".csv"
 	
 	fileprivate let header = ["TAGID", "ORG", "GENDER", "AGE", "IDEAS"]
@@ -28,7 +28,7 @@ class CsvOrgList {
 
 	
 	/// Acquire data from and create the CSV file.
-	func createCvsForMailMerge() {
+	func createCvsForOrganizations() {
 		
 		let fileName = self.FILE_NAME + "-" + DateUtils.formatDateYyyyMMdd(timestamp: Date()) + self.FILE_EXT
 		self.csvExport.setPath(path: fileName)

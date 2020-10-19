@@ -300,6 +300,12 @@
                                                 <action selector="mnuCsvMasterList_Action:" target="Voe-Tx-rLC" id="tZR-H9-dkN"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Org List - CSV" id="TcT-Ia-HV3">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="mnuCsvOrgList_Action:" target="Voe-Tx-rLC" id="JOt-xL-2dk"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -382,7 +388,7 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="9Wi-dJ-QRt"/>
             </objects>
-            <point key="canvasLocation" x="-1135" y="308"/>
+            <point key="canvasLocation" x="-1126" y="203"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -830,13 +836,13 @@ DQ
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView borderType="groove" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZk-Ll-vTl">
-                                <rect key="frame" x="20" y="52" width="477" height="171"/>
+                                <rect key="frame" x="20" y="52" width="477" height="79"/>
                                 <clipView key="contentView" id="RSx-uz-x1F">
-                                    <rect key="frame" x="2" y="2" width="473" height="167"/>
+                                    <rect key="frame" x="2" y="2" width="473" height="75"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Sgy-5u-O6v" viewBased="YES" id="Wtd-k2-caQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="473" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="473" height="52"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1166,13 +1172,13 @@ DQ
                                 </tableHeaderView>
                             </scrollView>
                             <scrollView borderType="groove" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1P-Ha-QMt">
-                                <rect key="frame" x="521" y="52" width="450" height="171"/>
+                                <rect key="frame" x="521" y="52" width="450" height="79"/>
                                 <clipView key="contentView" id="jKs-2I-NjE">
-                                    <rect key="frame" x="2" y="2" width="446" height="167"/>
+                                    <rect key="frame" x="2" y="2" width="446" height="75"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="vlw-6X-guc" viewBased="YES" id="itm-GT-IkQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="446" height="144"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="446" height="52"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>

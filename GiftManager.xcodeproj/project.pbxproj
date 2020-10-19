@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551F132D253E4B7100A8E752 /* CsvOrgList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551F132C253E4B7100A8E752 /* CsvOrgList.swift */; };
 		5523F81A2083D795002C1994 /* ReportMasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5523F8192083D795002C1994 /* ReportMasterList.swift */; };
 		5525A35420CE099F0012F3F7 /* FileCreationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525A35320CE099F0012F3F7 /* FileCreationDelegate.swift */; };
 		5525EE631FF9794300F23523 /* CsvMailMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525EE621FF9794300F23523 /* CsvMailMerge.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		551F132C253E4B7100A8E752 /* CsvOrgList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvOrgList.swift; sourceTree = "<group>"; };
 		5523F8192083D795002C1994 /* ReportMasterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMasterList.swift; sourceTree = "<group>"; };
 		5525A35320CE099F0012F3F7 /* FileCreationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCreationDelegate.swift; sourceTree = "<group>"; };
 		5525EE621FF9794300F23523 /* CsvMailMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvMailMerge.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				5558CE391FF7F63600764528 /* CsvExport.swift */,
 				5525EE621FF9794300F23523 /* CsvMailMerge.swift */,
 				5528AC3921A216E10060D56C /* CsvMasterList.swift */,
+				551F132C253E4B7100A8E752 /* CsvOrgList.swift */,
 			);
 			path = Csv;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				5558CE3A1FF7F63600764528 /* CsvExport.swift in Sources */,
 				C0FF1FFD1DDBF59A00A228D0 /* CommonFetches.swift in Sources */,
 				C031F5351DD1E82200E3CE67 /* GiftManager.xcdatamodeld in Sources */,
+				551F132D253E4B7100A8E752 /* CsvOrgList.swift in Sources */,
 				C05A3F001FDC1BD7001A0C9E /* OptionDao.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
