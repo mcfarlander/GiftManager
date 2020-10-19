@@ -21,8 +21,9 @@ class CsvOrgList {
 	fileprivate let FILE_NAME = "org_list"
 	fileprivate let FILE_EXT = ".csv"
 	
-	fileprivate let header = ["TAGID", "ORG", "GENDER", "AGE", "IDEAS"]
+	fileprivate let header = ["TAGID", "ORG", "HP", "AGE", "IDEAS"]
 	fileprivate let HOUSEHOLD_GIFT = "Household Gift"
+	fileprivate let PERSON_GIFT = "Person Gift"
 	fileprivate let HOUSEHOLD_AGE = ""
 	fileprivate let DASH = "-"
 
@@ -45,17 +46,17 @@ class CsvOrgList {
 					org = organization.name ?? ""
 				}
 				
-				var gender = person.ismale ? "Male" : "Female"
+				var personOrHouse = self.PERSON_GIFT
 				var age = person.age!
 				
 				if person.ishousegift {
-					gender = self.HOUSEHOLD_GIFT
+					personOrHouse = self.HOUSEHOLD_GIFT
 					age = self.HOUSEHOLD_AGE
 				}
 				
 				let gift = person.giftideas!
 				
-				let item:[String] = [tagId, org, gender, age, gift]
+				let item:[String] = [tagId, org, personOrHouse, age, gift]
 				self.csvExport.convertAndAppendLines(items: item, useQuotes: true)
 				
 			}
