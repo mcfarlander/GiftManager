@@ -21,7 +21,7 @@ class CsvMasterList {
 	fileprivate let FILE_NAME = "master_list"
 	fileprivate let FILE_EXT = ".csv"
 	
-	fileprivate let header = ["Tag", "Address", "Phone", "Route", "Name", "Age", "Gender", "Gifts"]
+	fileprivate let header = ["Tag", "Tag2", "Address", "Phone", "Route", "Name", "Age", "Gender", "Gifts"]
 	fileprivate let HOUSEHOLD_GIFT = "Household Gift"
 	fileprivate let HOUSEHOLD_AGE = ""
 	fileprivate let DASH = "-"
@@ -53,6 +53,8 @@ class CsvMasterList {
 				
 				let personId:String = person.sequence ?? ""
 				let tagId = houseId + DASH + personId
+				let tagIdHidden = HouseUtils.formatHousePersonIdNNHH(houseId: houseId, personId: personId)
+				
 				var personName: String = person.name ?? ""
 				
 				let age:String = person.age ?? ""
@@ -72,7 +74,7 @@ class CsvMasterList {
 				
 				let gift = person.giftideas ?? ""
 				
-				let row:[String] = [tagId, address, phone, houseRoute, personName, age, gender, gift]
+				let row:[String] = [tagId, tagIdHidden, address, phone, houseRoute, personName, age, gender, gift]
 				self.csvExport.convertAndAppendLines(items: row, useQuotes: true)
 			}
 			

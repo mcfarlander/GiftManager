@@ -13,6 +13,7 @@
 		5525EE631FF9794300F23523 /* CsvMailMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5525EE621FF9794300F23523 /* CsvMailMerge.swift */; };
 		5528AC3A21A216E10060D56C /* CsvMasterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5528AC3921A216E10060D56C /* CsvMasterList.swift */; };
 		552D618721A09F30005436B0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552D618621A09F30005436B0 /* MapViewController.swift */; };
+		555762002552367600A6A512 /* HouseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555761FF2552367600A6A512 /* HouseUtils.swift */; };
 		5558CE3A1FF7F63600764528 /* CsvExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5558CE391FF7F63600764528 /* CsvExport.swift */; };
 		5573FE43200EBC15007051EA /* ReportProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5573FE42200EBC15007051EA /* ReportProtocol.swift */; };
 		5597D9F821375DFE0031926E /* CommonItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5597D9F721375DFE0031926E /* CommonItems.swift */; };
@@ -67,6 +68,7 @@
 		5525EE621FF9794300F23523 /* CsvMailMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvMailMerge.swift; sourceTree = "<group>"; };
 		5528AC3921A216E10060D56C /* CsvMasterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvMasterList.swift; sourceTree = "<group>"; };
 		552D618621A09F30005436B0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		555761FF2552367600A6A512 /* HouseUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseUtils.swift; sourceTree = "<group>"; };
 		5558CE391FF7F63600764528 /* CsvExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsvExport.swift; sourceTree = "<group>"; };
 		5573FE42200EBC15007051EA /* ReportProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportProtocol.swift; sourceTree = "<group>"; };
 		5597D9F721375DFE0031926E /* CommonItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonItems.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				5525A35320CE099F0012F3F7 /* FileCreationDelegate.swift */,
 				5597D9F721375DFE0031926E /* CommonItems.swift */,
 				55F5F9642143754B0086F50A /* Constants.swift */,
+				555761FF2552367600A6A512 /* HouseUtils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				C07A78C91E477C0300ACC6EE /* RouteEditViewController.swift in Sources */,
 				C0B429981F5E30B500F7C9B9 /* Route+CoreDataClass.swift in Sources */,
 				C041DA5A1E47C3F000CFA0F9 /* Enums.swift in Sources */,
+				555762002552367600A6A512 /* HouseUtils.swift in Sources */,
 				55E538181FE215D0001EA573 /* PersonEditViewController.swift in Sources */,
 				C0B429A01F5E313C00F7C9B9 /* Organization+CoreDataClass.swift in Sources */,
 				5573FE43200EBC15007051EA /* ReportProtocol.swift in Sources */,

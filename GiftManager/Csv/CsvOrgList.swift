@@ -21,7 +21,7 @@ class CsvOrgList {
 	fileprivate let FILE_NAME = "org_list"
 	fileprivate let FILE_EXT = ".csv"
 	
-	fileprivate let header = ["TAGID", "ORG", "HP", "AGE", "IDEAS", "SIGN-UP"]
+	fileprivate let header = ["TAGID", "TAGID2", "ORG", "HP", "AGE", "IDEAS", "SIGN-UP"]
 	fileprivate let HOUSEHOLD_GIFT = "Household Gift"
 	fileprivate let PERSON_GIFT = "Personal Gift"
 	fileprivate let HOUSEHOLD_AGE = ""
@@ -40,6 +40,7 @@ class CsvOrgList {
 		for house:House in self.houseDao.list()! {
 			for person:Person in house.persons! {
 				let tagId = house.sequence.toString() + self.DASH + person.sequence!
+				let tagIdHidden = HouseUtils.formatHousePersonIdNNHH(houseId: house.sequence.toString(), personId: person.sequence!)
 				
 				var org = ""
 				
@@ -57,7 +58,7 @@ class CsvOrgList {
 				
 				let gift = person.giftideas!
 				
-				let item:[String] = [tagId, org, personOrHouse, age, gift, BLANK_SIGNUP]
+				let item:[String] = [tagId, tagIdHidden, org, personOrHouse, age, gift, BLANK_SIGNUP]
 				self.csvExport.convertAndAppendLines(items: item, useQuotes: true)
 				
 			}
