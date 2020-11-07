@@ -20,8 +20,8 @@ class HouseUtils {
 	/// - Returns: the reformatted string
 	static func formatHousePersonIdNNHH(houseId: String, personId:String) -> String {
 		
-		let paddedHouseId = houseId.leftPadding(toLength: 2, withPad: "7")
-		let paddedPersonId = personId.leftPadding(toLength: 2, withPad: "8")
+		let paddedHouseId = houseId.leftPadding(toLength: 2, withPad: "0").leftPadding(toLength: 3, withPad: "8")
+		let paddedPersonId = personId.leftPadding(toLength: 2, withPad: "2")
 		
 		return paddedPersonId + paddedHouseId
 		
